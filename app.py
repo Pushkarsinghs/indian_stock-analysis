@@ -4,7 +4,7 @@ import pandas as pd
 import sys
 sys.path.append('/content/streamlit_app')
 from data_loader import (load_signals, load_sentiment,
-                          load_risk_metrics, load_backtest_summary)
+                          load_risk_metrics, load_backtest_trades, load_backtest_summary)
 
 st.set_page_config(
     page_title = "NIFTY 50 Intelligence System",
