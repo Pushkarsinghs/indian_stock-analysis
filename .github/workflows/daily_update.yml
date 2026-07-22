@@ -18,9 +18,9 @@ jobs:
       with:
         python-version: '3.11'
         
-    - name: Install dependencies
+     - name: Install dependencies
       run: |
-        pip install yfinance pandas numpy ta pyarrow
+        pip install yfinance pandas numpy ta pyarrow feedparser textblob
         
     - name: Run quick data refresh
       run: |
