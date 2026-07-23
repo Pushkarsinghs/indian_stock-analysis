@@ -1,6 +1,3 @@
-!pip install ta
-!pip install feedparser
-!pip install textblob
 
 """
 scripts/quick_refresh.py
