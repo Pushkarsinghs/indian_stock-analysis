@@ -1,0 +1,35 @@
+name: Daily NIFTY 50 Data Refresh
+
+on:
+  schedule:
+    - cron: '0 11 * * 1-5'
+  workflow_dispatch:
+
+jobs:
+  refresh-data:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: |
+          pip install yfinance pandas numpy ta feedparser textblob pyarrow
+
+      - name: Run data refresh
+        run: |
+          python scripts/quick_refresh.py
+
+      - name: Commit and push updated CSV files
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add streamlit_app/data/*.csv
+          git diff --staged --quiet || git commit -m "Auto-update data $(date +'%Y-%m-%d %H:%M IST')"
+          git push
