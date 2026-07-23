@@ -1,9 +1,6 @@
-"""
-quick_refresh.py
-Runs daily via GitHub Actions.
-Fetches fresh NIFTY 50 data and saves CSVs to streamlit_app/data/
-Does NOT run Prophet (too slow) — just price data, signals, sentiment
-"""
+!pip install ta
+!pip install feedparser
+!pip install textblob
 
 import pandas as pd
 import numpy as np
@@ -56,7 +53,8 @@ SECTOR_MAP = {
     "EICHERMOT.NS":"Auto","BRITANNIA.NS":"FMCG","HINDALCO.NS":"Metals",
     "UPL.NS":"Agrochemicals","SBILIFE.NS":"Insurance","HDFCLIFE.NS":"Insurance",
     "APOLLOHOSP.NS":"Healthcare","TATACONSUM.NS":"FMCG",
-    "INDUSINDBK.NS":"Banking","M&M.NS":"Auto","LTF.NS":"NBFC"
+    "INDUSINDBK.NS":"Banking","M&M.NS":"Mahindra",
+    "LTF.NS":"L&T Finance"
 }
 
 COMPANY_NAMES = {
@@ -79,11 +77,11 @@ COMPANY_NAMES = {
     "GRASIM.NS":"Grasim","ADANIENT.NS":"Adani Enterprises",
     "ADANIPORTS.NS":"Adani Ports","BAJAJFINSV.NS":"Bajaj Finserv",
     "BAJAJ-AUTO.NS":"Bajaj Auto","HEROMOTOCO.NS":"Hero MotoCorp",
-    "EICHERMOT.NS":"Eicher Motors","BRITANNIA.NS":"Britannia",
+    "EICHERMOT.NS":"Auto","BRITANNIA.NS":"Britannia",
     "HINDALCO.NS":"Hindalco","UPL.NS":"UPL",
     "SBILIFE.NS":"SBI Life","HDFCLIFE.NS":"HDFC Life",
     "APOLLOHOSP.NS":"Apollo Hospitals","TATACONSUM.NS":"Tata Consumer",
-    "INDUSINDBK.NS":"IndusInd Bank","M&M.NS":"Mahindra",
+    "INDUSINDBK.NS":"Banking","M&M.NS":"Mahindra",
     "LTF.NS":"L&T Finance"
 }
 
