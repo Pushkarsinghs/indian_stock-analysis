@@ -209,6 +209,105 @@ with col_b3:
     st.metric("Best Signal Stock", best.replace(".NS",""))
 
 # ── Footer ──
+# ── Golden Cross / Death Cross Alerts ────────────────────
+st.markdown(
+    '<p class="section-header">'
+    '✨ Golden Cross and Death Cross Signals'
+    '</p>',
+    unsafe_allow_html=True
+)
+
+try:
+    tech = load_technical()
+    if not tech.empty and "SMA_50" in tech.columns and "SMA_200" in tech.columns:
+        tech["Date"] = pd.to_datetime(tech["Date"])
+        cross_rows   = []
+
+        for ticker in tech["Ticker"].unique():
+            stock = tech[tech["Ticker"] == ticker].sort_values("Date")
+            stock = stock.dropna(subset=["SMA_50","SMA_200"])
+
+            if len(stock) < 3:
+                continue
+
+            latest   = stock.iloc[-1]
+            prev     = stock.iloc[-2]
+            sma50    = float(latest["SMA_50"])
+            sma200   = float(latest["SMA_200"])
+            sma50_p  = float(prev["SMA_50"])
+            sma200_p = float(prev["SMA_200"])
+
+            if sma50_p < sma200_p and sma50 > sma200:
+                cross_rows.append({
+                    "Ticker":     str(ticker).replace(".NS",""),
+                    "Signal":     "✨ Golden Cross",
+                    "SMA 50":     "{:,.2f}".format(sma50),
+                    "SMA 200":    "{:,.2f}".format(sma200),
+                    "Price (Rs)": "{:,.2f}".format(
+                                      float(latest["Close"])),
+                    "Type":       "bullish"
+                })
+
+            elif sma50_p > sma200_p and sma50 < sma200:
+                cross_rows.append({
+                    "Ticker":     str(ticker).replace(".NS",""),
+                    "Signal":     "💀 Death Cross",
+                    "SMA 50":     "{:,.2f}".format(sma50),
+                    "SMA 200":    "{:,.2f}".format(sma200),
+                    "Price (Rs)": "{:,.2f}".format(
+                                      float(latest["Close"])),
+                    "Type":       "bearish"
+                })
+
+        if cross_rows:
+            cross_df = pd.DataFrame(cross_rows)
+            golden   = cross_df[cross_df["Type"]=="bullish"]
+            death    = cross_df[cross_df["Type"]=="bearish"]
+
+            cc1, cc2 = st.columns(2)
+            with cc1:
+                if not golden.empty:
+                    st.markdown(
+                        '<div style="background:#E8F5E9;border-left:'
+                        '4px solid #2CA02C;padding:12px;border-radius:8px;">'
+                        '<b style="color:#2CA02C">✨ Golden Cross Detected</b>'
+                        '</div>',
+                        unsafe_allow_html=True
+                    )
+                    st.dataframe(
+                        golden.drop(columns=["Type"]),
+                        use_container_width=True,
+                        hide_index=True
+                    )
+                else:
+                    st.info("No Golden Cross signals today")
+
+            with cc2:
+                if not death.empty:
+                    st.markdown(
+                        '<div style="background:#FFEBEE;border-left:'
+                        '4px solid #D62728;padding:12px;border-radius:8px;">'
+                        '<b style="color:#D62728">💀 Death Cross Detected</b>'
+                        '</div>',
+                        unsafe_allow_html=True
+                    )
+                    st.dataframe(
+                        death.drop(columns=["Type"]),
+                        use_container_width=True,
+                        hide_index=True
+                    )
+                else:
+                    st.info("No Death Cross signals today")
+        else:
+            st.info(
+                "No Golden Cross or Death Cross signals detected today. "
+                "These signals are rare — typically a few per month."
+            )
+    else:
+        st.info("Technical data not available for cross signals.")
+
+except Exception as e:
+    st.info("Cross signal calculation encountered an issue: " + str(e))
 st.markdown(
     '<p class="section-header">⭐ Strong Buy Signals — with FinBERT Confidence</p>',
     unsafe_allow_html=True
