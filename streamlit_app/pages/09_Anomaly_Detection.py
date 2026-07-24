@@ -26,45 +26,38 @@ st.markdown(
     'padding:20px;border-radius:10px;color:white;margin-bottom:20px;">'
     '<h2 style="margin:0">🚨 Anomaly Detection — Unusual Market Activity</h2>'
     '<p style="margin:5px 0 0 0;opacity:0.85">'
-    'Statistical detection of abnormal price movements and volume spikes '
-    'using Z-score analysis across all 50 NIFTY stocks'
+    'Statistical detection using Z-score analysis across all 50 NIFTY stocks'
     '</p>'
     '</div>',
     unsafe_allow_html=True
 )
 
 df = load_technical()
-
 if df.empty:
-    st.error("Technical data not found. Please check data files.")
+    st.error("Technical data not found.")
     st.stop()
 
 df["Date"] = pd.to_datetime(df["Date"])
 
 st.sidebar.header("Controls")
-
 lookback_days = st.sidebar.selectbox(
     "Baseline Period",
-    ["30 Days", "60 Days", "90 Days"],
-    index=1,
-    help="How many days of history to use for computing the baseline average"
+    ["30 Days","60 Days","90 Days"],
+    index=1
 )
-lookback_map = {"30 Days": 30, "60 Days": 60, "90 Days": 90}
+lookback_map = {"30 Days":30,"60 Days":60,"90 Days":90}
 lookback     = lookback_map[lookback_days]
 
 zscore_threshold = st.sidebar.slider(
     "Z-Score Threshold",
-    min_value=1.5,
-    max_value=4.0,
-    value=2.5,
-    step=0.1,
-    help="Higher value = only flag more extreme anomalies. 2.5 is standard."
+    min_value=1.5, max_value=4.0,
+    value=2.5, step=0.1
 )
 
 anomaly_type = st.sidebar.multiselect(
-    "Anomaly Types to Show",
-    ["Price Spike Up", "Price Spike Down", "Volume Spike"],
-    default=["Price Spike Up", "Price Spike Down", "Volume Spike"]
+    "Anomaly Types",
+    ["Price Spike Up","Price Spike Down","Volume Spike"],
+    default=["Price Spike Up","Price Spike Down","Volume Spike"]
 )
 
 max_date = df["Date"].max()
@@ -74,7 +67,9 @@ df_base  = df[df["Date"] >= cutoff].copy()
 anomaly_rows = []
 
 for ticker in df_base["Ticker"].unique():
-    stock = df_base[df_base["Ticker"] == ticker].copy().sort_values("Date")
+    stock = df_base[
+        df_base["Ticker"] == ticker
+    ].copy().sort_values("Date")
 
     if len(stock) < 20:
         continue
@@ -103,115 +98,122 @@ for ticker in df_base["Ticker"].unique():
     ret_zscore = (ret_today - ret_mean) / ret_std
     vol_zscore = (vol_today - vol_mean) / vol_std
 
-    ticker_clean = str(ticker).replace(".NS", "")
+    ticker_clean = str(ticker).replace(".NS","")
 
     if "Price Spike Up" in anomaly_type:
         if ret_zscore > zscore_threshold:
             anomaly_rows.append({
-                "Ticker":       ticker_clean,
-                "Date":         str(latest["Date"].date()),
-                "Type":         "Price Spike Up",
-                "Value":        "{:+.2f}%".format(ret_today * 100),
-                "Z-Score":      round(ret_zscore, 2),
-                "Close":        "{:,.2f}".format(float(latest["Close"])),
-                "Signal":       str(latest.get("Signal","N/A")),
-                "Severity":     "Extreme" if ret_zscore > 4 else
-                                "High"    if ret_zscore > 3 else
-                                "Medium",
-                "_sort_key":    abs(ret_zscore)
+                "Ticker":    ticker_clean,
+                "Date":      str(latest["Date"].date()),
+                "Type":      "Price Spike Up",
+                "Value":     "{:+.2f}%".format(ret_today*100),
+                "Z-Score":   round(ret_zscore, 2),
+                "Close":     "{:,.2f}".format(float(latest["Close"])),
+                "Signal":    str(latest.get("Signal","N/A")),
+                "Severity":  "Extreme" if ret_zscore > 4 else
+                             "High"    if ret_zscore > 3 else
+                             "Medium",
+                "_sort":     abs(ret_zscore)
             })
 
     if "Price Spike Down" in anomaly_type:
         if ret_zscore < -zscore_threshold:
             anomaly_rows.append({
-                "Ticker":       ticker_clean,
-                "Date":         str(latest["Date"].date()),
-                "Type":         "Price Spike Down",
-                "Value":        "{:+.2f}%".format(ret_today * 100),
-                "Z-Score":      round(ret_zscore, 2),
-                "Close":        "{:,.2f}".format(float(latest["Close"])),
-                "Signal":       str(latest.get("Signal","N/A")),
-                "Severity":     "Extreme" if ret_zscore < -4 else
-                                "High"    if ret_zscore < -3 else
-                                "Medium",
-                "_sort_key":    abs(ret_zscore)
+                "Ticker":    ticker_clean,
+                "Date":      str(latest["Date"].date()),
+                "Type":      "Price Spike Down",
+                "Value":     "{:+.2f}%".format(ret_today*100),
+                "Z-Score":   round(ret_zscore, 2),
+                "Close":     "{:,.2f}".format(float(latest["Close"])),
+                "Signal":    str(latest.get("Signal","N/A")),
+                "Severity":  "Extreme" if ret_zscore < -4 else
+                             "High"    if ret_zscore < -3 else
+                             "Medium",
+                "_sort":     abs(ret_zscore)
             })
 
     if "Volume Spike" in anomaly_type:
         if vol_zscore > zscore_threshold:
             anomaly_rows.append({
-                "Ticker":       ticker_clean,
-                "Date":         str(latest["Date"].date()),
-                "Type":         "Volume Spike",
-                "Value":        "{:,.0f}".format(vol_today),
-                "Z-Score":      round(vol_zscore, 2),
-                "Close":        "{:,.2f}".format(float(latest["Close"])),
-                "Signal":       str(latest.get("Signal","N/A")),
-                "Severity":     "Extreme" if vol_zscore > 4 else
-                                "High"    if vol_zscore > 3 else
-                                "Medium",
-                "_sort_key":    abs(vol_zscore)
+                "Ticker":    ticker_clean,
+                "Date":      str(latest["Date"].date()),
+                "Type":      "Volume Spike",
+                "Value":     "{:,.0f}".format(vol_today),
+                "Z-Score":   round(vol_zscore, 2),
+                "Close":     "{:,.2f}".format(float(latest["Close"])),
+                "Signal":    str(latest.get("Signal","N/A")),
+                "Severity":  "Extreme" if vol_zscore > 4 else
+                             "High"    if vol_zscore > 3 else
+                             "Medium",
+                "_sort":     abs(vol_zscore)
             })
 
-# ── KPI cards ──────────────────────────────────────────────
 total_anomalies = len(anomaly_rows)
-extreme_count   = len([r for r in anomaly_rows if r["Severity"] == "Extreme"])
-high_count      = len([r for r in anomaly_rows if r["Severity"] == "High"])
-price_up_count  = len([r for r in anomaly_rows if r["Type"] == "Price Spike Up"])
-price_dn_count  = len([r for r in anomaly_rows if r["Type"] == "Price Spike Down"])
-vol_count       = len([r for r in anomaly_rows if r["Type"] == "Volume Spike"])
+extreme_count   = len([r for r in anomaly_rows if r["Severity"]=="Extreme"])
+high_count      = len([r for r in anomaly_rows if r["Severity"]=="High"])
+price_up_count  = len([r for r in anomaly_rows if r["Type"]=="Price Spike Up"])
+vol_count       = len([r for r in anomaly_rows if r["Type"]=="Volume Spike"])
 
-c1, c2, c3, c4, c5 = st.columns(5)
-c1.metric("Total Anomalies",   total_anomalies)
-c2.metric("Extreme Severity",  extreme_count)
-c3.metric("High Severity",     high_count)
-c4.metric("Price Spikes Up",   price_up_count)
-c5.metric("Volume Spikes",     vol_count)
+c1,c2,c3,c4,c5 = st.columns(5)
+c1.metric("Total Anomalies",  total_anomalies)
+c2.metric("Extreme Severity", extreme_count)
+c3.metric("High Severity",    high_count)
+c4.metric("Price Spikes Up",  price_up_count)
+c5.metric("Volume Spikes",    vol_count)
 
 st.markdown("---")
 
 if not anomaly_rows:
     st.success(
-        "No anomalies detected today with Z-Score threshold "
-        + str(zscore_threshold)
-        + ". Markets appear to be moving normally."
+        "No anomalies detected with Z-Score threshold "
+        + str(zscore_threshold) +
+        ". Markets are moving normally today."
     )
 else:
     anomaly_df = pd.DataFrame(anomaly_rows).sort_values(
-        "_sort_key", ascending=False
-    ).drop(columns=["_sort_key"])
+        "_sort", ascending=False
+    ).drop(columns=["_sort"])
 
-    # ── Color-coded table ────────────────────────────────────
     st.subheader(
         "Detected Anomalies — " +
         str(max_date.date()) +
         " (sorted by Z-Score)"
     )
 
-    def color_severity(val):
-        if val == "Extreme":
-            return "background-color: #FFCCCC; color: #8B0000; font-weight:bold"
-        if val == "High":
-            return "background-color: #FFE4CC; color: #D62728"
-        return "background-color: #FFFFCC; color: #FF7F0E"
+    def color_row(row):
+        styles = []
+        for col in row.index:
+            if col == "Severity":
+                if row[col] == "Extreme":
+                    styles.append(
+                        "background-color:#FFCCCC;"
+                        "color:#8B0000;font-weight:bold"
+                    )
+                elif row[col] == "High":
+                    styles.append(
+                        "background-color:#FFE4CC;"
+                        "color:#D62728"
+                    )
+                else:
+                    styles.append(
+                        "background-color:#FFFFCC;"
+                        "color:#FF7F0E"
+                    )
+            elif col == "Type":
+                if row[col] == "Price Spike Up":
+                    styles.append("color:#2CA02C;font-weight:bold")
+                elif row[col] == "Price Spike Down":
+                    styles.append("color:#D62728;font-weight:bold")
+                else:
+                    styles.append("color:#1F77B4;font-weight:bold")
+            else:
+                styles.append("")
+        return styles
 
-    def color_type(val):
-        if val == "Price Spike Up":
-            return "color: #2CA02C; font-weight: bold"
-        if val == "Price Spike Down":
-            return "color: #D62728; font-weight: bold"
-        return "color: #1F77B4; font-weight: bold"
-
-    styled = anomaly_df.style \
-        .applymap(color_severity, subset=["Severity"]) \
-        .applymap(color_type,     subset=["Type"])
-
+    styled = anomaly_df.style.apply(color_row, axis=1)
     st.dataframe(styled, use_container_width=True, hide_index=True)
 
-    st.markdown("<br>", unsafe_allow_html=True)
-
-    # ── Bar chart of Z-Scores ────────────────────────────────
-    st.subheader("Z-Score Bar Chart — How Extreme is Each Anomaly?")
+    st.subheader("Z-Score Chart — How Extreme is Each Anomaly?")
     top15 = anomaly_df.head(15).copy()
     bar_colors = []
     for _, row in top15.iterrows():
@@ -245,22 +247,19 @@ else:
     )
     st.plotly_chart(fig_bar, use_container_width=True)
 
-    # ── Historical anomaly chart for selected stock ──────────
-    st.subheader("Historical View — Deep Dive into One Stock")
-    anomaly_tickers = sorted(
-        anomaly_df["Ticker"].unique().tolist()
-    )
+    st.subheader("Historical View — Inspect One Stock")
+    anomaly_tickers = sorted(anomaly_df["Ticker"].unique().tolist())
     selected_ticker = st.selectbox(
-        "Select anomalous stock to inspect",
+        "Select stock to inspect",
         anomaly_tickers,
         index=0
     )
 
-    full_ticker  = selected_ticker + ".NS"
-    stock_hist   = df[
+    full_ticker = selected_ticker + ".NS"
+    stock_hist  = df[
         (df["Ticker"] == full_ticker) &
-        (df["Date"] >= cutoff)
-    ].sort_values("Date")
+        (df["Date"]   >= cutoff)
+    ].sort_values("Date").copy()
 
     if not stock_hist.empty:
         col_l, col_r = st.columns(2)
@@ -271,10 +270,12 @@ else:
 
             if ret_std_h > 0:
                 stock_hist["Return_ZScore"] = (
-                    (stock_hist["Daily_Return"] - ret_mean_h) / ret_std_h
-                )
+                    stock_hist["Daily_Return"] - ret_mean_h
+                ) / ret_std_h
+
                 anomaly_dates = stock_hist[
-                    stock_hist["Return_ZScore"].abs() > float(zscore_threshold)
+                    stock_hist["Return_ZScore"].abs() >
+                    float(zscore_threshold)
                 ]
 
                 fig_ret = go.Figure()
@@ -290,16 +291,17 @@ else:
                         y=anomaly_dates["Daily_Return"] * 100,
                         mode="markers",
                         marker=dict(
-                            color="#D62728", size=10,
-                            symbol="circle"
+                            color="#D62728", size=10
                         ),
                         name="Anomaly Days"
                     ))
-                fig_ret.add_hline(y=0, line_color="black", line_width=0.8)
+                fig_ret.add_hline(
+                    y=0, line_color="black", line_width=0.8
+                )
                 fig_ret.update_layout(
                     height=300,
                     template="plotly_white",
-                    title=selected_ticker + " — Daily Returns with Anomalies",
+                    title=selected_ticker + " — Returns with Anomalies",
                     yaxis_title="Return %",
                     legend=dict(orientation="h", y=1.02)
                 )
@@ -311,28 +313,24 @@ else:
 
             if vol_std_h > 0:
                 stock_hist["Volume_ZScore"] = (
-                    (stock_hist["Volume"] - vol_mean_h) / vol_std_h
-                )
-                vol_anomaly = stock_hist[
-                    stock_hist["Volume_ZScore"] > float(zscore_threshold)
-                ]
-                vol_colors  = [
+                    stock_hist["Volume"] - vol_mean_h
+                ) / vol_std_h
+
+                vol_colors = [
                     "#D62728"
                     if float(z) > float(zscore_threshold)
                     else "#1F77B4"
                     for z in stock_hist["Volume_ZScore"].fillna(0)
                 ]
-                fig_vol = go.Figure()
-                fig_vol.add_trace(go.Bar(
+                fig_vol = go.Figure(go.Bar(
                     x=stock_hist["Date"],
                     y=stock_hist["Volume"],
-                    marker_color=vol_colors,
-                    name="Volume"
+                    marker_color=vol_colors
                 ))
                 fig_vol.update_layout(
                     height=300,
                     template="plotly_white",
-                    title=selected_ticker + " — Volume (Red = Anomaly)",
+                    title=selected_ticker + " — Volume (Red=Anomaly)",
                     yaxis_title="Volume",
                     showlegend=False
                 )
@@ -341,15 +339,14 @@ else:
 st.markdown("---")
 st.subheader("How Anomaly Detection Works")
 st.markdown("""
-**Z-Score Formula:** `Z = (Today's Value - Historical Mean) / Standard Deviation`
+**Z-Score:** `Z = (Today Value - Historical Mean) / Std Deviation`
 
 | Z-Score | Meaning | Action |
 |---|---|---|
-| > 4.0 | **Extreme** — 1 in 15,000 chance randomly | Investigate immediately |
-| 3.0 to 4.0 | **High** — unusual activity | Watch closely |
-| 2.5 to 3.0 | **Medium** — somewhat unusual | Note and monitor |
-| Below 2.5 | **Normal** — within expected range | No action needed |
+| Above 4.0 | Extreme — 1 in 15,000 chance | Investigate immediately |
+| 3.0 to 4.0 | High — very unusual | Watch closely |
+| 2.5 to 3.0 | Medium — somewhat unusual | Monitor |
+| Below 2.5 | Normal | No action needed |
 
-**Why this matters:** Unusual volume spikes often precede news events by hours.
-Detecting them early gives you an informational edge.
+Volume spikes often precede news events by hours — early detection gives you an informational edge.
 """)
