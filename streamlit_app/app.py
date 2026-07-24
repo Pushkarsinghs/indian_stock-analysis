@@ -209,7 +209,85 @@ with col_b3:
     st.metric("Best Signal Stock", best.replace(".NS",""))
 
 # ── Footer ──
-st.markdown("---")
+st.markdown(
+    '<p class="section-header">⭐ Strong Buy Signals — with FinBERT Confidence</p>',
+    unsafe_allow_html=True
+)
+
+if "Signal" in signals.columns:
+    strong_buy = signals[
+        signals["Signal"] == "Strong Buy"
+    ].copy()
+
+    if not strong_buy.empty:
+        if not sent.empty and "Avg_Confidence" in sent.columns:
+            strong_buy = strong_buy.merge(
+                sent[[
+                    "Ticker","Sentiment_Label",
+                    "Sentiment_Score","Avg_Confidence"
+                ]],
+                on="Ticker", how="left"
+            )
+
+            def confidence_badge(row):
+                conf  = row.get("Avg_Confidence", 0)
+                label = str(row.get("Sentiment_Label","N/A"))
+                score = row.get("Sentiment_Score", 50)
+                if pd.isna(conf):
+                    return "N/A"
+                conf  = float(conf)
+                score = float(score) if not pd.isna(score) else 50.0
+                if conf >= 0.85 and score >= 60:
+                    color = "#1A7A1A"
+                    badge = "STRONG"
+                elif conf >= 0.70:
+                    color = "#2CA02C"
+                    badge = "GOOD"
+                elif conf >= 0.55:
+                    color = "#FF7F0E"
+                    badge = "MODERATE"
+                else:
+                    color = "#AAAAAA"
+                    badge = "WEAK"
+                return (
+                    f'<span style="background:{color};color:white;'
+                    f'padding:2px 8px;border-radius:4px;'
+                    f'font-size:11px;font-weight:bold;">'
+                    f'{badge} ({conf:.0%})</span>'
+                )
+
+            strong_buy["FinBERT Signal"] = strong_buy.apply(
+                confidence_badge, axis=1
+            )
+
+            display_cols = [
+                "Ticker","Close","RSI","Signal_Score",
+                "Signal","FinBERT Signal"
+            ]
+            display_cols = [
+                c for c in display_cols
+                if c in strong_buy.columns
+            ]
+            display_html = strong_buy[display_cols].sort_values(
+                "Signal_Score", ascending=False
+            ).to_html(escape=False, index=False)
+
+            st.markdown(display_html, unsafe_allow_html=True)
+        else:
+            display_cols = [
+                c for c in [
+                    "Ticker","Close","RSI","Signal_Score","Signal"
+                ] if c in strong_buy.columns
+            ]
+            st.dataframe(
+                strong_buy[display_cols].sort_values(
+                    "Signal_Score", ascending=False
+                ),
+                use_container_width=True,
+                hide_index=True
+            )
+    else:
+        st.info("No Strong Buy signals currently — market is neutral")
 st.markdown("""
 **📈 NIFTY 50 Intelligence System** |
 Built by **Pushkar Singh** |
