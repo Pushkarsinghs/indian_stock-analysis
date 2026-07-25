@@ -20,6 +20,23 @@ st.set_page_config(
     initial_sidebar_state="expanded"
 )
 
+# ── Data freshness banner ──────────────────────────────
+freshness = get_data_freshness()
+if freshness["is_fresh"]:
+    st.success(
+        "Data last updated: **" +
+        freshness["last_updated"] +
+        "** — refreshes automatically every weekday at 4:30 PM IST"
+    )
+else:
+    st.warning(
+        "Data last updated: **" +
+        freshness["last_updated"] +
+        "** (" + str(freshness["hours_old"]) + " hours ago) — "
+        "may not reflect today's market. "
+        "Run 00_master_update in Colab and upload fresh CSV files."
+    )
+
 st.markdown("""
 <style>
 .main-header {
