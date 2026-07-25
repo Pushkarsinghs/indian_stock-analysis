@@ -9,7 +9,8 @@ from data_loader import (
     load_risk_metrics,
     load_backtest_summary,
     load_backtest_trades,
-    load_technical
+    load_technical,
+    get_data_freshness
 )
 
 st.set_page_config(
