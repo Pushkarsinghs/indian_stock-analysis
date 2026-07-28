@@ -2,11 +2,10 @@ import streamlit as st
 import pandas as pd
 import numpy as np
 import plotly.graph_objects as go
-import plotly.express as px
 import requests
 import sys
 sys.path.append("/mount/src/indian_stock-analysis/streamlit_app")
-from data_loader import load_technical, load_signals
+from data_loader import load_technical
 
 st.set_page_config(
     page_title="Options Chain",
@@ -15,10 +14,10 @@ st.set_page_config(
 )
 
 st.markdown(
-    '<style>'
-    '[data-testid="stSidebar"]{background:#F0F2F5;}'
-    '.block-container{padding-top:1rem;}'
-    '</style>',
+    "<style>"
+    "[data-testid='stSidebar']{background:#F0F2F5;}"
+    ".block-container{padding-top:1rem;}"
+    "</style>",
     unsafe_allow_html=True
 )
 
@@ -35,23 +34,19 @@ st.markdown(
 )
 
 NIFTY_SYMBOLS = [
-    "NIFTY","BANKNIFTY","RELIANCE","TCS","HDFCBANK",
-    "INFY","ICICIBANK","HINDUNILVR","ITC","SBIN",
-    "BHARTIARTL","KOTAKBANK","LT","AXISBANK",
-    "ASIANPAINT","MARUTI","SUNPHARMA","TITAN",
-    "BAJFINANCE","WIPRO","ONGC","NTPC","TECHM",
-    "HCLTECH","TATASTEEL","TATAMOTORS","NESTLEIND",
-    "DRREDDY","CIPLA","COALINDIA","ADANIENT",
-    "BAJAJFINSV","HEROMOTOCO","HINDALCO","UPL",
-    "APOLLOHOSP","INDUSINDBK"
+    "NIFTY", "BANKNIFTY", "RELIANCE", "TCS", "HDFCBANK",
+    "INFY", "ICICIBANK", "HINDUNILVR", "ITC", "SBIN",
+    "BHARTIARTL", "KOTAKBANK", "LT", "AXISBANK",
+    "ASIANPAINT", "MARUTI", "SUNPHARMA", "TITAN",
+    "BAJFINANCE", "WIPRO", "ONGC", "NTPC", "TECHM",
+    "HCLTECH", "TATASTEEL", "TATAMOTORS", "NESTLEIND",
+    "DRREDDY", "CIPLA", "COALINDIA", "ADANIENT",
+    "BAJAJFINSV", "HEROMOTOCO", "HINDALCO", "UPL",
+    "APOLLOHOSP", "INDUSINDBK"
 ]
 
 st.sidebar.header("Controls")
-symbol = st.sidebar.selectbox(
-    "Select Symbol",
-    NIFTY_SYMBOLS,
-    index=0
-)
+symbol = st.sidebar.selectbox("Select Symbol", NIFTY_SYMBOLS, index=0)
 
 st.sidebar.markdown("---")
 st.sidebar.markdown(
@@ -60,29 +55,25 @@ st.sidebar.markdown(
     "(9:15 AM to 3:30 PM IST)"
 )
 
-def fetch_nse_options(symbol):
-    """
-    Fetch options chain data from NSE India.
-    Returns a dict with the options data or None on failure.
-    """
-    if symbol in ["NIFTY","BANKNIFTY"]:
+
+def fetch_nse_options(sym):
+    if sym in ["NIFTY", "BANKNIFTY"]:
         url = (
             "https://www.nseindia.com/api/option-chain-indices"
-            "?symbol=" + symbol
+            "?symbol=" + sym
         )
     else:
         url = (
             "https://www.nseindia.com/api/option-chain-equities"
-            "?symbol=" + symbol
+            "?symbol=" + sym
         )
-
     headers = {
-        "User-Agent":      (
+        "User-Agent": (
             "Mozilla/5.0 (Windows NT 10.0; Win64; x64) "
             "AppleWebKit/537.36 (KHTML, like Gecko) "
             "Chrome/120.0.0.0 Safari/537.36"
         ),
-        "Accept":          (
+        "Accept": (
             "text/html,application/xhtml+xml,"
             "application/xml;q=0.9,*/*;q=0.8"
         ),
@@ -91,121 +82,128 @@ def fetch_nse_options(symbol):
         "Connection":      "keep-alive",
         "Referer":         "https://www.nseindia.com/",
     }
-
     try:
         session = requests.Session()
-        session.get("https://www.nseindia.com", headers=headers, timeout=5)
+        session.get(
+            "https://www.nseindia.com",
+            headers=headers, timeout=5
+        )
         response = session.get(url, headers=headers, timeout=10)
-
         if response.status_code == 200:
             return response.json()
         return None
-    except Exception as e:
+    except Exception:
         return None
 
 
 def parse_options_data(data):
-    """
-    Parse the NSE options JSON into a clean DataFrame.
-    Returns (options_df, underlying_price, expiry_dates)
-    """
     if not data or "records" not in data:
         return None, None, []
-
-    records     = data["records"]
+    records      = data["records"]
     expiry_dates = records.get("expiryDates", [])
-    underlying  = records.get("underlyingValue", 0)
-    raw_data    = records.get("data", [])
-
+    underlying   = records.get("underlyingValue", 0)
+    raw_data     = records.get("data", [])
     rows = []
     for record in raw_data:
-        strike = record.get("strikePrice", 0)
-        expiry = record.get("expiryDate", "")
-
+        strike  = record.get("strikePrice", 0)
+        expiry  = record.get("expiryDate", "")
         ce_data = record.get("CE", {})
         pe_data = record.get("PE", {})
-
-        row = {
-            "Strike":     strike,
-            "Expiry":     expiry,
-            "CE_OI":      ce_data.get("openInterest",           0),
-            "CE_Chg_OI":  ce_data.get("changeinOpenInterest",   0),
-            "CE_Volume":  ce_data.get("totalTradedVolume",      0),
-            "CE_IV":      ce_data.get("impliedVolatility",      0),
-            "CE_LTP":     ce_data.get("lastPrice",              0),
-            "CE_Bid":     ce_data.get("bidprice",               0),
-            "CE_Ask":     ce_data.get("askPrice",               0),
-            "PE_OI":      pe_data.get("openInterest",           0),
-            "PE_Chg_OI":  pe_data.get("changeinOpenInterest",   0),
-            "PE_Volume":  pe_data.get("totalTradedVolume",      0),
-            "PE_IV":      pe_data.get("impliedVolatility",      0),
-            "PE_LTP":     pe_data.get("lastPrice",              0),
-            "PE_Bid":     pe_data.get("bidprice",               0),
-            "PE_Ask":     pe_data.get("askPrice",               0),
-        }
-        rows.append(row)
-
+        rows.append({
+            "Strike":    strike,
+            "Expiry":    expiry,
+            "CE_OI":     ce_data.get("openInterest",           0),
+            "CE_Chg_OI": ce_data.get("changeinOpenInterest",   0),
+            "CE_Volume": ce_data.get("totalTradedVolume",      0),
+            "CE_IV":     ce_data.get("impliedVolatility",      0),
+            "CE_LTP":    ce_data.get("lastPrice",              0),
+            "PE_OI":     pe_data.get("openInterest",           0),
+            "PE_Chg_OI": pe_data.get("changeinOpenInterest",   0),
+            "PE_Volume": pe_data.get("totalTradedVolume",      0),
+            "PE_IV":     pe_data.get("impliedVolatility",      0),
+            "PE_LTP":    pe_data.get("lastPrice",              0),
+        })
     if not rows:
         return None, underlying, expiry_dates
-
-    df = pd.DataFrame(rows)
-    return df, underlying, expiry_dates
+    return pd.DataFrame(rows), underlying, expiry_dates
 
 
 def compute_max_pain(options_df):
-    """
-    Computes the Max Pain strike price.
-    Max Pain = strike where total option value is minimized.
-    This is the price where most options expire worthless.
-    """
     strikes    = sorted(options_df["Strike"].unique())
     total_pain = []
-
+    k_vals     = options_df["Strike"].values.astype(float)
+    ce_oi_vals = options_df["CE_OI"].fillna(0).values.astype(float)
+    pe_oi_vals = options_df["PE_OI"].fillna(0).values.astype(float)
     for s in strikes:
         s = float(s)
-
-        # Call pain: for each strike K, if K < s then call holders lose (s-K)*OI
-        ce_oi  = options_df["CE_OI"].fillna(0).values.astype(float)
-        pe_oi  = options_df["PE_OI"].fillna(0).values.astype(float)
-        k_vals = options_df["Strike"].values.astype(float)
-
-        # Call options pain at expiry price s:
-        # Call buyer loses when K > s (out of money)
-        # Call seller gains = (s - K) * OI when s > K
-        call_pain = float(
-            sum(
-                max(0.0, s - k) * oi
-                for k, oi in zip(k_vals, ce_oi)
-            )
-        )
-
-        # Put options pain at expiry price s:
-        # Put buyer loses when K < s (out of money)
-        # Put seller gains = (K - s) * OI when K > s
-        put_pain = float(
-            sum(
-                max(0.0, k - s) * oi
-                for k, oi in zip(k_vals, pe_oi)
-            )
-        )
-
+        call_pain = float(sum(
+            max(0.0, s - k) * oi
+            for k, oi in zip(k_vals, ce_oi_vals)
+        ))
+        put_pain = float(sum(
+            max(0.0, k - s) * oi
+            for k, oi in zip(k_vals, pe_oi_vals)
+        ))
         total_pain.append({
             "Strike":     s,
             "Total_Pain": call_pain + put_pain
         })
-
     pain_df = pd.DataFrame(total_pain)
     if pain_df.empty:
         return 0.0
+    return float(pain_df.loc[pain_df["Total_Pain"].idxmin(), "Strike"])
 
-    max_pain_strike = float(
-        pain_df.loc[pain_df["Total_Pain"].idxmin(), "Strike"]
-    )
-    return max_pain_strike
+
+def build_synthetic_data(underlying_val, sym):
+    atm_strike  = round(underlying_val / 50) * 50
+    strikes     = list(range(
+        int(atm_strike - 500),
+        int(atm_strike + 550),
+        50
+    ))
+    expiry_dates = ["31-Jul-2026", "07-Aug-2026", "14-Aug-2026"]
+    np.random.seed(42)
+    rows = []
+    for strike in strikes:
+        dist      = abs(strike - underlying_val)
+        moneyness = dist / max(underlying_val, 1)
+        base_ce   = max(0, int(
+            np.random.normal(500000, 150000) * (1 - moneyness * 3)
+        ))
+        base_pe   = max(0, int(
+            np.random.normal(450000, 130000) *
+            (1 + (atm_strike - strike) / max(atm_strike, 1) * 2)
+        ))
+        ce_iv = max(5.0, float(np.random.normal(15 + moneyness * 20, 2)))
+        pe_iv = max(5.0, float(np.random.normal(16 + moneyness * 22, 2)))
+        rows.append({
+            "Strike":    float(strike),
+            "Expiry":    expiry_dates[0],
+            "CE_OI":     base_ce,
+            "CE_Chg_OI": int(np.random.normal(10000, 30000)),
+            "CE_Volume": int(abs(np.random.normal(50000, 20000))),
+            "CE_IV":     round(ce_iv, 2),
+            "CE_LTP":    max(0.05, round(
+                max(0.0, underlying_val - strike) +
+                float(np.random.exponential(50)), 2
+            )),
+            "PE_OI":     base_pe,
+            "PE_Chg_OI": int(np.random.normal(-5000, 25000)),
+            "PE_Volume": int(abs(np.random.normal(45000, 18000))),
+            "PE_IV":     round(pe_iv, 2),
+            "PE_LTP":    max(0.05, round(
+                max(0.0, strike - underlying_val) +
+                float(np.random.exponential(50)), 2
+            )),
+        })
+    return pd.DataFrame(rows), expiry_dates
 
 
 with st.spinner("Fetching live options data from NSE..."):
     data = fetch_nse_options(symbol)
+
+is_live     = False
+used_expiry = "Demo"
 
 if data is None:
     st.warning(
@@ -213,14 +211,11 @@ if data is None:
         "NSE sometimes blocks automated requests outside market hours "
         "or from cloud servers. Showing a demo with synthetic data."
     )
-
     tech = load_technical()
     if tech.empty:
         st.error("No data available.")
         st.stop()
-
     tech["Date"] = pd.to_datetime(tech["Date"])
-
     ticker_map = {
         "RELIANCE":  "RELIANCE.NS",
         "TCS":       "TCS.NS",
@@ -231,92 +226,30 @@ if data is None:
         "NIFTY":     "HDFCBANK.NS",
         "BANKNIFTY": "SBIN.NS"
     }
-    mapped = ticker_map.get(symbol, "RELIANCE.NS")
-    stock  = tech[tech["Ticker"]==mapped].sort_values("Date")
-    underlying = float(stock["Close"].iloc[-1]) \
-                 if not stock.empty else 20000.0
-
-    atm_strike   = round(underlying / 50) * 50
-    strikes      = list(range(
-        int(atm_strike - 500),
-        int(atm_strike + 550),
-        50
-    ))
-    expiry_dates = ["24-Jul-2026","31-Jul-2026","07-Aug-2026"]
-
-    np.random.seed(42)
-    rows = []
-    for strike in strikes:
-        dist = abs(strike - underlying)
-        moneyness = dist / underlying
-
-        base_ce_oi = max(0, int(
-            np.random.normal(500000, 150000) *
-            (1 - moneyness * 3)
-        ))
-        base_pe_oi = max(0, int(
-            np.random.normal(450000, 130000) *
-            (1 + (atm_strike - strike) / atm_strike * 2)
-        ))
-        ce_iv = max(5, float(np.random.normal(
-            15 + moneyness * 20, 2
-        )))
-        pe_iv = max(5, float(np.random.normal(
-            16 + moneyness * 22, 2
-        )))
-
-        rows.append({
-            "Strike":    strike,
-            "Expiry":    expiry_dates[0],
-            "CE_OI":     base_ce_oi,
-            "CE_Chg_OI": int(np.random.normal(10000, 30000)),
-            "CE_Volume": int(abs(np.random.normal(50000, 20000))),
-            "CE_IV":     round(ce_iv, 2),
-            "CE_LTP":    max(0.05, round(
-                max(0, underlying - strike) +
-                float(np.random.exponential(50)), 2)),
-            "CE_Bid":    0,
-            "CE_Ask":    0,
-            "PE_OI":     base_pe_oi,
-            "PE_Chg_OI": int(np.random.normal(-5000, 25000)),
-            "PE_Volume": int(abs(np.random.normal(45000, 18000))),
-            "PE_IV":     round(pe_iv, 2),
-            "PE_LTP":    max(0.05, round(
-                max(0, strike - underlying) +
-                float(np.random.exponential(50)), 2)),
-            "PE_Bid":    0,
-            "PE_Ask":    0,
-        })
-
-    options_df   = pd.DataFrame(rows)
-    is_live      = False
-    used_expiry  = expiry_dates[0]
-
+    mapped  = ticker_map.get(symbol, "RELIANCE.NS")
+    stock   = tech[tech["Ticker"] == mapped].sort_values("Date")
+    underlying = float(stock["Close"].iloc[-1]) if not stock.empty else 20000.0
+    options_df, expiry_dates = build_synthetic_data(underlying, symbol)
+    used_expiry = expiry_dates[0]
     st.info(
         "Showing **synthetic demo data** for " + symbol +
         " (underlying price: Rs" + "{:,.2f}".format(underlying) +
         "). Live data requires NSE access during market hours."
     )
-
 else:
     options_df, underlying, expiry_dates = parse_options_data(data)
-
     if options_df is None or options_df.empty:
         st.error("Options data received but could not be parsed.")
         st.stop()
-
     is_live = True
     st.success(
         "Live NSE data loaded for **" + symbol +
         "** | Underlying: **Rs" +
         "{:,.2f}".format(float(underlying or 0)) + "**"
     )
-
     if expiry_dates:
         used_expiry = st.selectbox(
-            "Select Expiry Date",
-            expiry_dates,
-            index=0
+            "Select Expiry Date", expiry_dates, index=0
         )
         options_df = options_df[
             options_df["Expiry"] == used_expiry
@@ -325,23 +258,23 @@ else:
         used_expiry = "N/A"
 
 options_df = options_df.sort_values("Strike").reset_index(drop=True)
-options_df[["CE_OI","PE_OI","CE_Volume","PE_Volume"]] = \
-    options_df[["CE_OI","PE_OI","CE_Volume","PE_Volume"]].fillna(0)
+for col in ["CE_OI", "PE_OI", "CE_Volume", "PE_Volume"]:
+    if col in options_df.columns:
+        options_df[col] = options_df[col].fillna(0)
 
 total_ce_oi = float(options_df["CE_OI"].sum())
 total_pe_oi = float(options_df["PE_OI"].sum())
-pcr         = round(total_pe_oi / total_ce_oi, 3) \
-              if total_ce_oi > 0 else 0.0
+pcr         = round(total_pe_oi / total_ce_oi, 3) if total_ce_oi > 0 else 0.0
 
 max_pain_strike = compute_max_pain(options_df)
 
+underlying_val = float(underlying or options_df["Strike"].median())
+
 atm_row = options_df.iloc[
-    (options_df["Strike"] - float(underlying or 0)).abs().argsort()[:1]
+    (options_df["Strike"] - underlying_val).abs().argsort()[:1]
 ]
-atm_ce_iv = float(atm_row["CE_IV"].values[0]) \
-            if not atm_row.empty else 0.0
-atm_pe_iv = float(atm_row["PE_IV"].values[0]) \
-            if not atm_row.empty else 0.0
+atm_ce_iv = float(atm_row["CE_IV"].values[0]) if not atm_row.empty else 0.0
+atm_pe_iv = float(atm_row["PE_IV"].values[0]) if not atm_row.empty else 0.0
 atm_iv    = round((atm_ce_iv + atm_pe_iv) / 2, 2)
 
 if pcr > 1.2:
@@ -363,12 +296,15 @@ else:
 kc1, kc2, kc3, kc4, kc5 = st.columns(5)
 kc1.metric(
     "Underlying Price",
-    "Rs" + "{:,.2f}".format(float(underlying or 0))
+    "Rs" + "{:,.2f}".format(underlying_val)
 )
 kc2.metric("Put/Call Ratio", str(pcr))
 kc3.metric("PCR Signal",     pcr_signal)
-kc4.metric("Max Pain Strike","Rs" + "{:,.0f}".format(max_pain_strike))
-kc5.metric("ATM IV",         str(atm_iv) + "%")
+kc4.metric(
+    "Max Pain Strike",
+    "Rs" + "{:,.0f}".format(max_pain_strike)
+)
+kc5.metric("ATM IV", str(atm_iv) + "%")
 
 st.markdown(
     '<div style="background:' + pcr_color + '22;'
@@ -376,8 +312,8 @@ st.markdown(
     'padding:12px;border-radius:8px;margin:15px 0;">'
     '<b style="color:' + pcr_color + '">Market Sentiment: ' +
     pcr_signal + '</b><br>'
-    'PCR of ' + str(pcr) +
-    ' indicates ' + (
+    'PCR of ' + str(pcr) + ' indicates ' +
+    (
         "more PUT buying — market participants are hedging downside."
         if pcr > 1 else
         "more CALL buying — market participants are bullish on upside."
@@ -398,8 +334,6 @@ tab1, tab2, tab3, tab4 = st.tabs([
 with tab1:
     st.subheader("Open Interest — Where is Big Money Positioned?")
 
-    filter_strikes = 15
-    underlying_val = float(underlying or options_df["Strike"].median())
     nearby = options_df[
         (options_df["Strike"] >= underlying_val * 0.92) &
         (options_df["Strike"] <= underlying_val * 1.08)
@@ -423,20 +357,18 @@ with tab1:
         opacity=0.85
     ))
     fig_oi.add_vline(
-        x=float(underlying_val),
+        x=underlying_val,
         line_dash="dash",
         line_color="#1F3864",
         line_width=2,
-        annotation_text="Current Price",
-        annotation_position="top right"
+        annotation_text="Current Price"
     )
     fig_oi.add_vline(
         x=float(max_pain_strike),
         line_dash="dot",
         line_color="#FF7F0E",
         line_width=2,
-        annotation_text="Max Pain",
-        annotation_position="top left"
+        annotation_text="Max Pain"
     )
     fig_oi.update_layout(
         height=450,
@@ -453,30 +385,21 @@ with tab1:
     with col_l:
         st.markdown("**Top 5 Call OI Strikes — Resistance Levels**")
         top_ce = options_df.nlargest(5, "CE_OI")[
-            ["Strike","CE_OI","CE_IV","CE_LTP"]
+            ["Strike", "CE_OI", "CE_IV", "CE_LTP"]
         ].copy()
-        top_ce.columns = [
-            "Strike","Call OI","Call IV %","Call LTP"
-        ]
-        st.dataframe(
-            top_ce, use_container_width=True, hide_index=True
-        )
+        top_ce.columns = ["Strike", "Call OI", "Call IV %", "Call LTP"]
+        st.dataframe(top_ce, use_container_width=True, hide_index=True)
         st.caption(
             "High Call OI = resistance zone. "
             "Market makers want price to stay below these strikes."
         )
-
     with col_r:
         st.markdown("**Top 5 Put OI Strikes — Support Levels**")
         top_pe = options_df.nlargest(5, "PE_OI")[
-            ["Strike","PE_OI","PE_IV","PE_LTP"]
+            ["Strike", "PE_OI", "PE_IV", "PE_LTP"]
         ].copy()
-        top_pe.columns = [
-            "Strike","Put OI","Put IV %","Put LTP"
-        ]
-        st.dataframe(
-            top_pe, use_container_width=True, hide_index=True
-        )
+        top_pe.columns = ["Strike", "Put OI", "Put IV %", "Put LTP"]
+        st.dataframe(top_pe, use_container_width=True, hide_index=True)
         st.caption(
             "High Put OI = support zone. "
             "Market makers want price to stay above these strikes."
@@ -487,19 +410,18 @@ with tab2:
     st.markdown(
         "**Max Pain Theory:** At expiry, the underlying price "
         "tends to gravitate toward the strike where the "
-        "maximum number of options expire worthless. "
-        "This benefits option sellers (usually institutional players)."
+        "maximum number of options expire worthless."
     )
 
-pain_rows    = []
+    k_vals     = options_df["Strike"].values.astype(float)
+    ce_oi_vals = options_df["CE_OI"].fillna(0).values.astype(float)
+    pe_oi_vals = options_df["PE_OI"].fillna(0).values.astype(float)
+
+    pain_rows    = []
     strikes_list = sorted(options_df["Strike"].unique())
-    k_vals       = options_df["Strike"].values.astype(float)
-    ce_oi_vals   = options_df["CE_OI"].fillna(0).values.astype(float)
-    pe_oi_vals   = options_df["PE_OI"].fillna(0).values.astype(float)
 
     for s in strikes_list:
         s = float(s)
-
         ce_pain = float(sum(
             max(0.0, s - k) * oi
             for k, oi in zip(k_vals, ce_oi_vals)
@@ -508,7 +430,6 @@ pain_rows    = []
             max(0.0, k - s) * oi
             for k, oi in zip(k_vals, pe_oi_vals)
         ))
-
         pain_rows.append({
             "Strike":     s,
             "Call_Pain":  ce_pain,
@@ -519,6 +440,10 @@ pain_rows    = []
     pain_df = pd.DataFrame(pain_rows)
 
     if not pain_df.empty:
+        min_pain_strike = float(
+            pain_df.loc[pain_df["Total_Pain"].idxmin(), "Strike"]
+        )
+
         fig_pain = go.Figure()
         fig_pain.add_trace(go.Scatter(
             x=pain_df["Strike"],
@@ -528,14 +453,6 @@ pain_rows    = []
             fill="tozeroy",
             fillcolor="rgba(31,56,100,0.1)"
         ))
-
-        min_pain_strike = float(
-            pain_df.loc[
-                pain_df["Total_Pain"].idxmin(), "Strike"
-            ]
-        )
-        min_pain_val = float(pain_df["Total_Pain"].min())
-
         fig_pain.add_vline(
             x=min_pain_strike,
             line_dash="dash",
@@ -547,47 +464,43 @@ pain_rows    = []
             annotation_font_color="#FF7F0E"
         )
         fig_pain.add_vline(
-            x=float(underlying_val),
+            x=underlying_val,
             line_dash="dot",
             line_color="#D62728",
             line_width=2,
             annotation_text="Current Price",
             annotation_position="top left"
         )
-
         fig_pain.update_layout(
             height=400,
             template="plotly_white",
-            title="Max Pain Chart — Lowest Total Pain = Rs" +
+            title="Max Pain Chart — Min Total Pain at Rs" +
                   "{:,.0f}".format(min_pain_strike),
             xaxis_title="Strike Price (Rs)",
             yaxis_title="Total Pain Value (Rs)"
         )
         st.plotly_chart(fig_pain, use_container_width=True)
 
-        distance = float(underlying_val) - float(min_pain_strike)
-        dist_pct  = round(distance / float(underlying_val) * 100, 2)
+        distance  = underlying_val - min_pain_strike
+        dist_pct  = round(distance / max(underlying_val, 1) * 100, 2)
 
         if abs(dist_pct) < 1:
-            dist_msg = (
-                "Current price is very close to Max Pain. "
-                "Expect sideways movement near expiry."
-            )
+            dist_msg   = "Current price is very close to Max Pain. Expect sideways movement near expiry."
             dist_color = "#FF7F0E"
         elif distance > 0:
-            dist_msg = (
+            dist_msg   = (
                 "Current price is " + str(abs(dist_pct)) +
-                "% ABOVE Max Pain. "
-                "Selling pressure may push price down toward Rs" +
-                "{:,.0f}".format(min_pain_strike) + " near expiry."
+                "% ABOVE Max Pain. Selling pressure may push price "
+                "toward Rs" + "{:,.0f}".format(min_pain_strike) +
+                " near expiry."
             )
             dist_color = "#D62728"
         else:
-            dist_msg = (
+            dist_msg   = (
                 "Current price is " + str(abs(dist_pct)) +
-                "% BELOW Max Pain. "
-                "Buying pressure may push price up toward Rs" +
-                "{:,.0f}".format(min_pain_strike) + " near expiry."
+                "% BELOW Max Pain. Buying pressure may push price "
+                "toward Rs" + "{:,.0f}".format(min_pain_strike) +
+                " near expiry."
             )
             dist_color = "#2CA02C"
 
@@ -605,15 +518,14 @@ with tab3:
     st.subheader("Implied Volatility Analysis")
 
     iv_df = options_df[
-        (options_df["CE_IV"] > 0) |
-        (options_df["PE_IV"] > 0)
+        (options_df["CE_IV"] > 0) | (options_df["PE_IV"] > 0)
     ].copy()
 
     if not iv_df.empty:
-        fig_iv = go.Figure()
         valid_ce = iv_df[iv_df["CE_IV"] > 0]
         valid_pe = iv_df[iv_df["PE_IV"] > 0]
 
+        fig_iv = go.Figure()
         if not valid_ce.empty:
             fig_iv.add_trace(go.Scatter(
                 x=valid_ce["Strike"],
@@ -632,9 +544,8 @@ with tab3:
                 mode="lines+markers",
                 marker=dict(size=5)
             ))
-
         fig_iv.add_vline(
-            x=float(underlying_val),
+            x=underlying_val,
             line_dash="dash",
             line_color="#1F3864",
             line_width=2,
@@ -650,122 +561,89 @@ with tab3:
         )
         st.plotly_chart(fig_iv, use_container_width=True)
 
-        st.markdown("**Volatility Interpretation**")
-
         iv_skew = atm_pe_iv - atm_ce_iv
         if iv_skew > 2:
-            skew_msg = (
-                "**Put skew detected** (Put IV > Call IV by " +
-                str(round(iv_skew, 1)) + "%) — "
-                "Market is pricing in downside risk. "
-                "Institutional players are buying protection."
-            )
+            skew_msg   = "**Put skew detected** — Market is pricing in downside risk."
             skew_color = "#D62728"
         elif iv_skew < -2:
-            skew_msg = (
-                "**Call skew detected** (Call IV > Put IV by " +
-                str(round(abs(iv_skew), 1)) + "%) — "
-                "Market is pricing in upside breakout. "
-                "Players are positioning for a rally."
-            )
+            skew_msg   = "**Call skew detected** — Market is pricing in upside breakout."
             skew_color = "#2CA02C"
         else:
-            skew_msg = (
-                "**Symmetric IV** — market is balanced between "
-                "upside and downside expectations."
-            )
+            skew_msg   = "**Symmetric IV** — Market is balanced between upside and downside."
             skew_color = "#FF7F0E"
 
         st.markdown(
             '<div style="background:' + skew_color + '22;'
             'border-left:5px solid ' + skew_color + ';'
             'padding:12px;border-radius:8px;">'
-            '' + skew_msg +
+            + skew_msg +
             '</div>',
             unsafe_allow_html=True
         )
 
         st.markdown("---")
-        st.markdown("**What IV tells you:**")
         st.markdown("""
+**What IV tells you:**
+
 | IV Level | Interpretation | Strategy |
 |---|---|---|
-| Below 15% | Low volatility — calm market | Good time to buy options |
+| Below 15% | Low volatility | Good time to buy options |
 | 15% to 25% | Normal volatility | Standard strategies work |
-| 25% to 40% | High volatility — uncertain market | Consider selling options |
-| Above 40% | Extremely high — major event expected | Avoid buying, sell spreads |
+| 25% to 40% | High volatility | Consider selling options |
+| Above 40% | Extremely high | Avoid buying, sell spreads |
         """)
+    else:
+        st.info("No IV data available for this selection.")
 
 with tab4:
     st.subheader("Full Options Chain")
 
-    display_chain = options_df[[
-        "Strike","CE_OI","CE_Chg_OI","CE_Volume",
-        "CE_IV","CE_LTP","PE_LTP","PE_IV",
-        "PE_Volume","PE_Chg_OI","PE_OI"
-    ]].copy()
-
-    display_chain.columns = [
-        "Strike",
-        "CE OI","CE Chg OI","CE Vol",
-        "CE IV%","CE LTP",
-        "PE LTP","PE IV%",
-        "PE Vol","PE Chg OI","PE OI"
+    display_cols = [
+        c for c in [
+            "Strike", "CE_OI", "CE_Chg_OI", "CE_Volume",
+            "CE_IV", "CE_LTP", "PE_LTP", "PE_IV",
+            "PE_Volume", "PE_Chg_OI", "PE_OI"
+        ] if c in options_df.columns
     ]
-
-    atm_val = float(underlying_val)
+    display_chain = options_df[display_cols].copy()
+    display_chain.columns = [
+        "Strike", "CE OI", "CE Chg OI", "CE Vol",
+        "CE IV%", "CE LTP", "PE LTP", "PE IV%",
+        "PE Vol", "PE Chg OI", "PE OI"
+    ][:len(display_chain.columns)]
 
     def highlight_atm(row):
-        strike = float(row["Strike"])
-        styles = []
-        is_atm = abs(strike - atm_val) <= 50
-        for col in row.index:
-            if is_atm:
-                styles.append(
-                    "background-color:#FFF3CD;"
-                    "font-weight:bold"
-                )
-            else:
-                styles.append("")
-        return styles
+        strike  = float(row["Strike"])
+        is_atm  = abs(strike - underlying_val) <= 50
+        base    = "background-color:#FFF3CD;font-weight:bold" if is_atm else ""
+        return [base] * len(row)
 
-    styled_chain = display_chain.style.apply(
-        highlight_atm, axis=1
-    )
+    styled_chain = display_chain.style.apply(highlight_atm, axis=1)
     st.dataframe(
         styled_chain,
         use_container_width=True,
         hide_index=True,
         height=500
     )
-
     st.caption(
-        "Yellow rows = At-the-money (ATM) strikes. "
-        "CE = Call option. PE = Put option. "
-        "OI = Open Interest (number of contracts outstanding)."
+        "Yellow rows = ATM strikes. "
+        "CE = Call. PE = Put. "
+        "OI = Open Interest."
     )
 
 st.markdown("---")
 st.subheader("Options Concepts Guide")
 st.markdown("""
 **Put/Call Ratio (PCR):**
-- PCR > 1.2 → Very bearish market sentiment
-- PCR 0.8–1.2 → Neutral / slightly bearish
-- PCR < 0.8 → Bullish market sentiment
+- PCR > 1.2 → Very bearish sentiment
+- PCR 0.8 to 1.2 → Neutral
+- PCR < 0.8 → Bullish sentiment
 
-**Max Pain:**
-The strike price at which all options expire worthless,
-causing maximum loss to option buyers and maximum profit
-to option sellers. Near expiry, prices often drift
-toward Max Pain.
+**Max Pain:** Strike where most options expire worthless.
+Near expiry, prices often drift toward Max Pain.
 
-**Open Interest:**
-Total number of outstanding option contracts.
-High OI at a strike = strong support or resistance.
-Institutions use OI to identify key price levels.
+**Open Interest:** High OI at a strike = strong support or resistance.
 
-**Implied Volatility:**
-The market's expectation of future price movement.
-High IV = expensive options (sell premium).
-Low IV = cheap options (buy premium).
+**Implied Volatility:** Market expectation of future movement.
+High IV = expensive options. Low IV = cheap options.
 """)
