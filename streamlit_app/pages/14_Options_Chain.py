@@ -158,22 +158,37 @@ def compute_max_pain(options_df):
     Max Pain = strike where total option value is minimized.
     This is the price where most options expire worthless.
     """
-    strikes = sorted(options_df["Strike"].unique())
+    strikes    = sorted(options_df["Strike"].unique())
     total_pain = []
 
     for s in strikes:
+        s = float(s)
+
+        # Call pain: for each strike K, if K < s then call holders lose (s-K)*OI
+        ce_oi  = options_df["CE_OI"].fillna(0).values.astype(float)
+        pe_oi  = options_df["PE_OI"].fillna(0).values.astype(float)
+        k_vals = options_df["Strike"].values.astype(float)
+
+        # Call options pain at expiry price s:
+        # Call buyer loses when K > s (out of money)
+        # Call seller gains = (s - K) * OI when s > K
         call_pain = float(
-            (options_df["Strike"].clip(upper=s) - s).clip(lower=0) *
-            options_df["CE_OI"] * (-1)
-        ).sum()
-        call_pain = float(
-            ((s - options_df["Strike"]).clip(lower=0) *
-             options_df["CE_OI"]).sum()
+            sum(
+                max(0.0, s - k) * oi
+                for k, oi in zip(k_vals, ce_oi)
+            )
         )
+
+        # Put options pain at expiry price s:
+        # Put buyer loses when K < s (out of money)
+        # Put seller gains = (K - s) * OI when K > s
         put_pain = float(
-            ((options_df["Strike"] - s).clip(lower=0) *
-             options_df["PE_OI"]).sum()
+            sum(
+                max(0.0, k - s) * oi
+                for k, oi in zip(k_vals, pe_oi)
+            )
         )
+
         total_pain.append({
             "Strike":     s,
             "Total_Pain": call_pain + put_pain
@@ -181,7 +196,8 @@ def compute_max_pain(options_df):
 
     pain_df = pd.DataFrame(total_pain)
     if pain_df.empty:
-        return 0
+        return 0.0
+
     max_pain_strike = float(
         pain_df.loc[pain_df["Total_Pain"].idxmin(), "Strike"]
     )
@@ -475,23 +491,29 @@ with tab2:
         "This benefits option sellers (usually institutional players)."
     )
 
-    pain_rows = []
+pain_rows    = []
     strikes_list = sorted(options_df["Strike"].unique())
+    k_vals       = options_df["Strike"].values.astype(float)
+    ce_oi_vals   = options_df["CE_OI"].fillna(0).values.astype(float)
+    pe_oi_vals   = options_df["PE_OI"].fillna(0).values.astype(float)
 
     for s in strikes_list:
-        ce_pain = float(
-            ((s - options_df["Strike"]).clip(lower=0) *
-             options_df["CE_OI"]).sum()
-        )
-        pe_pain = float(
-            ((options_df["Strike"] - s).clip(lower=0) *
-             options_df["PE_OI"]).sum()
-        )
+        s = float(s)
+
+        ce_pain = float(sum(
+            max(0.0, s - k) * oi
+            for k, oi in zip(k_vals, ce_oi_vals)
+        ))
+        put_pain = float(sum(
+            max(0.0, k - s) * oi
+            for k, oi in zip(k_vals, pe_oi_vals)
+        ))
+
         pain_rows.append({
-            "Strike":     float(s),
+            "Strike":     s,
             "Call_Pain":  ce_pain,
-            "Put_Pain":   pe_pain,
-            "Total_Pain": ce_pain + pe_pain
+            "Put_Pain":   put_pain,
+            "Total_Pain": ce_pain + put_pain
         })
 
     pain_df = pd.DataFrame(pain_rows)
