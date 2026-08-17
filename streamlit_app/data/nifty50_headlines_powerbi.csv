@@ -1,401 +1,401 @@
 Ticker,Company,Headline,Label,Confidence,Polarity,Model
-RELIANCE.NS,Reliance Industries,Reliance Industries Share Price - Live NSE: RELIANCE Stock Price & Chart,positive,0.6364,0.1364,TextBlob
-RELIANCE.NS,Reliance Industries,RELIANCE Share Price Today - Reliance Industries Stock Analysis,neutral,0.5,0.0,TextBlob
+RELIANCE.NS,Reliance Industries,"Market News: Share Market Today, NIFTY, BSE/NSE LIVE, Sensex Today, Latest Share Market News Live Updates",positive,0.7576,0.2576,TextBlob
 RELIANCE.NS,Reliance Industries,IPO: Reliance Jio announces what may be India's biggest-ever share sale,neutral,0.5,0.0,TextBlob
+RELIANCE.NS,Reliance Industries,Reliance Industries Shares Remain Under Pressure After SEBI Administrative Warning Over Alleged Insider Trading,negative,0.6,-0.1,TextBlob
 RELIANCE.NS,Reliance Industries,Is It Smart To Buy Reliance Industries Limited (NSE:RELIANCE) Before It Goes Ex-Dividend?,positive,0.5714,0.0714,TextBlob
-RELIANCE.NS,Reliance Industries,Reliance Industries share price rises 2.5% despite stock market crash. Do you own?,positive,1.0,0.6,TextBlob
 RELIANCE.NS,Reliance Industries,Reliance Industries shares climb nearly 3% as Jio files for IPO,positive,0.6,0.1,TextBlob
-RELIANCE.NS,Reliance Industries,Reliance AGM Puts Jio IPO in Focus After India NSE’s Filing,neutral,0.5,0.0,TextBlob
-RELIANCE.NS,Reliance Industries,"Stocks to Watch Today: Reliance Industries, ICICI Bank, HDFC Bank, NATCO Pharma, Oberoi Realty, RBL Bank,...",neutral,0.5,0.0,TextBlob
-TCS.NS,TCS Tata Consultancy,"TCS, Titan, Tata Consumer fall up to 5% after Chandrasekaran resigns as Tata Sons chairman",neutral,0.5,0.0,TextBlob
+RELIANCE.NS,Reliance Industries,"Stock market crash: Reliance Industries, TCS, RVNL, Wipro among 82 stocks that hit 52-week low on NSE",neutral,0.5,0.0,TextBlob
+RELIANCE.NS,Reliance Industries,Reliance up marginally ahead of AGM; Motilal Oswal reiterates 'Buy' rating,neutral,0.5,0.0,TextBlob
+RELIANCE.NS,Reliance Industries,Indian shares extend losses as investors book profits in thin year-end trade; Reliance drags,negative,0.9,-0.4,TextBlob
 TCS.NS,TCS Tata Consultancy,Tata Group stocks fall; TCS tumbles nearly 6%,positive,0.6,0.1,TextBlob
-TCS.NS,TCS Tata Consultancy,"IT shares crash after three-day rally, TCS nosedives 8 per cent",neutral,0.5,0.0,TextBlob
 TCS.NS,TCS Tata Consultancy,Investors in Tata Consultancy Services (NSE:TCS) have unfortunately lost 21% over the last year,negative,0.75,-0.25,TextBlob
+TCS.NS,TCS Tata Consultancy,"IT shares crash after three-day rally, TCS nosedives 8 per cent",neutral,0.5,0.0,TextBlob
 TCS.NS,TCS Tata Consultancy,India IT stocks climb as strong TCS earnings lift sector sentiment,positive,0.9333,0.4333,TextBlob
+TCS.NS,TCS Tata Consultancy,TCS shares slide to 6-year low after 9% crash; what lies ahead?,neutral,0.5,0.0,TextBlob
 TCS.NS,TCS Tata Consultancy,"TCS dips 2%, trades near 6-year low ahead of Q1 results; IT sector in focus",neutral,0.55,0.05,TextBlob
 TCS.NS,TCS Tata Consultancy,TCS share price falls 2% ahead of Q1 results 2026. Should you buy or sell?,neutral,0.5,0.0,TextBlob
-TCS.NS,TCS Tata Consultancy,"Stock market crash: TCS, IRCTC, Tata Technologies among 140 stocks that hit 52-week low on NSE",neutral,0.5,0.0,TextBlob
-HDFCBANK.NS,HDFC Bank,"Stocks to watch, July 28: Coforge, Happiest Minds, HUL, Coal India, HDFC Bank, IndiGo, Tata Power, L&T",neutral,0.5,0.0,TextBlob
+TCS.NS,TCS Tata Consultancy,"TCS Q1 dividend: IT major declares ₹12/share interim dividend for shareholders; check record, payment dates",positive,0.5625,0.0625,TextBlob
+HDFCBANK.NS,HDFC Bank,"HDFC Bank Ltd Share Price Today,, HDFCBANK Share Price NSE, BSE",neutral,0.5,0.0,TextBlob
+HDFCBANK.NS,HDFC Bank,HDFC Nifty Private Bank ETF Share Price Today – HDFCPVTBAN (Live NSE/BSE),positive,0.5682,0.0682,TextBlob
+HDFCBANK.NS,HDFC Bank,Indian shares rise to 10-week high; HDFC Bank leads after strong Q1 growth,positive,0.7967,0.2967,TextBlob
+HDFCBANK.NS,HDFC Bank,HDFC Bank shares tumble 7% in two sessions after Q1; what's spooking investors?,neutral,0.5,0.0,TextBlob
 HDFCBANK.NS,HDFC Bank,"HDFC Bank shares tumble 7% in 2 days after Q1; ₹80,000-cr m-cap wiped out",neutral,0.5,0.0,TextBlob
 HDFCBANK.NS,HDFC Bank,"HDFC Bank shares extend fall for second day, top Nifty loser today despite Street's bullish view",positive,0.75,0.25,TextBlob
-HDFCBANK.NS,HDFC Bank,"Markets Drift Lower Led By HDFC Bank, Foreign Fund Outflows, US-Iran Conflict Weigh On Sentiment",negative,0.625,-0.125,TextBlob
+HDFCBANK.NS,HDFC Bank,HDFC Bank shares tank over 5% as Q1 earnings disappoint on margin front,neutral,0.5,0.0,TextBlob
 HDFCBANK.NS,HDFC Bank,Bear territory! HDFC Bank shares plunge over 21% from all-time high. Top 5 brokerages weigh in,positive,0.83,0.33,TextBlob
-HDFCBANK.NS,HDFC Bank,HDFC Bank Stock Leads This India Watchlist as Volatility Tests Bank and Gas Shares,neutral,0.5,0.0,TextBlob
-HDFCBANK.NS,HDFC Bank,HDFC Bank shares drop 2% on report of probe into Rs 45-crore interest payments,neutral,0.5,0.0,TextBlob
-HDFCBANK.NS,HDFC Bank,HDFC Bank Tops NSE Most Active Equities By Value On June 1,positive,0.6833,0.1833,TextBlob
-INFY.NS,Infosys,"Infosys shares fall 2%, top Nifty loser after Q1 miss, guidance cut; brokerages remain largely cautious",positive,0.8571,0.3571,TextBlob
-INFY.NS,Infosys,"Infosys shares down 5%, hit 52-week low: Why IT stock tumbled after Q4 results",negative,0.5778,-0.0778,TextBlob
 INFY.NS,Infosys,"Infosys (NSE:INFY) Shares Gain 3.7% Despite Guidance Cut, Lifted by Sector Rebalancing",neutral,0.5,0.0,TextBlob
+INFY.NS,Infosys,"Red Flags For IT: TCS, Infosys Drop 2% As Weak Guidance, High Valuations Spooks Investors",negative,0.5717,-0.0717,TextBlob
+INFY.NS,Infosys,"Infosys shares down 5%, hit 52-week low: Why IT stock tumbled after Q4 results",negative,0.5778,-0.0778,TextBlob
+INFY.NS,Infosys,"Infosys stock ratings downgraded: Brokerages turn cautious after Q1 miss, guidance cut; check target...",neutral,0.5,0.0,TextBlob
 INFY.NS,Infosys,Infosys Limited (NSE:INFY) Stock's Been Sliding But Fundamentals Look Decent: Will The Market Correct The Share Price In The Future?,neutral,0.5317,0.0317,TextBlob
 INFY.NS,Infosys,"Stocks to watch: Infosys, IndiGo, BPCL among shares in focus today; check list here",neutral,0.5,0.0,TextBlob
-INFY.NS,Infosys,"Red Flags For IT: TCS, Infosys Drop 2% As Weak Guidance, High Valuations Spooks Investors",negative,0.5717,-0.0717,TextBlob
-INFY.NS,Infosys,"Infosys, TCS, Tech Mahindra rally as Nifty IT surges 3% ahead of Q1 earnings kick-off",neutral,0.5,0.0,TextBlob
 INFY.NS,Infosys,Infosys share price today: Stock falls around 4% after Q4 numbers; what’s the outlook? Brokerages share r,neutral,0.5,0.0,TextBlob
+INFY.NS,Infosys,INFY Forecast — Price Target — Prediction for 2027,neutral,0.5,0.0,TextBlob
 ICICIBANK.NS,ICICI Bank,ICICIBANK Share Price Today - ICICI Bank Stock Analysis,neutral,0.5,0.0,TextBlob
+ICICIBANK.NS,ICICI Bank,ICICI Bank Share Price - Live NSE: ICICIBANK Stock Price & Chart,positive,0.6364,0.1364,TextBlob
 ICICIBANK.NS,ICICI Bank,Here's Why We Think ICICI Bank (NSE:ICICIBANK) Might Deserve Your Attention Today,neutral,0.5,0.0,TextBlob
 ICICIBANK.NS,ICICI Bank,"Mcap of 8 most valued firms surges by ₹1.90 trn, ICICI Bank shines",positive,1.0,0.5,TextBlob
 ICICIBANK.NS,ICICI Bank,"NSE sees ₹1,276 cr turnover in closing auction session; ICICI Bank, HDFC Bank among top traded stocks",positive,1.0,0.5,TextBlob
 ICICIBANK.NS,ICICI Bank,ICICIBANK Forecast — Price Target — Prediction for 2027,neutral,0.5,0.0,TextBlob
+ICICIBANK.NS,ICICI Bank,ICICI Bank Share Price Target 2026 — Analyst Forecast & Outlook,neutral,0.5,0.0,TextBlob
 ICICIBANK.NS,ICICI Bank,"Stocks to Watch Today: Reliance Industries, ICICI Bank, HDFC Bank, NATCO Pharma, Oberoi Realty, RBL Bank,...",neutral,0.5,0.0,TextBlob
-ICICIBANK.NS,ICICI Bank,India's ICICI Prudential AMC notches $14.4 billion valuation on trading-debut spike,neutral,0.5,0.0,TextBlob
-ICICIBANK.NS,ICICI Bank,ICICI Bank fixes August 3 as record date for dividend of ₹12/share; check AGM schedule,neutral,0.5,0.0,TextBlob
-HINDUNILVR.NS,Hindustan Unilever,HINDUNILVR Share Price Today - Hindustan Unilever Stock Analysis,neutral,0.5,0.0,TextBlob
-HINDUNILVR.NS,Hindustan Unilever,Why did HUL share price jump over 3% today? Check JP Morgan and other analysts' views,negative,0.625,-0.125,TextBlob
+HINDUNILVR.NS,Hindustan Unilever,"HUL Share Price Today, HUL Stock Price Live NSE/BSE Updates",positive,0.6364,0.1364,TextBlob
+HINDUNILVR.NS,Hindustan Unilever,Hindustan Unilever Share Price - Live NSE: HINDUNILVR Stock Price & Chart,positive,0.6364,0.1364,TextBlob
+HINDUNILVR.NS,Hindustan Unilever,"Stock Market News: Markets decline in early trade amid rising crude oil prices, Sensex falls 285 points to 77",negative,0.8,-0.3,TextBlob
+HINDUNILVR.NS,Hindustan Unilever,Hindustan Unilever Share Price Target 2026 — Analyst Forecast & Rural Recovery,neutral,0.5,0.0,TextBlob
 HINDUNILVR.NS,Hindustan Unilever,Hindustan Unilever rallies 6% in 2 days; what's driving FMCG stock?,neutral,0.5,0.0,TextBlob
-HINDUNILVR.NS,Hindustan Unilever,HINDUNILVR Forecast — Price Target — Prediction for 2027,neutral,0.5,0.0,TextBlob
 HINDUNILVR.NS,Hindustan Unilever,Should Weakness in Hindustan Unilever Limited's (NSE:HINDUNILVR) Stock Be Seen As A Sign That Market Will Correct The Share Price Given Decent Financials?,neutral,0.5476,0.0476,TextBlob
 HINDUNILVR.NS,Hindustan Unilever,"Kwality Wall’s (India) Share Price List At NSE, BSE After HUL Demerger",neutral,0.5,0.0,TextBlob
-HINDUNILVR.NS,Hindustan Unilever,Hindustan Unilever - Stocks to buy: Goldman Sachs lists top 7 quality stocks that look attractively priced,positive,1.0,0.65,TextBlob
-HINDUNILVR.NS,Hindustan Unilever,Kwality Wall''s Stock Debuts After HUL Demerger,neutral,0.5,0.0,TextBlob
+HINDUNILVR.NS,Hindustan Unilever,Hindustan Unilever - 10 large-cap stocks deliver record quarterly profits over 10 quarters,neutral,0.5,0.0,TextBlob
+ITC.NS,ITC Limited,ITC HOTELS LIMITED Share Price - Live NSE: ITCHOTELS Stock Price & Chart,neutral,0.5325,0.0325,TextBlob
 ITC.NS,ITC Limited,ITC Limited's (NSE:ITC) Shares May Have Run Too Fast Too Soon,positive,0.5643,0.0643,TextBlob
-ITC.NS,ITC Limited,"Stock market fall: RVNL, ITC, Swiggy, Britannia among 70 stocks that hit 52-week low on NSE",neutral,0.5,0.0,TextBlob
-ITC.NS,ITC Limited,ITC Ltd Records ₹16.62 Crore Block Trade on NSE at ₹293.10 Per Share,neutral,0.5,0.0,TextBlob
+ITC.NS,ITC Limited,"ITC stock nears 52-week low; slips 8% in 1 month, down 21% thus far in 2026",neutral,0.5185,-0.0185,TextBlob
+ITC.NS,ITC Limited,"ITC Limited sets July 23 for 115th AGM, recommends ₹8 dividend",negative,0.5714,-0.0714,TextBlob
 ITC.NS,ITC Limited,ITC Limited (NSE:ITC) Stock's Been Sliding But Fundamentals Look Decent: Will The Market Correct The Share Price In The Future?,neutral,0.5317,0.0317,TextBlob
 ITC.NS,ITC Limited,"ITC Limited Q4 Results 2026: Date, Revenue Estimates and Share Price Target",negative,0.5714,-0.0714,TextBlob
-ITC.NS,ITC Limited,ITC Ltd gains for fifth session,neutral,0.5,0.0,TextBlob
 ITC.NS,ITC Limited,"Adani Power, Vedanta, ITC: Stocks to trade— Check key levels, target, stop loss & more",positive,0.75,0.25,TextBlob
-ITC.NS,ITC Limited,"ITC Limited sets July 23 for 115th AGM, recommends ₹8 dividend",negative,0.5714,-0.0714,TextBlob
+ITC.NS,ITC Limited,"Stock market fall: RVNL, ITC, Swiggy, Britannia among 70 stocks that hit 52-week low on NSE",neutral,0.5,0.0,TextBlob
 SBIN.NS,State Bank India SBI,SBI Share Price - Live NSE: SBIN Stock Price & Chart,positive,0.6364,0.1364,TextBlob
-SBIN.NS,State Bank India SBI,"NSE aims to launch IPO in mid-September, list by end of month",neutral,0.5,0.0,TextBlob
+SBIN.NS,State Bank India SBI,SBIN Share Price Today - State Bank of India on NSE/BSE,neutral,0.5,0.0,TextBlob
 SBIN.NS,State Bank India SBI,NSE IPO: SBI splits stake sale of 2.47 crore shares; SBICAPS to offload up to 88 lakh shares,neutral,0.5,0.0,TextBlob
+SBIN.NS,State Bank India SBI,SBI Share Pros and Cons 2026: India's Largest PSU Bank Analysed,neutral,0.5,0.0,TextBlob
+SBIN.NS,State Bank India SBI,Why SBI share price falling despite strong Q1 results? Brokerages remain bullish,positive,0.9333,0.4333,TextBlob
 SBIN.NS,State Bank India SBI,SBI Capital Markets to sell up to 8.78 million NSE shares in IPO,neutral,0.5,0.0,TextBlob
 SBIN.NS,State Bank India SBI,"From Rs 2 crore to Rs 5,000 crore! How NSE IPO is a jackpot for SBI with 256,775% profit",neutral,0.5,0.0,TextBlob
-SBIN.NS,State Bank India SBI,Bank of India (BANKINDIA) Share Price,neutral,0.5,0.0,TextBlob
-SBIN.NS,State Bank India SBI,Why SBI share price falling despite strong Q1 results? Brokerages remain bullish,positive,0.9333,0.4333,TextBlob
-SBIN.NS,State Bank India SBI,NSE IPO update: SBI Capital Markets to offload up to 88 lakh shares as SBI splits stake sale,neutral,0.5,0.0,TextBlob
-BHARTIARTL.NS,Bharti Airtel,"Stocks to watch, August 5: Rate-sensitive stocks, BSE, Bharti Airtel, LIC, Nykaa, ONGC, Power Grid",neutral,0.5,0.0,TextBlob
+SBIN.NS,State Bank India SBI,"SBI shares fall 10% in two days post-Q4 results, brokerages say margins disappoint; should you buy, sell or hold?",neutral,0.5,0.0,TextBlob
+BHARTIARTL.NS,Bharti Airtel,"Dividends, bonus issues, stock splits this week: Bharti Airtel, Hero MotoCorp, Info Edge, Pidilite, Divi's Labs, Abbott India, others in focus",neutral,0.5,0.0,TextBlob
 BHARTIARTL.NS,Bharti Airtel,"Infosys, ICICI Bank, Bharti Airtel lead NSE’s second day of closing auction amid expiry-day distortions",neutral,0.5,0.0,TextBlob
-BHARTIARTL.NS,Bharti Airtel,"Stocks in news: Bharti Airtel, Vodafone Idea, NLC India, Motilal Oswal, HCL Tech",neutral,0.5,0.0,TextBlob
 BHARTIARTL.NS,Bharti Airtel,3 Indian Telecom Stocks With Strong Margins And Rich P E,positive,0.9042,0.4042,TextBlob
-BHARTIARTL.NS,Bharti Airtel,Bharti Airtel gets shareholders' nod to increase stake in Africa business; how much does the telecom arm earn?,positive,0.7,0.2,TextBlob
 BHARTIARTL.NS,Bharti Airtel,Bharti Airtel: Tariff hike key trigger; Morgan Stanley 'OW' for 34% upside,neutral,0.5,0.0,TextBlob
-BHARTIARTL.NS,Bharti Airtel,Bharti Airtel Sees Rs. 38.17 Crore Block Trade on NSE at Rs. 1832.50 Per Share,neutral,0.5,0.0,TextBlob
+BHARTIARTL.NS,Bharti Airtel,"Stocks in news: Bharti Airtel, Vodafone Idea, NLC India, Motilal Oswal, HCL Tech",neutral,0.5,0.0,TextBlob
 BHARTIARTL.NS,Bharti Airtel,"Reliance Industries, Bharti Airtel, Waaree: Stocks to buy— price targets, stop loss & more",positive,1.0,0.5,TextBlob
+BHARTIARTL.NS,Bharti Airtel,Bharti Airtel gets shareholders' nod to increase stake in Africa business; how much does the telecom arm earn?,positive,0.7,0.2,TextBlob
+BHARTIARTL.NS,Bharti Airtel,"Bharti Airtel hits over 4-month low, down 2%; what's making Street nervous?",negative,0.5778,-0.0778,TextBlob
 KOTAKBANK.NS,Kotak Mahindra Bank,Kotak Mahindra Bank shares fall over 3% after Q1 update; advances jump 15% to Rs 5.12 lakh crore,neutral,0.5,0.0,TextBlob
-KOTAKBANK.NS,Kotak Mahindra Bank,AU Small Finance Bank Ltd (AUBANK) Share Price,negative,0.75,-0.25,TextBlob
+KOTAKBANK.NS,Kotak Mahindra Bank,"Upcoming dividends, bonus issues, stock splits this week: TCS, Kotak Mahindra Bank, BHEL, Dabur India, MRF, UTI AMC, others in focus",neutral,0.5,0.0,TextBlob
 KOTAKBANK.NS,Kotak Mahindra Bank,"Kotak Mahindra Bank Stock Prediction 2026: Analyst Target, Forecast and Key Levels",neutral,0.5,0.0,TextBlob
-KOTAKBANK.NS,Kotak Mahindra Bank,"Kotak Mahindra Bank to acquire Deutsche Bank India’s retail, private banking, wealth management business; key details",neutral,0.5,0.0,TextBlob
+KOTAKBANK.NS,Kotak Mahindra Bank,"HDFC Bank Ltd Share Price Today,, HDFCBANK Share Price NSE, BSE",neutral,0.5,0.0,TextBlob
 KOTAKBANK.NS,Kotak Mahindra Bank,Kotak Secures 9.99% Federal Bank Stake in Surprise RBI Move,neutral,0.5,0.0,TextBlob
 KOTAKBANK.NS,Kotak Mahindra Bank,Stocks to buy or sell: Dharmesh Shah of ICICI Sec suggests buying Kotak Mahindra Bank shares on 22 June,negative,0.6,-0.1,TextBlob
 KOTAKBANK.NS,Kotak Mahindra Bank,Kotak Mahindra Bank marks 30 years of listing on National Stock Exchange,neutral,0.5,0.0,TextBlob
 KOTAKBANK.NS,Kotak Mahindra Bank,"Kotak Mahindra Bank Limited's (NSE:KOTAKBANK) large institutional owners must be happy as stock continues to impress, up 3.2% over the past week",positive,0.6732,0.1732,TextBlob
+LT.NS,Larsen Toubro,Larsen & Toubro Share Price - Live NSE: LT Stock Price & Chart,positive,0.6364,0.1364,TextBlob
+LT.NS,Larsen Toubro,"Coal India, L&T among 20 firms bidding for ₹7,280 crore rare earth magnet scheme; shares in focus",positive,0.8,0.3,TextBlob
 LT.NS,Larsen Toubro,Larsen & Toubro's (NSE:LT) investors will be pleased with their strong 192% return over the last five years,positive,0.8111,0.3111,TextBlob
 LT.NS,Larsen Toubro,Larsen & Toubro shares jump 8% in trade; what's driving investor interest?,neutral,0.5,0.0,TextBlob
 LT.NS,Larsen Toubro,"Stocks to Watch Today: Graphite India, Rail Vikas Nigam, Larsen and Toubro, Birlasoft, Tata Capital,...",neutral,0.5,0.0,TextBlob
 LT.NS,Larsen Toubro,Larsen & Toubro Receives BSE and NSE Observation Letters for Proposed Scheme of Arrangement,neutral,0.5,0.0,TextBlob
-LT.NS,Larsen Toubro,"Larsen & Toubro surges nearly 2%, shares hit fresh record high; here is why",positive,0.6867,0.1867,TextBlob
-LT.NS,Larsen Toubro,"L&T Hits 52-Week High on ₹2,500 Cr Orders",positive,0.66,0.16,TextBlob
-LT.NS,Larsen Toubro,"Larsen & Toubro (L&T) Stock on 13 December 2025: Goldman Sachs Upgrades to Buy, ₹6,297 Crore Realty Rejig, and the Latest Analyst Targets",positive,1.0,0.5,TextBlob
 LT.NS,Larsen Toubro,"Stocks to Watch Today: Vedanta, Larsen and Toubro, Indian Hume Pipe, Bajaj Finance, Schaeffler India,...",neutral,0.5,0.0,TextBlob
-AXISBANK.NS,Axis Bank,Axis Bank allots shares under employee stock option plan By Investing.com,neutral,0.5,0.0,TextBlob
+LT.NS,Larsen Toubro,Larsen & Toubro falls 22% since West Asia war; here's what analyst suggests,neutral,0.5,0.0,TextBlob
+AXISBANK.NS,Axis Bank,Weekly Recap: US$600M GMTN senior notes and 38% corporate loan growth,neutral,0.5,0.0,TextBlob
 AXISBANK.NS,Axis Bank,"Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today",positive,0.6481,0.1481,TextBlob
 AXISBANK.NS,Axis Bank,"Axis Bank falls 5% as analysts cut estimates post Q1 show; buy, sell, hold?",neutral,0.5,0.0,TextBlob
-AXISBANK.NS,Axis Bank,Axis Bank Shares Slide Over 5% Despite Strong Q1 Profit Growth on Margin Concerns,positive,0.9333,0.4333,TextBlob
-AXISBANK.NS,Axis Bank,"Sensex settles 400 pts lower, Nifty ends below 24,250: Selling in HDFC, Axis Bank shares among key factors...",neutral,0.5,0.0,TextBlob
+AXISBANK.NS,Axis Bank,"HDFC Bank Ltd Share Price Today,, HDFCBANK Share Price NSE, BSE",neutral,0.5,0.0,TextBlob
+AXISBANK.NS,Axis Bank,"Top gainers and losers, July 20: Axis Bank, HDFC Bank shares drop over 5%, Trent up 3%; check full list",positive,0.7167,0.2167,TextBlob
+AXISBANK.NS,Axis Bank,Axis Bank secures listing approval for US$300 million senior notes at 5.348%,neutral,0.5,0.0,TextBlob
+AXISBANK.NS,Axis Bank,"HDFC Bank, Axis Bank drag Sensex down amid margin concerns, US-Iran tensions",negative,0.6278,-0.1278,TextBlob
 AXISBANK.NS,Axis Bank,Why Is Axis Bank Share Price Falling? Key Reasons 2026,neutral,0.5,0.0,TextBlob
-AXISBANK.NS,Axis Bank,"Sensex Declines By 443 Points On Heavy Selling In HDFC Bank, Axis Bank",negative,0.7,-0.2,TextBlob
-AXISBANK.NS,Axis Bank,Axis Bank Limited (NSE:AXISBANK) is a favorite amongst institutional investors who own 63%,positive,0.8429,0.3429,TextBlob
 ASIANPAINT.NS,Asian Paints,Asian Paints shares jump 3% after Q4 beat; brokerages see up to 34% upside but divided on outlook,neutral,0.5,0.0,TextBlob
 ASIANPAINT.NS,Asian Paints,Investing in Asian Paints (NSE:ASIANPAINT) a year ago would have delivered you a 21% gain,neutral,0.5,0.0,TextBlob
+ASIANPAINT.NS,Asian Paints,"Oil-linked stocks split: HPCL, Indian Oil, Asian Paints, IndiGo decline; ONGC, OIL gain as crude jumps",negative,0.85,-0.35,TextBlob
 ASIANPAINT.NS,Asian Paints,Asian Paints Ltd. Share Price Today - Asian Paints Ltd. Stock Price Live NSE/BSE,neutral,0.5455,0.0455,TextBlob
-ASIANPAINT.NS,Asian Paints,"Asian Paints, Berger, Indigo Paints: Can paint stocks weather crude price fluctuations?",negative,0.85,-0.35,TextBlob
+ASIANPAINT.NS,Asian Paints,Asian Paints Share Price Target 2026: Volume Recovery and Margin Outlook,neutral,0.5,0.0,TextBlob
 ASIANPAINT.NS,Asian Paints,"Dividend stocks: LIC, Asian Paints, 28 others to remain in focus next week",neutral,0.5,0.0,TextBlob
-ASIANPAINT.NS,Asian Paints,"Asian Paints Q4 Results 2026: Date, Revenue Estimates, Key Catalysts & Share Price Target",neutral,0.5,0.0,TextBlob
-ASIANPAINT.NS,Asian Paints,Asian Paints promoter Smiti Holding discloses share pledge details,neutral,0.5,0.0,TextBlob
-ASIANPAINT.NS,Asian Paints,"While institutions own 30% of Asian Paints Limited (NSE:ASIANPAINT), private companies are its largest shareholders with 40% ownership",positive,0.6321,0.1321,TextBlob
+ASIANPAINT.NS,Asian Paints,"Asian Paints Q4 Results: Date, Dividend News, Earnings Call Details And Share Price History",neutral,0.5,0.0,TextBlob
+ASIANPAINT.NS,Asian Paints,"Berger Paints hits 3-month high on strong Q4 results; Asian Paints, others see rub-off effect, rise up to...",positive,0.6978,0.1978,TextBlob
 MARUTI.NS,Maruti Suzuki,Should You Buy Maruti Suzuki India Limited (NSE:MARUTI) For Its Upcoming Dividend?,negative,0.5714,-0.0714,TextBlob
 MARUTI.NS,Maruti Suzuki,"Will Maruti reclaim ₹15,000-mark in next 3 months? Analyst flags key hurdle",neutral,0.5,0.0,TextBlob
 MARUTI.NS,Maruti Suzuki,Maruti Suzuki Share Slips 2.45% as Sell-Side Pressure Weighs; Automaker Onboards Five Start-ups,neutral,0.5,0.0,TextBlob
 MARUTI.NS,Maruti Suzuki,"Maruti Suzuki India stock jumps 4%, top Nifty gainer today as Jefferies upgrades to 'Buy'; check target...",positive,1.0,0.5,TextBlob
-MARUTI.NS,Maruti Suzuki,Maruti Suzuki India Ltd. Share Price Today - Maruti Suzuki India Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
 MARUTI.NS,Maruti Suzuki,"Maruti shares jump 5% post Q4, FY26 results: From record annual profit to ₹14K cr FY27 capex, check concall highlights",neutral,0.5,0.0,TextBlob
-MARUTI.NS,Maruti Suzuki,"Maruti Suzuki India Records ₹51.10 Crore NSE Block Trade at ₹16,399 Per Share",neutral,0.5,0.0,TextBlob
+MARUTI.NS,Maruti Suzuki,"Top stocks in news: Maruti Suzuki, Bandhan Bank, Indian Hotels, Auro Pharma, Mastek, AB Capital",positive,1.0,0.5,TextBlob
 MARUTI.NS,Maruti Suzuki,Is Now The Time To Put Maruti Suzuki India (NSE:MARUTI) On Your Watchlist?,neutral,0.5,0.0,TextBlob
+MARUTI.NS,Maruti Suzuki,Maruti Suzuki shares gain 5% on Q4 show; analysts project up to 22% upside,neutral,0.5,0.0,TextBlob
 SUNPHARMA.NS,Sun Pharma,Top 14 Pharma Stocks To Buy In India August 2026,positive,1.0,0.5,TextBlob
-SUNPHARMA.NS,Sun Pharma,"Sun Pharma gets NSE, BSE nod to reclassify Valia family as public shareholders",neutral,0.5,0.0,TextBlob
+SUNPHARMA.NS,Sun Pharma,"Sun Pharma, Cipla, other pharma stocks decline as Trump unveils steep tariff plan on generic drugs: Key FAQs answered",neutral,0.5417,-0.0417,TextBlob
 SUNPHARMA.NS,Sun Pharma,Sun Pharmaceutical Industries Limited's (NSE:SUNPHARMA) Share Price Not Quite Adding Up,negative,0.5714,-0.0714,TextBlob
-SUNPHARMA.NS,Sun Pharma,"Sun Pharma, TVS Motor, Nestle, Divis among 11 BSE 500 stocks at new highs",positive,0.6364,0.1364,TextBlob
+SUNPHARMA.NS,Sun Pharma,Sun Pharma shares slip post Q4; analysts cautious on near-term upside,neutral,0.5,0.0,TextBlob
+SUNPHARMA.NS,Sun Pharma,"Sun Pharma gets NSE, BSE nod to reclassify Valia family as public shareholders",neutral,0.5,0.0,TextBlob
 SUNPHARMA.NS,Sun Pharma,"Nifty Pharma crashes nearly 2%; Cipla, Dr Reddy's among top Nifty losers after Trump's tariff plan",positive,0.6333,0.1333,TextBlob
 SUNPHARMA.NS,Sun Pharma,Sun Pharma - 6 pharma stocks that Bernstein sees up to 40% upside potential. Do you own any?,positive,0.8,0.3,TextBlob
-SUNPHARMA.NS,Sun Pharma,Best Pharma Stocks in India 2026,positive,1.0,1.0,TextBlob
-SUNPHARMA.NS,Sun Pharma,Sun Pharma signs Definitive Agreement to Acquire Organon,neutral,0.5,0.0,TextBlob
+SUNPHARMA.NS,Sun Pharma,Sun Pharma Share Price Target 2026 — Analyst Forecast & Pharma Outlook,neutral,0.5,0.0,TextBlob
 TITAN.NS,Titan Company,"Hitachi Energy India, Titan Company, Ola Electric among buzzing stocks as SENSEX, NIFTY50 trade flat in noon deals",neutral,0.525,-0.025,TextBlob
 TITAN.NS,Titan Company,"Stocks to Watch Today: Titan, Oil India, Signature Global, Emcure Pharma, RITES, Anawil Wire, Anant Raj,...",neutral,0.5,0.0,TextBlob
-TITAN.NS,Titan Company,"Stocks to buy in 2026 for long term: IOC, Titan Company among 5 stocks that could give 10-40% return",neutral,0.55,-0.05,TextBlob
 TITAN.NS,Titan Company,"Titan eyes 2x growth by FY30; analysts back expansion plans, mkt share gain",neutral,0.5,0.0,TextBlob
-TITAN.NS,Titan Company,"Titan Falls 6%: JP Morgan Upgrades to ₹5,400 Despite Miss",neutral,0.5,0.0,TextBlob
+TITAN.NS,Titan Company,Why organized players like Titan Company could emerge bigger winners in India’s evolving gold market,neutral,0.5,0.0,TextBlob
 TITAN.NS,Titan Company,Best Gold Stocks in India 2025,positive,1.0,1.0,TextBlob
 TITAN.NS,Titan Company,"India raised gold, silver import tariffs: The implications for Titan",neutral,0.5,0.0,TextBlob
 TITAN.NS,Titan Company,Titan Share Price Target 2026 — Analyst Forecast and Jewellery Growth,neutral,0.5,0.0,TextBlob
-ULTRACEMCO.NS,UltraTech Cement,ULTRACEMCO Share Price Today - UltraTech Cement on NSE/BSE,neutral,0.5,0.0,TextBlob
+TITAN.NS,Titan Company,"Titan Falls 6%: JP Morgan Upgrades to ₹5,400 Despite Miss",neutral,0.5,0.0,TextBlob
 ULTRACEMCO.NS,UltraTech Cement,UltraTech Cement slips 2% amid block deal; over 2.5 mn shares change hands,neutral,0.5,0.0,TextBlob
-ULTRACEMCO.NS,UltraTech Cement,Top 17 Cement Stocks To Buy In India August 2026,positive,1.0,0.5,TextBlob
 ULTRACEMCO.NS,UltraTech Cement,"UltraTech Cement Limited (NSE:ULTRACEMCO) Looks Interesting, And It's About To Pay A Dividend",positive,0.7143,0.2143,TextBlob
+ULTRACEMCO.NS,UltraTech Cement,Top 17 Cement Stocks To Buy In India August 2026,positive,1.0,0.5,TextBlob
+ULTRACEMCO.NS,UltraTech Cement,"UltraTech Cement shares climb 2% as Q1 profit soars 17% YoY to ₹2,599 crore; here’s what analysts say",neutral,0.5,0.0,TextBlob
 ULTRACEMCO.NS,UltraTech Cement,Q1 results 2026: Paytm to UltraTech Cement among companies to declare Q1 results today; full list here,positive,0.85,0.35,TextBlob
-ULTRACEMCO.NS,UltraTech Cement,"UltraTech Cement Share Price Fall 2.97% to Close at ₹12,664 Amid Broad Sector Weakness",positive,0.5625,0.0625,TextBlob
-ULTRACEMCO.NS,UltraTech Cement,UltraTech Cement Q1 FY27 net profit rises 17.2%; net sales grow 16% on strong volume growth,positive,0.6444,0.1444,TextBlob
-ULTRACEMCO.NS,UltraTech Cement,"Ultratech Cement, Hindalco, Grasim Industries, JSW Steel, among top gainers on March 16 amid volatile market; NIFTY50 trades above 23,100",positive,0.75,0.25,TextBlob
+ULTRACEMCO.NS,UltraTech Cement,"UltraTech Cement Share Price Target 2026: Analyst Forecast, Bull & Bear Case",neutral,0.5,0.0,TextBlob
+ULTRACEMCO.NS,UltraTech Cement,UltraTech Cement confirms no encumbrance on India Cements shares as of 31 Mar 2026,neutral,0.5,0.0,TextBlob
+ULTRACEMCO.NS,UltraTech Cement,UltraTech Cement Analyst Review 2026: Key Insights,neutral,0.5,0.0,TextBlob
+BAJFINANCE.NS,Bajaj Finance,Stock Market Bajaj Finance Share Nse Nse Inc Stock Price History Stock Market Current Price Of Bajaj,neutral,0.5,0.0,TextBlob
+BAJFINANCE.NS,Bajaj Finance,Bajaj Housing Share Price - Live NSE: BAJAJHFL Stock Price & Chart,positive,0.6364,0.1364,TextBlob
 BAJFINANCE.NS,Bajaj Finance,Bajaj Finance's 5% crash erodes ₹33K cr from m-cap. What's behind the fall?,negative,0.9,-0.4,TextBlob
 BAJFINANCE.NS,Bajaj Finance,"Bajaj Finance Share Price Surges Nearly 7% as Strong Q1 FY27 Earnings Lift Sensex, Nifty Higher",positive,0.8417,0.3417,TextBlob
-BAJFINANCE.NS,Bajaj Finance,"Top gainers and losers, July 31: Bajaj Finance rallies 8%, Bajaj Finserv jumps 6%, TCS down 3%; check list",neutral,0.5481,0.0481,TextBlob
 BAJFINANCE.NS,Bajaj Finance,Markets trade higher in early deals; Bajaj Finance surges over 6 per cent,positive,0.675,0.175,TextBlob
-BAJFINANCE.NS,Bajaj Finance,Mcap of top-10 most valued firms surges ₹2.51 lakh crore; Bajaj Finance biggest winner,positive,1.0,0.5,TextBlob
-BAJFINANCE.NS,Bajaj Finance,"Bajaj Finance Q1 Results: Date, Time, Dividend News, Earnings Call Schedule And More",positive,1.0,0.5,TextBlob
-BAJFINANCE.NS,Bajaj Finance,Bajaj Finance Ltd. Share Price Today - Bajaj Finance Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
 BAJFINANCE.NS,Bajaj Finance,"Stocks to Watch Today: PB Fintech, Bajaj Finance, CSB Bank, Ujjivan SFB, Marico, Titagarh Rail, BLS...",neutral,0.5,0.0,TextBlob
+BAJFINANCE.NS,Bajaj Finance,Mcap of top-10 most valued firms surges ₹2.51 lakh crore; Bajaj Finance biggest winner,positive,1.0,0.5,TextBlob
+BAJFINANCE.NS,Bajaj Finance,Bajaj Finance Ltd. Share Price Today - Bajaj Finance Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
 WIPRO.NS,Wipro,BSE to replace Wipro in India's benchmark Nifty 50 index,neutral,0.5,0.0,TextBlob
+WIPRO.NS,Wipro,"BSE to Enter Nifty 50, Wipro to Exit From September 30",neutral,0.5,0.0,TextBlob
 WIPRO.NS,Wipro,How Wipro's Nifty exit shows old warhorse Indian IT is losing charm,positive,0.6,0.1,TextBlob
-WIPRO.NS,Wipro,"BSE enters Nifty50, Wipro exits: What changes from September 30",neutral,0.5,0.0,TextBlob
 WIPRO.NS,Wipro,Why BSE shares falling as Wipro set to replace it in Nifty 50,neutral,0.5,0.0,TextBlob
+WIPRO.NS,Wipro,"BSE enters Nifty50, Wipro exits: What changes from September 30",neutral,0.5,0.0,TextBlob
 WIPRO.NS,Wipro,BSE to Replace Wipro in Nifty 50 Index from Sep 30,neutral,0.5,0.0,TextBlob
 WIPRO.NS,Wipro,"Nifty Rejig: BSE to enter Nifty 50, Wipro moves to Nifty Next 50; Hitachi Energy, Polycab join Nifty 100",neutral,0.5,0.0,TextBlob
-WIPRO.NS,Wipro,BSE replaces Wipro in Nifty 50: What drove the index reshuffle?,neutral,0.5,0.0,TextBlob
 WIPRO.NS,Wipro,BSE set to replace Wipro in NIFTY50 from September 30; know key details,neutral,0.5,0.0,TextBlob
+ONGC.NS,ONGC Oil Gas,ONGC Share Price,neutral,0.5,0.0,TextBlob
+ONGC.NS,ONGC Oil Gas,ONGC Share Price Today - Oil & Natural Gas Corpn Stock Analysis,positive,0.6,0.1,TextBlob
 ONGC.NS,ONGC Oil Gas,"BSE Oil & Gas index hits 52-wk high; what's driving ONGC, OIL India stocks?",positive,0.66,0.16,TextBlob
+ONGC.NS,ONGC Oil Gas,"ONGC, Oil India fall up to 2% as Brent crude drops below $90 on Middle East peace hopes",negative,0.85,-0.35,TextBlob
 ONGC.NS,ONGC Oil Gas,"ONGC Share Price Today, ONGC Stock Price Live NSE/BSE Updates",positive,0.6364,0.1364,TextBlob
-ONGC.NS,ONGC Oil Gas,"ONGC, Oil India shares surge over 7% as Centre revises royalty rates for crude oil, natural gas; details here",negative,0.8,-0.3,TextBlob
 ONGC.NS,ONGC Oil Gas,Investors in Oil and Natural Gas (NSE:ONGC) have seen splendid returns of 219% over the past five years,positive,0.7278,0.2278,TextBlob
-ONGC.NS,ONGC Oil Gas,"ONGC, Oil India shares rise up to 9% as govt cuts royalty burden on oil, gas exploration",neutral,0.5,0.0,TextBlob
-ONGC.NS,ONGC Oil Gas,"Oil, Gas Stocks to Buy: ONGC, Indian Oil Among ICICI Securities Top Picks Post Q4 Results — Full List Inside",positive,0.925,0.425,TextBlob
-ONGC.NS,ONGC Oil Gas,"Upstream oil stocks mixed as crude hits $105; RIL, ONGC under pressure",negative,0.85,-0.35,TextBlob
-ONGC.NS,ONGC Oil Gas,Is Oil and Natural Gas (NSE:ONGC) A Risky Investment?,positive,0.6,0.1,TextBlob
-NTPC.NS,NTPC Power,"Suzlon Energy, Waaree Energies, NTPC Green and more: How renewable energy stocks are performing on May 25",positive,0.65,0.15,TextBlob
-NTPC.NS,NTPC Power,"Analysts prefer Tata Power, NTPC amid likely rise in power demand",neutral,0.5,0.0,TextBlob
-NTPC.NS,NTPC Power,NTPC fined Rs 5.31 lakh each by BSE and NSE for Q4FY26,neutral,0.5,0.0,TextBlob
-NTPC.NS,NTPC Power,"IFCI, NTPC Green, HFCL, YES Bank— These are among the top most traded stocks on the NSE today",positive,0.7667,0.2667,TextBlob
-NTPC.NS,NTPC Power,"Adani Power, Acme Solar, IEX, JSW Energy, NTPC, Power Grid shares: Antique's top 2 picks, target prices",positive,1.0,0.5,TextBlob
-NTPC.NS,NTPC Power,"Stocks to Watch Today: Sanathan Textiles, Welspun Corp, Ceigall, JB Chemicals, Waaree Energies, NTPC Green...",negative,0.7,-0.2,TextBlob
-NTPC.NS,NTPC Power,NTPC Green Energy Ltd. Share Price Today - NTPC Green Energy Ltd. Stock Price Live NSE/BSE,negative,0.5879,-0.0879,TextBlob
+ONGC.NS,ONGC Oil Gas,"Why ONGC, Oil India rose 7-9%; CLSA sees 44% upside in one of worst-performing global upstream stocks",positive,0.8,0.3,TextBlob
+ONGC.NS,ONGC Oil Gas,"ONGC, Oil India shares surge over 7% as Centre revises royalty rates for crude oil, natural gas; details here",negative,0.8,-0.3,TextBlob
+NTPC.NS,NTPC Power,"PSU Power Stocks List India 2026: NTPC, Power Grid, SJVNL & Complete Guide",positive,0.6,0.1,TextBlob
 NTPC.NS,NTPC Power,"Power sector: Antique picks NTPC, Adani Power, ACME Solar; here's why",neutral,0.5,0.0,TextBlob
+NTPC.NS,NTPC Power,"Stocks to Watch Today: HDFC Life, Adani Power, TVS Holdings, NTPC Green, Laser Power, India Pesticides,...",negative,0.7,-0.2,TextBlob
+NTPC.NS,NTPC Power,NTPC fined Rs 5.31 lakh each by BSE and NSE for Q4FY26,neutral,0.5,0.0,TextBlob
+NTPC.NS,NTPC Power,"Suzlon Energy, Waaree Energies, NTPC Green and more: How renewable energy stocks are performing on May 25",positive,0.65,0.15,TextBlob
+NTPC.NS,NTPC Power,"IFCI, NTPC Green, HFCL, YES Bank— These are among the top most traded stocks on the NSE today",positive,0.7667,0.2667,TextBlob
+NTPC.NS,NTPC Power,"Analysts prefer Tata Power, NTPC amid likely rise in power demand",neutral,0.5,0.0,TextBlob
+NTPC.NS,NTPC Power,NTPC GREEN ENERGY LIMITED Share Price - Live NSE: NTPCGREEN Stock Price & Chart,neutral,0.545,-0.045,TextBlob
+POWERGRID.NS,Power Grid India,Power Grid Corp Share Price - Live NSE: POWERGRID Stock Price & Chart,positive,0.6364,0.1364,TextBlob
 POWERGRID.NS,Power Grid India,POWERGRID Share Price Today - Power Grid Corporation of India on NSE/BSE,neutral,0.5,0.0,TextBlob
 POWERGRID.NS,Power Grid India,Dividend Investors: Don't Be Too Quick To Buy Power Grid Corporation of India Limited (NSE:POWERGRID) For Its Upcoming Dividend,positive,0.631,0.131,TextBlob
 POWERGRID.NS,Power Grid India,POWERGRID Forecast — Price Target — Prediction for 2027,neutral,0.5,0.0,TextBlob
-POWERGRID.NS,Power Grid India,"Stocks to watch, August 5: Rate-sensitive stocks, BSE, Bharti Airtel, LIC, Nykaa, ONGC, Power Grid",neutral,0.5,0.0,TextBlob
-POWERGRID.NS,Power Grid India,Power Grid Corp shares rise after board plans to consider $500 million fundraising,neutral,0.5,0.0,TextBlob
-POWERGRID.NS,Power Grid India,"Power Grid Corporation of India Ltd spurts 1.09%, up for third straight session",positive,0.6,0.1,TextBlob
+POWERGRID.NS,Power Grid India,Why Is Power Grid Corporation of India Share Price Falling Key Reasons 2026,neutral,0.5,0.0,TextBlob
 POWERGRID.NS,Power Grid India,Power Grid Corporation of India's (NSE:POWERGRID) Earnings Offer More Than Meets The Eye,positive,1.0,0.5,TextBlob
-POWERGRID.NS,Power Grid India,"POWERGRID Boosts Borrowing Limit to Rs 35,000 Cr",neutral,0.5,0.0,TextBlob
+POWERGRID.NS,Power Grid India,Here's why Power Grid Corporation share price rose 4% in trade on Feb 2,positive,1.0,0.6,TextBlob
+POWERGRID.NS,Power Grid India,"Power Grid Corporation Of India Ltd. Share Price, Stock Price - NSE/BSE Live",positive,0.6364,0.1364,TextBlob
 TECHM.NS,Tech Mahindra,"Infosys, Tech Mahindra, TCS fall up to 3%: Why are IT stocks falling today",neutral,0.5,0.0,TextBlob
 TECHM.NS,Tech Mahindra,"IT stocks crash! TCS, Tech Mahindra, Infosys, others drag down Nifty IT 5% intraday; check key factors behind fall",negative,0.6639,-0.1639,TextBlob
-TECHM.NS,Tech Mahindra,"Stocks to Watch Today: Tech Mahindra, WeWork India, Borosil Renewables, Servotech Renewable, Maruti...",neutral,0.5,0.0,TextBlob
 TECHM.NS,Tech Mahindra,"IT stocks rally: Why are Infosys, TCS and Tech Mahindra shares surging despite AI disruption fears?",neutral,0.5,0.0,TextBlob
+TECHM.NS,Tech Mahindra,Tech Mahindra Shares Jump 3% Post Impressive Q1 Results,positive,1.0,1.0,TextBlob
+TECHM.NS,Tech Mahindra,Chartist Talk: Friday's rally still premature to confirm decisive breakout in Nifty 50; Sudeep Shah shares...,neutral,0.5,0.0,TextBlob
 TECHM.NS,Tech Mahindra,Tech Mahindra misses Q4 profit estimate; stock down over 3% in two sessions,negative,0.6556,-0.1556,TextBlob
-TECHM.NS,Tech Mahindra,"Infosys, Tech Mahindra, TCS Under Pressure: IT Stocks Crash To Three-Year Low After Accenture Sell-Off",neutral,0.5,0.0,TextBlob
-TECHM.NS,Tech Mahindra,Tech Mahindra Ltd. Share Price Today - Tech Mahindra Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
-TECHM.NS,Tech Mahindra,"10 Stocks to Buy Today 29 May 2026: Best Shares to Buy Today - TechM, Infosys, and More",positive,1.0,0.75,TextBlob
-HCLTECH.NS,HCL Technologies,HCLTECH Share Price Today - HCL Technologies Stock Analysis,neutral,0.5,0.0,TextBlob
+TECHM.NS,Tech Mahindra,"Stock markets tumble in early trade amid weak global peers, elevated oil prices",negative,0.5917,-0.0917,TextBlob
+TECHM.NS,Tech Mahindra,"TCS, Infosys, Tech Mahindra, other IT shares fall amid AI stocks sell-off on Wall Street",negative,0.625,-0.125,TextBlob
+HCLTECH.NS,HCL Technologies,HCL Tech rallies 24% from July low; hits 3-month high on huge volume,positive,0.6867,0.1867,TextBlob
+HCLTECH.NS,HCL Technologies,HCL Tech shares jump over 6% ahead of Q1 results; all eyes on guidance,neutral,0.5,0.0,TextBlob
 HCLTECH.NS,HCL Technologies,"HCL Tech share price crashes over 10%; Rs 38,000 crore gone from market cap as brokerages downgrade stock",neutral,0.5,0.0,TextBlob
-HCLTECH.NS,HCL Technologies,HCL Technologies Completes 100% Acquisition of Guardian India Operations,neutral,0.5,0.0,TextBlob
 HCLTECH.NS,HCL Technologies,HCL Technologies Limited's (NSE:HCLTECH) Shares May Have Run Too Fast Too Soon,positive,0.5643,0.0643,TextBlob
-HCLTECH.NS,HCL Technologies,"HCL Tech Q1 dividend: IT firm declares ₹12/share interim dividend; check record date, payment details",negative,0.7,-0.2,TextBlob
-HCLTECH.NS,HCL Technologies,"Stocks to Watch Today: HCL Tech, General Insurance Corp, Dhanlaxmi Bank, Craftsman Automation, Devyani...",positive,0.55,0.05,TextBlob
-HCLTECH.NS,HCL Technologies,HCLTech Q4 preview: Product seasonality may hit CC rev; FY27 guidance eyed,neutral,0.5,0.0,TextBlob
+HCLTECH.NS,HCL Technologies,"Top stocks in news: Dr Reddys, HCL Tech, IndusInd Bank, HPCL, NTPC Green, OFSS, NAM India",positive,0.65,0.15,TextBlob
+HCLTECH.NS,HCL Technologies,"Stocks to Watch Today: Orchid Pharma, HCL Tech, EMS, Silver Touch, Knack Packaging, Ganesh Infraworld,...",neutral,0.5,0.0,TextBlob
+HCLTECH.NS,HCL Technologies,HCL Technologies Completes 100% Acquisition of Guardian India Operations,neutral,0.5,0.0,TextBlob
 HCLTECH.NS,HCL Technologies,"Stocks to watch: HCL Tech, DMart, HDFC Bank among shares in focus today; check list here",neutral,0.5,0.0,TextBlob
 JSWSTEEL.NS,JSW Steel,JSW Steel uploads August 2026 investor presentation to exchanges,neutral,0.5,0.0,TextBlob
-JSWSTEEL.NS,JSW Steel,"JSW Energy sells 2.5 crore JSW Steel shares for Rs 3,150 cr via bulk deal",neutral,0.5,0.0,TextBlob
-JSWSTEEL.NS,JSW Steel,"JSW Steel shares gain over 1% after launch of Rs 65,000 crore Odisha steel plant project",neutral,0.5,0.0,TextBlob
-JSWSTEEL.NS,JSW Steel,Cyril Amarchand Mangaldas advises JSW Energy on sale of equity shares of JSW Steel,neutral,0.5,0.0,TextBlob
-JSWSTEEL.NS,JSW Steel,Why Is JSW Steel Share Price Falling? Key Reasons 2026,neutral,0.5,0.0,TextBlob
-JSWSTEEL.NS,JSW Steel,JSW Steel's (NSE:JSWSTEEL) investors will be pleased with their stellar 229% return over the last five years,positive,0.75,0.25,TextBlob
-JSWSTEEL.NS,JSW Steel,"JSW Energy sells JSW Steel shares worth Rs 3,150 crore via bulk deal",positive,0.8,0.3,TextBlob
 JSWSTEEL.NS,JSW Steel,Firms assist on JSW Energy’s sale of shares in steel unit,neutral,0.5,0.0,TextBlob
+JSWSTEEL.NS,JSW Steel,Why Is JSW Steel Share Price Falling? Key Reasons 2026,neutral,0.5,0.0,TextBlob
+JSWSTEEL.NS,JSW Steel,"Stocks to Watch Today: JSW Steel, Tata Motors PV, Adani Enterprises, SEPC, Muthoot Finance, GE Shipping,...",neutral,0.5,0.0,TextBlob
+JSWSTEEL.NS,JSW Steel,"JSW Energy sells JSW Steel shares worth Rs 3,150 crore via bulk deal",positive,0.8,0.3,TextBlob
+JSWSTEEL.NS,JSW Steel,JSW Steel's (NSE:JSWSTEEL) investors will be pleased with their stellar 229% return over the last five years,positive,0.75,0.25,TextBlob
+JSWSTEEL.NS,JSW Steel,Cyril Amarchand Mangaldas advises JSW Energy on sale of equity shares of JSW Steel,neutral,0.5,0.0,TextBlob
+JSWSTEEL.NS,JSW Steel,"Tata Steel, JSW Steel or Jindal Stainless? Jefferies, Goldman Sachs bullish on these steel stocks",positive,0.7,0.2,TextBlob
 TATASTEEL.NS,Tata Steel,Tata Steel shares trade lower as muted Q1 update fails to impress investors; key details here,negative,0.75,-0.25,TextBlob
 TATASTEEL.NS,Tata Steel,Tata Steel share price falls 4% despite strong Q4 results. Should you buy or sell?,positive,0.9333,0.4333,TextBlob
-TATASTEEL.NS,Tata Steel,Why Is Tata Steel Share Price Falling? Key Reasons & Share Price Target,neutral,0.5,0.0,TextBlob
+TATASTEEL.NS,Tata Steel,Tata Steel Analyst Review 2026: Is TATASTEEL Worth Buying?,positive,0.8,0.3,TextBlob
 TATASTEEL.NS,Tata Steel,Tata Steel Limited's (NSE:TATASTEEL) Price In Tune With Earnings,negative,0.5714,-0.0714,TextBlob
+TATASTEEL.NS,Tata Steel,"Vedanta, Nalco, Hindalco, Hind Zinc, Tata Steel shares down up to 9% today; here's why",negative,0.6556,-0.1556,TextBlob
+TATASTEEL.NS,Tata Steel,"Stocks to Watch Today: Emcure, Aurobindo Pharma, HFCL, RBL Bank, Coal India, Tata Steel, ITC Hotels, Power...",neutral,0.5,0.0,TextBlob
 TATASTEEL.NS,Tata Steel,"Stocks to watch today: Tata Steel, SAIL, ITC Hotels, Power Grid, Coal India",neutral,0.5,0.0,TextBlob
-TATASTEEL.NS,Tata Steel,"Stocks to Watch Today: SBI, TCS, Tata Steel, Iware Supplychain, NLC India, Graphite India, TVS Motor,...",neutral,0.5,0.0,TextBlob
 TATASTEEL.NS,Tata Steel,Tata Steel Ltd. Share Price Today - Tata Steel Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
-TATASTEEL.NS,Tata Steel,Dividend Deadline Today: 9 Adani & Tata Stocks Go Ex-Dividend Tomorrow,neutral,0.5,0.0,TextBlob
-TATAMOTORS.NS,Tata Motors,"Stocks to Watch Today: Piramal Pharma, Tata Motors PV, LG Electronics, Honasa Consumer, Welspun Living,...",neutral,0.5,0.0,TextBlob
 TATAMOTORS.NS,Tata Motors,"Tata Motors up 6% after Q1 beat; analysts see demand, margin upside",neutral,0.5,0.0,TextBlob
+TATAMOTORS.NS,Tata Motors,"Stocks to watch, August 14: Cochin Shipyard, L&T, Coal India, Tata Motors PV, Jupiter Wagons, JSW Cement",neutral,0.5,0.0,TextBlob
+TATAMOTORS.NS,Tata Motors,"Stocks to Watch Today: Piramal Pharma, Tata Motors PV, LG Electronics, Honasa Consumer, Welspun Living,...",neutral,0.5,0.0,TextBlob
 TATAMOTORS.NS,Tata Motors,"Top Losers Today - NSE Top Losers Stocks Live, BSE Top Losers Shares Today",positive,0.6481,0.1481,TextBlob
+TATAMOTORS.NS,Tata Motors,Tata Motors Passenger Vehicles Share Price Today - Live NSE/BSE,positive,0.6364,0.1364,TextBlob
+TATAMOTORS.NS,Tata Motors,Why are Tata Motors shares rising today?,neutral,0.5,0.0,TextBlob
 TATAMOTORS.NS,Tata Motors,Tata Motors Share Price Today Down 8%,negative,0.6556,-0.1556,TextBlob
-TATAMOTORS.NS,Tata Motors,TMPV Stock Price and Chart — NSE:TMPV,neutral,0.5,0.0,TextBlob
-TATAMOTORS.NS,Tata Motors,Tata Motors CV shares jump 6%; CEO sees West Asia crisis as short-term hurdle to demand,neutral,0.5,0.0,TextBlob
-TATAMOTORS.NS,Tata Motors,Tata Motors Ltd. Share Price Today | Tata Motors Live NSE/BSE,positive,0.6364,0.1364,TextBlob
-TATAMOTORS.NS,Tata Motors,The past year for Tata Motors Passenger Vehicles (NSE:TMPV) investors has not been profitable,negative,0.75,-0.25,TextBlob
-NESTLEIND.NS,Nestle India,"Nestle India surges 4%, hits new high post Q1; PAT up 48% on robust sales",positive,0.6482,0.1482,TextBlob
+TATAMOTORS.NS,Tata Motors,NSE IPO to create significant value for investors; Tata Motors a strong long-term bet: Dipan Mehta,positive,0.9042,0.4042,TextBlob
+NESTLEIND.NS,Nestle India,Nestle India Q4 results: Revenue and net profit could see double-digit growth; focus on dividend and volume,neutral,0.5,0.0,TextBlob
 NESTLEIND.NS,Nestle India,NESTLEIND Forecast — Price Target — Prediction for 2027,neutral,0.5,0.0,TextBlob
-NESTLEIND.NS,Nestle India,Nestle India Share Price Hits 52-Week High After Q1 Results,positive,0.66,0.16,TextBlob
-NESTLEIND.NS,Nestle India,Nestlé India's (NSE:NESTLEIND) Earnings Seem To Be Promising,positive,0.7,0.2,TextBlob
+NESTLEIND.NS,Nestle India,Should Income Investors Look At Nestlé India Limited (NSE:NESTLEIND) Before Its Ex-Dividend?,negative,0.5714,-0.0714,TextBlob
+NESTLEIND.NS,Nestle India,"Nestle India surges 4%, hits new high post Q1; PAT up 48% on robust sales",positive,0.6482,0.1482,TextBlob
 NESTLEIND.NS,Nestle India,15 Best MNC Stocks To Buy In India August 2026,positive,1.0,1.0,TextBlob
-NESTLEIND.NS,Nestle India,"Nestle India Q1 profit soars 48% YoY to ₹975 crore, sales grow 25%; shares hit 52-week high",positive,0.66,0.16,TextBlob
+NESTLEIND.NS,Nestle India,Nestle India Ltd. Share Price Today: Gains 3.1% in Trading,neutral,0.5,0.0,TextBlob
+NESTLEIND.NS,Nestle India,Nestle India Share Price Hits 52-Week High After Q1 Results,positive,0.66,0.16,TextBlob
 NESTLEIND.NS,Nestle India,"Trade Spotlight: How should you trade Nestle India, GlaxoSmithKline Pharma, AU Small Finance Bank, RR...",negative,0.75,-0.25,TextBlob
-NESTLEIND.NS,Nestle India,"Nestle India Q1 results 2026: Net profit rises 48% YoY to ₹975 crore, revenue up 25%",neutral,0.5,0.0,TextBlob
+DRREDDY.NS,Dr Reddys Laboratories,"Stocks to Watch Today: PB Fintech, Juniper Green, CESC, Dr Reddys Labs, Texmaco Rail, Voltas, Physicswallah, Rubicon, Dhoot Transmission, Molbio Diagnostics in focus on 17 August",negative,0.7,-0.2,TextBlob
+DRREDDY.NS,Dr Reddys Laboratories,Dr. Reddy's Lab jumps 2%: Why is this pharma stock rising?,neutral,0.5,0.0,TextBlob
 DRREDDY.NS,Dr Reddys Laboratories,Dr. Reddy's Q4 & Full Year FY26 Financial Results - SEC.gov,positive,0.675,0.175,TextBlob
-DRREDDY.NS,Dr Reddys Laboratories,"Dr Reddy's Laboratories shares fall 2.36% to Rs 1,177.50",neutral,0.5,0.0,TextBlob
-DRREDDY.NS,Dr Reddys Laboratories,Dr Reddy's shares tumble 6.5% as quality issue delays commercial launch of semaglutide- all you need to know,neutral,0.5,0.0,TextBlob
 DRREDDY.NS,Dr Reddys Laboratories,Dr Reddys gains over 4%; hits 52-week high on near 3X jump in volume,positive,0.63,0.13,TextBlob
+DRREDDY.NS,Dr Reddys Laboratories,Dr Reddy's shares tumble 6.5% as quality issue delays commercial launch of semaglutide- all you need to know,neutral,0.5,0.0,TextBlob
 DRREDDY.NS,Dr Reddys Laboratories,Benign Growth For Dr. Reddy's Laboratories Limited (NSE:DRREDDY) Underpins Its Share Price,negative,0.5714,-0.0714,TextBlob
-DRREDDY.NS,Dr Reddys Laboratories,Dr. Reddy’s files 2026 annual report with the SEC,negative,0.6,-0.1,TextBlob
-DRREDDY.NS,Dr Reddys Laboratories,"Dr. Reddy's Laboratories Announces Board Meeting on May 12, 2026 for Q4FY26 Results",neutral,0.5,0.0,TextBlob
-DRREDDY.NS,Dr Reddys Laboratories,"Nifty Pharma crashes nearly 2%; Cipla, Dr Reddy's among top Nifty losers after Trump's tariff plan",positive,0.6333,0.1333,TextBlob
-DIVISLAB.NS,Divis Laboratories,Top 14 Pharma Stocks To Buy In India August 2026,positive,1.0,0.5,TextBlob
-DIVISLAB.NS,Divis Laboratories,"Divi’s Labs Q1 FY27 Results Aug 1: Profit, Revenue Growth Expected; Tariff Outlook",negative,0.6,-0.1,TextBlob
+DRREDDY.NS,Dr Reddys Laboratories,Why Is Dr. Reddy's Laboratories Share Price Falling? Key Reasons & Target 2026,neutral,0.5,0.0,TextBlob
+DRREDDY.NS,Dr Reddys Laboratories,Why Dr Reddy's Laboratories shares tumbled over 6% today,neutral,0.5,0.0,TextBlob
 DIVISLAB.NS,Divis Laboratories,Divi's Labs slips 3% on margin worries; analysts positive on growth outlook,positive,0.7273,0.2273,TextBlob
+DIVISLAB.NS,Divis Laboratories,Top 14 Pharma Stocks To Buy In India August 2026,positive,1.0,0.5,TextBlob
 DIVISLAB.NS,Divis Laboratories,Should Weakness in Divi's Laboratories Limited's (NSE:DIVISLAB) Stock Be Seen As A Sign That Market Will Correct The Share Price Given Decent Financials?,neutral,0.5476,0.0476,TextBlob
+DIVISLAB.NS,Divis Laboratories,"Divi’s Labs Q1 FY27 Results Aug 1: Profit, Revenue Growth Expected; Tariff Outlook",negative,0.6,-0.1,TextBlob
 DIVISLAB.NS,Divis Laboratories,Divi's Laboratories Ltd. Share Price Today - Divi's Laboratories Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
+DIVISLAB.NS,Divis Laboratories,"SBI Cards, Blue Star, Divis Labs: Top stocks to trade— Target prices, stop loss & more",positive,0.8333,0.3333,TextBlob
 DIVISLAB.NS,Divis Laboratories,"Stocks to Watch Today: TVS Motor, Exide Industries, Meesho, Groww, Gujarat Themis, Glenmark Pharma,...",neutral,0.5,0.0,TextBlob
-DIVISLAB.NS,Divis Laboratories,"Divi's Labs rallies 3%, market cap nears ₹2 trillion; what's driving stock?",neutral,0.5,0.0,TextBlob
-DIVISLAB.NS,Divis Laboratories,"NIFTY Pharma surges over 3% on India-US trade deal boost; Cipla, Sun Pharma, Dr Reddy's, others gain",neutral,0.5,0.0,TextBlob
+DIVISLAB.NS,Divis Laboratories,"Divi's Laboratories Q4 Results 2026: Date, Revenue Estimates, Key Catalysts & Share Price Target",neutral,0.5,0.0,TextBlob
 CIPLA.NS,Cipla Pharma,Top 14 Pharma Stocks To Buy In India August 2026,positive,1.0,0.5,TextBlob
+CIPLA.NS,Cipla Pharma,"Sun Pharma, Cipla, other pharma stocks decline as Trump unveils steep tariff plan on generic drugs: Key FAQs answered",neutral,0.5417,-0.0417,TextBlob
 CIPLA.NS,Cipla Pharma,"Nifty Pharma crashes nearly 2%; Cipla, Dr Reddy's among top Nifty losers after Trump's tariff plan",positive,0.6333,0.1333,TextBlob
+CIPLA.NS,Cipla Pharma,"Pharma index surges 2%; Torrent, Mankind, Cipla, Aurobindo soar up to 5%",neutral,0.5,0.0,TextBlob
 CIPLA.NS,Cipla Pharma,"Nifty Pharma Index Hits Fresh 52-Week High; Dr Reddy’s, Cipla, Ajanta Pharma Lead Rally on GLP-1 Opportunity",positive,0.73,0.23,TextBlob
-CIPLA.NS,Cipla Pharma,"Dr Reddy's, Cipla and other pharma stocks rise up to 10% despite fall in NIFTY50 and SENSEX",negative,0.625,-0.125,TextBlob
-CIPLA.NS,Cipla Pharma,"Nifty Pharma index up 2%; Dr Reddy's, Ajanta, Ipca, Cipla surge up to 5%",neutral,0.5,0.0,TextBlob
+CIPLA.NS,Cipla Pharma,The Market Doesn't Like What It Sees From Cipla Limited's (NSE:CIPLA) Earnings Yet,negative,0.5714,-0.0714,TextBlob
 CIPLA.NS,Cipla Pharma,"Cipla Share Price Today, Cipla Stock Price Live NSE/BSE Updates",positive,0.6364,0.1364,TextBlob
 CIPLA.NS,Cipla Pharma,"Piramal Pharma, Cohance Lifesciences, Sun Pharma, Cipla, Dr Reddy's, other pharma shares jump; what's driving the rally?",negative,0.625,-0.125,TextBlob
-CIPLA.NS,Cipla Pharma,Investing in Cipla (NSE:CIPLA) five years ago would have delivered you a 109% gain,neutral,0.5,0.0,TextBlob
+COALINDIA.NS,Coal India,"Stocks to watch, August 14: Cochin Shipyard, L&T, Coal India, Tata Motors PV, Jupiter Wagons, JSW Cement",neutral,0.5,0.0,TextBlob
+COALINDIA.NS,Coal India,Bharat Coking Coal Ltd. Share Price Today - Bharat Coking Coal Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
 COALINDIA.NS,Coal India,Coal India's (NSE:COALINDIA) Problems Go Beyond Weak Profit,negative,0.875,-0.375,TextBlob
-COALINDIA.NS,Coal India,"Coal India Share Price Drops 3% As Brokerages Trim Target On Q1 Earnings Miss: Buy, Sell, Or Hold?",neutral,0.5,0.0,TextBlob
-COALINDIA.NS,Coal India,India's NSE to set up unit for proposed national coal trading exchange,neutral,0.5,0.0,TextBlob
+COALINDIA.NS,Coal India,"Coal India, L&T among 20 firms bidding for ₹7,280 crore rare earth magnet scheme; shares in focus",positive,0.8,0.3,TextBlob
 COALINDIA.NS,Coal India,Why Is Coal India Share Price Falling Key Reasons 2026,neutral,0.5,0.0,TextBlob
-COALINDIA.NS,Coal India,"Stocks to watch, July 28: Coforge, Happiest Minds, HUL, Coal India, HDFC Bank, IndiGo, Tata Power, L&T",neutral,0.5,0.0,TextBlob
+COALINDIA.NS,Coal India,Bharat Coking Coal Share Price Slumps 7% As Coal India Subsidiary Reports Q1 Net Loss,neutral,0.5,0.0,TextBlob
+COALINDIA.NS,Coal India,India's NSE to set up unit for proposed national coal trading exchange,neutral,0.5,0.0,TextBlob
 COALINDIA.NS,Coal India,Coal India Ltd eases for fifth straight session,positive,0.7,0.2,TextBlob
-COALINDIA.NS,Coal India,Coal India share price falls 5% as two-day OFS by government opens. Should you buy or sell the PSU stock?,neutral,0.5,0.0,TextBlob
-COALINDIA.NS,Coal India,COALINDIA Forecast — Price Target — Prediction for 2027,neutral,0.5,0.0,TextBlob
 BPCL.NS,BPCL Bharat Petroleum,Bharat Petroleum Corporation Limited (NSE:BPCL) Stock Has Shown Weakness Lately But Financials Look Strong: Should Prospective Shareholders Make The Leap?,neutral,0.5206,0.0206,TextBlob
 BPCL.NS,BPCL Bharat Petroleum,BPCL to purchase 40% stake in Tiki Tar and Shell India for ₹85 crore; shares fall as crude oil prices surge,negative,1.0,-0.7,TextBlob
-BPCL.NS,BPCL Bharat Petroleum,"BPCL, Wipro, ITC among list of 15 high dividend yield stocks. Do you own any?",positive,0.88,0.38,TextBlob
 BPCL.NS,BPCL Bharat Petroleum,"IOC, BPCL, HPCL Shares Drop 3% After Doubts Over US-Iran Talks As Vance Postpones Switzerland Trip",neutral,0.5,0.0,TextBlob
 BPCL.NS,BPCL Bharat Petroleum,"BPCL, HPCL, IOC shares dip but soaring oil prices fail to weigh on ONGC shares. Here's why",negative,1.0,-0.5,TextBlob
-BPCL.NS,BPCL Bharat Petroleum,"HPCL, BPCL, other OMC shares rise up to 3% on fuel price hike",negative,0.625,-0.125,TextBlob
+BPCL.NS,BPCL Bharat Petroleum,"Bharat Petroleum Corporation Q4 Results 2026: Date, Revenue Estimates and Share Price Target",neutral,0.5,0.0,TextBlob
+BPCL.NS,BPCL Bharat Petroleum,"BPCL, HPCL, among other OMC shares fall as investors remain cautious over Strait of Hormuz opening",negative,0.625,-0.125,TextBlob
 BPCL.NS,BPCL Bharat Petroleum,"BPCL, HPCL, IOC shares: OMC stocks in focus as US-Iran deal sends oil prices tumbling",neutral,0.5,0.0,TextBlob
 BPCL.NS,BPCL Bharat Petroleum,Bharat Petroleum Corporation Limited's (NSE:BPCL) Low P/E No Reason For Excitement,neutral,0.5357,-0.0357,TextBlob
-GRASIM.NS,Grasim Industries,Grasim Industries Share Price,neutral,0.5,0.0,TextBlob
 GRASIM.NS,Grasim Industries,Proud Moment for Grasim Industries at the 30-Year Milestone of the Nifty50,positive,1.0,0.8,TextBlob
-GRASIM.NS,Grasim Industries,Grasim Industries Starts Commercial CPVC Resin Production in Vilayat with Lubrizol,neutral,0.5,0.0,TextBlob
-GRASIM.NS,Grasim Industries,"Q1 Results: Tata Motors, HAL, Grasim Industries, Lenskart, IRCTC, VA Tech Wabag, GMR Airports to post earnings on Aug 12",neutral,0.5,0.0,TextBlob
 GRASIM.NS,Grasim Industries,Some Shareholders Feeling Restless Over Grasim Industries Limited's (NSE:GRASIM) P/E Ratio,negative,0.5714,-0.0714,TextBlob
-GRASIM.NS,Grasim Industries,Grasim shares jump 5% as brokerages bullish on company post Q4 results,neutral,0.5,0.0,TextBlob
-GRASIM.NS,Grasim Industries,Grasim Industries Ltd. Share Price Today - Grasim Industries Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
+GRASIM.NS,Grasim Industries,"Grasim Industries Share Price Target 2026: Analyst Forecast, Growth Catalysts and Key Risks",neutral,0.5,0.0,TextBlob
+GRASIM.NS,Grasim Industries,Grasim Industries Starts Commercial CPVC Resin Production in Vilayat with Lubrizol,neutral,0.5,0.0,TextBlob
+GRASIM.NS,Grasim Industries,"Stocks to Watch Today: HCL Tech, Biocon, Timken India, EMS, Alembic Pharma, PDS, ICICI Prudential AMC,...",neutral,0.5,0.0,TextBlob
 GRASIM.NS,Grasim Industries,"Grasim Q4 FY26 adjusted PAT rises 31% to ₹2,041 crore; revenue up 15%",neutral,0.5,0.0,TextBlob
+GRASIM.NS,Grasim Industries,"Stocks to buy in 2026 for long term: HCL Tech, Indian Hotels among 5 stocks that could give 10-20% return",neutral,0.55,-0.05,TextBlob
+GRASIM.NS,Grasim Industries,Grasim Industries (NSE:GRASIM) Hasn't Managed To Accelerate Its Returns,neutral,0.5,0.0,TextBlob
 ADANIENT.NS,Adani Enterprises,'No Allegations Against Company': Adani Enterprises To Stock Exchanges,neutral,0.5,0.0,TextBlob
-ADANIENT.NS,Adani Enterprises,"Q1 Results this week: L&T, BEL, Coal India, Adani Enterprises, Bajaj Finance, Sun Pharma, Maruti Suzuki, HUL, Tata Power, Swiggy and more",positive,1.0,0.5,TextBlob
 ADANIENT.NS,Adani Enterprises,Adani Enterprises Limited's (NSE:ADANIENPP1) Intrinsic Value Is Potentially 52% Above Its Share Price,neutral,0.5238,-0.0238,TextBlob
-ADANIENT.NS,Adani Enterprises,Adani Enterprises Ltd Partly Paidup Share Price Today – Live NSE/BSE,positive,0.6364,0.1364,TextBlob
+ADANIENT.NS,Adani Enterprises,"Q1 Results this week: L&T, BEL, Coal India, Adani Enterprises, Bajaj Finance, Sun Pharma, Maruti Suzuki, HUL, Tata Power, Swiggy and more",positive,1.0,0.5,TextBlob
 ADANIENT.NS,Adani Enterprises,Adani Enterprises stock rises over 1% after AI alliance with Jabil; extends gains for third straight...,positive,0.6,0.1,TextBlob
+ADANIENT.NS,Adani Enterprises,"Stocks to Watch today: Bharti Airtel, HCL Tech, Adani Enterprises, SBI, GIC",neutral,0.5,0.0,TextBlob
+ADANIENT.NS,Adani Enterprises,Adani Enterprises Ltd. Share Price Today - Adani Enterprises Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
 ADANIENT.NS,Adani Enterprises,Q1 results 2026: BEL to Adani Enterprises among companies to declare Q1 results next week; check full list here,positive,0.675,0.175,TextBlob
-ADANIENT.NS,Adani Enterprises,Here's why Adani Enterprises share price rose 2% in trade on December 4,positive,1.0,0.6,TextBlob
-ADANIENT.NS,Adani Enterprises,Dividend Deadline Today: 9 Adani & Tata Stocks Go Ex-Dividend Tomorrow,neutral,0.5,0.0,TextBlob
-ADANIPORTS.NS,Adani Ports,Q1 results 2026: Adani Enterprises to Asian Paints among companies to declare Q1 results today; full list here,positive,0.675,0.175,TextBlob
-ADANIPORTS.NS,Adani Ports,"NIFTY50, SENSEX trade flat in afternoon session; M&M, Adani Ports, Exide Industries, KPIT Tech among buzzing stocks",neutral,0.525,-0.025,TextBlob
+ADANIENT.NS,Adani Enterprises,Adani Enterprises Share Price Target 2026: Green Energy and Airports Outlook,negative,0.7,-0.2,TextBlob
 ADANIPORTS.NS,Adani Ports,Adani Ports and Special Economic Zone Limited's (NSE:ADANIPORTS) Share Price Could Signal Some Risk,positive,0.6619,0.1619,TextBlob
 ADANIPORTS.NS,Adani Ports,Adani Ports hits new life-time high; Emkay lifts target price by 5%,positive,0.6482,0.1482,TextBlob
-ADANIPORTS.NS,Adani Ports,Adani Ports Q1 FY27 Beat Fails to Impress; Shares Slide Despite Strong Results,neutral,0.5333,-0.0333,TextBlob
+ADANIPORTS.NS,Adani Ports,"NIFTY50, SENSEX trade flat in afternoon session; M&M, Adani Ports, Exide Industries, KPIT Tech among buzzing stocks",neutral,0.525,-0.025,TextBlob
 ADANIPORTS.NS,Adani Ports,"Adani Ports stock rating: Brokerages bullish on MSC's $1.4 billion Vizhinjam deal; check target prices,...",neutral,0.5,0.0,TextBlob
+ADANIPORTS.NS,Adani Ports,"Stocks to watch: Vedanta, Canara Bank, Adani Ports among 10 shares in focus today; check list here",neutral,0.5,0.0,TextBlob
 ADANIPORTS.NS,Adani Ports,Stock market today: Which are top gainers and losers on NSE & BSE on July 1? Check list,positive,0.65,0.15,TextBlob
+ADANIPORTS.NS,Adani Ports,Adani Ports & Special Economic Zone Ltd. Share Price Live Today,positive,0.7312,0.2312,TextBlob
 ADANIPORTS.NS,Adani Ports,"Stocks to Watch: Dabur, Adani Ports, Cipla, JSW Cement, Allied Blenders",neutral,0.5,0.0,TextBlob
+BAJAJFINSV.NS,Bajaj Finserv,Stock Market Bajaj Finance Share Nse Nse Inc Stock Price History Stock Market Current Price Of Bajaj,neutral,0.5,0.0,TextBlob
 BAJAJFINSV.NS,Bajaj Finserv,Bajaj Finance's 5% crash erodes ₹33K cr from m-cap. What's behind the fall?,negative,0.9,-0.4,TextBlob
 BAJAJFINSV.NS,Bajaj Finserv,"Top gainers and losers, July 31: Bajaj Finance rallies 8%, Bajaj Finserv jumps 6%, TCS down 3%; check list",neutral,0.5481,0.0481,TextBlob
 BAJAJFINSV.NS,Bajaj Finserv,Markets trade higher in early deals; Bajaj Finance surges over 6 per cent,positive,0.675,0.175,TextBlob
-BAJAJFINSV.NS,Bajaj Finserv,Bajaj Finserv BSE Top 10 Banks ETF (BANK10BETF) Share Price,positive,1.0,0.5,TextBlob
+BAJAJFINSV.NS,Bajaj Finserv,Bajaj Finserv - Positive Breakout: These 7 stocks cross above their 200 DMAs,positive,0.5758,0.0758,TextBlob
 BAJAJFINSV.NS,Bajaj Finserv,Investor Optimism Abounds Bajaj Finserv Ltd. (NSE:BAJAJFINSV) But Growth Is Lacking,neutral,0.5,0.0,TextBlob
-BAJAJFINSV.NS,Bajaj Finserv,"Bajaj Finance Q1 Results: Date, Time, Dividend News, Earnings Call Schedule And More",positive,1.0,0.5,TextBlob
-BAJAJFINSV.NS,Bajaj Finserv,Bajaj Finserv Ltd. Share Price Today - Bajaj Finserv Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
-BAJAJFINSV.NS,Bajaj Finserv,Stock market today: Which are top gainers and losers on NSE & BSE on May 25? Check list,positive,0.65,0.15,TextBlob
-BAJAJ-AUTO.NS,Bajaj Auto,"Against the tide: Bajaj Auto, Lenskart, TVS Motor among 10 stocks that hit 52-week high on July 23",positive,0.66,0.16,TextBlob
-BAJAJ-AUTO.NS,Bajaj Auto,Bajaj Auto's (NSE:BAJAJ-AUTO) Earnings Are Of Questionable Quality,negative,1.0,-0.5,TextBlob
-BAJAJ-AUTO.NS,Bajaj Auto,"Bajaj Auto slips nearly 3%, trades ex-date for share buyback; time to buy?",positive,0.6,0.1,TextBlob
-BAJAJ-AUTO.NS,Bajaj Auto,"Bajaj Auto, TVS Motor, Apollo Tyres gain up to 2% after Kotak names them among top Q1 auto bets",positive,1.0,0.5,TextBlob
-BAJAJ-AUTO.NS,Bajaj Auto,Bajaj Auto Ltd. Share Price Today - Bajaj Auto Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
+BAJAJFINSV.NS,Bajaj Finserv,Why Is Bajaj Finserv's share price falling? Key Reasons & Share Price Target,neutral,0.5,0.0,TextBlob
+BAJAJFINSV.NS,Bajaj Finserv,"Stocks to Watch Today: PB Fintech, Bajaj Finance, CSB Bank, Ujjivan SFB, Marico, Titagarh Rail, BLS...",neutral,0.5,0.0,TextBlob
 BAJAJ-AUTO.NS,Bajaj Auto,"Stocks to watch, July 22: Bajaj Auto, IHCL, Maruti, Bandhan Bank, Eternal, Dr Reddy’s, Nestle India, Anant Raj",neutral,0.5,0.0,TextBlob
-BAJAJ-AUTO.NS,Bajaj Auto,Q1 results 2026: Bajaj Auto to Adani Energy among companies to declare Q1 results today; full list here,positive,0.85,0.35,TextBlob
-BAJAJ-AUTO.NS,Bajaj Auto,"Stocks picks: Analyst suggest buying Bajaj Auto, Chambal Fertilisers",neutral,0.5,0.0,TextBlob
+BAJAJ-AUTO.NS,Bajaj Auto,Bajaj Auto's (NSE:BAJAJ-AUTO) Earnings Are Of Questionable Quality,negative,1.0,-0.5,TextBlob
+BAJAJ-AUTO.NS,Bajaj Auto,Why Is Bajaj Auto Share Price Falling? Key Reasons 2026,neutral,0.5,0.0,TextBlob
+BAJAJ-AUTO.NS,Bajaj Auto,"Bajaj Auto slips nearly 3%, trades ex-date for share buyback; time to buy?",positive,0.6,0.1,TextBlob
+BAJAJ-AUTO.NS,Bajaj Auto,"Trade Spotlight: How should you trade Torrent Power, Bajaj Auto, Hindustan Aeronautics, Sun Pharma, PFC,...",neutral,0.5,0.0,TextBlob
+BAJAJ-AUTO.NS,Bajaj Auto,Bajaj Auto Ltd. Share Price Today - Bajaj Auto Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
+BAJAJ-AUTO.NS,Bajaj Auto,Another buyback offer coming soon! This time it's from Bajaj Auto,neutral,0.5,0.0,TextBlob
+BAJAJ-AUTO.NS,Bajaj Auto,"Bajaj Auto buyback record date nears. Should you participate in ₹5,633 crore share repurchase deal?",neutral,0.5,0.0,TextBlob
+HEROMOTOCO.NS,Hero MotoCorp,Hero MotoCorp Share Price - Live NSE: HEROMOTOCO Stock Price & Chart,positive,0.6364,0.1364,TextBlob
 HEROMOTOCO.NS,Hero MotoCorp,Hero MotoCorp's (NSE:HEROMOTOCO) Strong Earnings Are Of Good Quality,positive,1.0,0.5667,TextBlob
-HEROMOTOCO.NS,Hero MotoCorp,Why Is Hero MotoCorp Share Price Falling? Key Reasons 2026,neutral,0.5,0.0,TextBlob
-HEROMOTOCO.NS,Hero MotoCorp,"Hero MotoCorp shares decline: Check what JPMorgan, Goldman Sachs analysts said post Q4 earnings",neutral,0.5,0.0,TextBlob
-HEROMOTOCO.NS,Hero MotoCorp,"Trade Spotlight: How should you trade Infosys, DLF, Jubilant Foodworks, Hero MotoCorp, Indian Energy...",neutral,0.5,0.0,TextBlob
 HEROMOTOCO.NS,Hero MotoCorp,"Top stocks to buy today: Stock recommendations for July 8, 2026 - check list",positive,1.0,0.5,TextBlob
-HEROMOTOCO.NS,Hero MotoCorp,"Stocks to Watch today: Hero MotoCorp, Paytm, L&T, Bajaj Auto, Policybazaar",neutral,0.5,0.0,TextBlob
-HEROMOTOCO.NS,Hero MotoCorp,Hero MotoCorp shares fall 3% as October sales drop 6%; exports jump 43%,neutral,0.5,0.0,TextBlob
-HEROMOTOCO.NS,Hero MotoCorp,Hero Motocorp Share Price Today Up 5%,neutral,0.5,0.0,TextBlob
+HEROMOTOCO.NS,Hero MotoCorp,Why Is Hero MotoCorp Share Price Falling? Key Reasons 2026,neutral,0.5,0.0,TextBlob
+HEROMOTOCO.NS,Hero MotoCorp,"Hero Moto, M&M, Manappuram Finance: Top stocks to trade — Target prices, stop loss & more",positive,1.0,0.5,TextBlob
+HEROMOTOCO.NS,Hero MotoCorp,"Trade Spotlight: How should you trade Infosys, DLF, Jubilant Foodworks, Hero MotoCorp, Indian Energy...",neutral,0.5,0.0,TextBlob
+HEROMOTOCO.NS,Hero MotoCorp,Hero MotoCorp jumps to 52-week high as analysts lift targets on Q2 strength,positive,0.66,0.16,TextBlob
+HEROMOTOCO.NS,Hero MotoCorp,"Hero MotoCorp Share Price Target 2026: Analyst Forecast, Bull and Bear Case",neutral,0.5,0.0,TextBlob
+EICHERMOT.NS,Eicher Motors,"Trade Spotlight: How should you trade Sumitomo Chemical, Eicher Motors, KFin Technologies, Havells India,...",neutral,0.5,0.0,TextBlob
+EICHERMOT.NS,Eicher Motors,EICHERMOT Share Price Today - Eicher Motors Stock Analysis,neutral,0.5,0.0,TextBlob
 EICHERMOT.NS,Eicher Motors,Should You Buy Eicher Motors Limited (NSE:EICHERMOT) For Its Upcoming Dividend?,negative,0.5714,-0.0714,TextBlob
-EICHERMOT.NS,Eicher Motors,"Stocks to Watch Today: NBCC, Hirect, Indo-MIM, Xtranet Tech, MOIL, MTAR Tech, Eicher Motors, Prestige...",neutral,0.5,0.0,TextBlob
+EICHERMOT.NS,Eicher Motors,"Eicher Motors shares clock best day in over five years, hit fresh 52-week high; here is why",positive,0.9867,0.4867,TextBlob
 EICHERMOT.NS,Eicher Motors,Eicher Motors shares rise 7% to record high after in-line Q3 results,positive,0.66,0.16,TextBlob
 EICHERMOT.NS,Eicher Motors,"Stocks to watch today: Hindalco, TVS Motor, Eicher Motors, NTPC, among stocks in focus on 25 May 2026",neutral,0.5,0.0,TextBlob
-EICHERMOT.NS,Eicher Motors,"Eicher Motors shares clock best day in over five years, hit fresh 52-week high; here is why",positive,0.9867,0.4867,TextBlob
 EICHERMOT.NS,Eicher Motors,Eicher Motors Q1 Results: Conference call audio released for review,neutral,0.5,0.0,TextBlob
-EICHERMOT.NS,Eicher Motors,Eicher Motors (NSE:EICHERMOT) Is Doing The Right Things To Multiply Its Share Price,positive,0.6429,0.1429,TextBlob
-EICHERMOT.NS,Eicher Motors,"Eicher Motors Q4 results: PAT rises 12% to ₹1,520 crore on strong sales growth; ₹82/share dividend declared",positive,0.9333,0.4333,TextBlob
-BRITANNIA.NS,Britannia Industries,Britannia Industries Limited (NSE:BRITANNIA) Stock's Been Sliding But Fundamentals Look Decent: Will The Market Correct The Share Price In The Future?,neutral,0.5317,0.0317,TextBlob
+EICHERMOT.NS,Eicher Motors,"Eicher Motors Q4 Results 2026: Date, Revenue Estimates, Key Catalysts & Share Price Target",neutral,0.5,0.0,TextBlob
+BRITANNIA.NS,Britannia Industries,BRITANNIA Share Price Today - Britannia Industries on NSE/BSE,neutral,0.5,0.0,TextBlob
+BRITANNIA.NS,Britannia Industries,Why Is Britannia Industries Share Price Falling Key Reasons 2026,neutral,0.5,0.0,TextBlob
 BRITANNIA.NS,Britannia Industries,"Britannia dips 5% post Q4, warns of price hikes; analyst says sell on rise",neutral,0.5,0.0,TextBlob
-BRITANNIA.NS,Britannia Industries,"Stocks to watch, May 8: Britannia, SBI, Pidilite, Titan, Urban Company, Waaree Energies, BSE, Lenskart",neutral,0.5,0.0,TextBlob
+BRITANNIA.NS,Britannia Industries,Britannia Industries Limited (NSE:BRITANNIA) Stock's Been Sliding But Fundamentals Look Decent: Will The Market Correct The Share Price In The Future?,neutral,0.5317,0.0317,TextBlob
 BRITANNIA.NS,Britannia Industries,Britannia Industries Ltd. Share Price Today - Britannia Industries Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
-BRITANNIA.NS,Britannia Industries,Britannia to attend J.P. Morgan consumer chat on May 29,neutral,0.5,0.0,TextBlob
+BRITANNIA.NS,Britannia Industries,"Stock market fall: RVNL, ITC, Swiggy, Britannia among 70 stocks that hit 52-week low on NSE",neutral,0.5,0.0,TextBlob
+BRITANNIA.NS,Britannia Industries,"Nestle, Britannia among 4 high-conviction FMCG and retail picks from Axis Direct, here’s why",positive,0.6,0.1,TextBlob
 BRITANNIA.NS,Britannia Industries,Britannia Industries (NSE:BRITANNIA) shareholders have earned a 12% CAGR over the last five years,neutral,0.5,0.0,TextBlob
-BRITANNIA.NS,Britannia Industries,"Stocks to Watch Today: RBL Bank, TCS, Zydus Life, Britannia, Gujarat Pipavav, Garden Reach, Apollo Micro...",neutral,0.5,0.0,TextBlob
-BRITANNIA.NS,Britannia Industries,"Q4 results today: Britannia, BSE, Biocon, Dabur India, 88 more on May 7",positive,1.0,0.5,TextBlob
 HINDALCO.NS,Hindalco Aluminium,HINDALCO Share Price Today - Hindalco Industries on NSE/BSE,neutral,0.5,0.0,TextBlob
+HINDALCO.NS,Hindalco Aluminium,"Hindalco stock jumps 3.5% as top Nifty gainer, NALCO up 8% after Brazil production cut lifts aluminium...",positive,1.0,0.5,TextBlob
+HINDALCO.NS,Hindalco Aluminium,"NALCO, Vedanta, Hindalco: Aluminium majors shine in 2026, strongly outperform NIFTY50; here is why",positive,0.9333,0.4333,TextBlob
 HINDALCO.NS,Hindalco Aluminium,"NALCO, Hindalco rally up to 4% as aluminium prices rebound",neutral,0.5,0.0,TextBlob
-HINDALCO.NS,Hindalco Aluminium,"Vedanta Aluminium vs Hindalco: Key differences in business, clients and growth strategy",neutral,0.5,0.0,TextBlob
-HINDALCO.NS,Hindalco Aluminium,"Hindalco, Nalco rise up to 5% on rising global aluminium prices",neutral,0.5,0.0,TextBlob
-HINDALCO.NS,Hindalco Aluminium,"NALCO, Hindalco, Vedanta shares jump up to 6%. What's behind the surge and what should investors do?",negative,0.9,-0.4,TextBlob
-HINDALCO.NS,Hindalco Aluminium,"Hindalco, NALCO, Vedanta: Aluminium stocks rally over 5% as West Asia conflict damages key production facilities in UAE, Bahrain",neutral,0.5,0.0,TextBlob
+HINDALCO.NS,Hindalco Aluminium,Hindalco Industries share price jumps 3% after announcement of Q4 results 2026 date,neutral,0.5,0.0,TextBlob
 HINDALCO.NS,Hindalco Aluminium,Hindalco stock ends up over 3% after intraday surge; Nifty Metal index gains 2% as aluminium prices rise...,neutral,0.5,0.0,TextBlob
+HINDALCO.NS,Hindalco Aluminium,"Vedanta Aluminium vs Hindalco: Key differences in business, clients and growth strategy",neutral,0.5,0.0,TextBlob
 HINDALCO.NS,Hindalco Aluminium,"Nifty Metal gains 1% in weak mkt; Nalco, Hindalco, Vedanta lead rally",negative,0.875,-0.375,TextBlob
-UPL.NS,UPL Agrochemicals,UPL Ltd. Share Price Today - UPL Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
+UPL.NS,UPL Agrochemicals,"UPL Ltd Share Price Today,, UPL Share Price NSE, BSE",neutral,0.5,0.0,TextBlob
+UPL.NS,UPL Agrochemicals,UPL Share Price,neutral,0.5,0.0,TextBlob
+UPL.NS,UPL Agrochemicals,UPL Share Pros and Cons 2026: Global Agrochemical Company at Cheap 21x PE,positive,0.7,0.2,TextBlob
+UPL.NS,UPL Agrochemicals,UPL Ltd. Witnesses Significant Block Trade on NSE,positive,0.875,0.375,TextBlob
+UPL.NS,UPL Agrochemicals,UPL Analyst Review 2026: Is UPL Worth Buying?,positive,0.8,0.3,TextBlob
+UPL.NS,UPL Agrochemicals,UPL Historical Data,neutral,0.5,0.0,TextBlob
+UPL.NS,UPL Agrochemicals,"JSW Energy, Ethos, UPL, Ashok Leyland: Top brokerage picks with upto 48% upside potential",positive,0.75,0.25,TextBlob
 UPL.NS,UPL Agrochemicals,UPL Limited Announces Colombian Subsidiary Formation Under Regulation 30 Filing,negative,0.5714,-0.0714,TextBlob
-UPL.NS,UPL Agrochemicals,"Fertiliser stocks witness mixed trend on GST rejig: Coromandel, UPL shares fall; Rallis India gains",neutral,0.5,0.0,TextBlob
-UPL.NS,UPL Agrochemicals,UPL Becomes First Indian Company to Secure Secondary GDR Listing on NSE International Exchange,positive,0.5875,0.0875,TextBlob
-UPL.NS,UPL Agrochemicals,UPL dips 4% on Q4 results; Motilal Oswal sees 10% downside on tax headwinds,neutral,0.5,0.0,TextBlob
-UPL.NS,UPL Agrochemicals,How Monsoon Impacts Indian Stock Market: Top Monsoon Stocks to Watch,positive,1.0,0.5,TextBlob
-UPL.NS,UPL Agrochemicals,"Budget 2026 signals demand revival, private investment thrust, says Motilal Oswal. BDL, UPL among 5 stocks to buy",neutral,0.5,0.0,TextBlob
-UPL.NS,UPL Agrochemicals,Why UPL Share Price is Falling,neutral,0.5,0.0,TextBlob
+SBILIFE.NS,SBI Life Insurance,SBI Life Insurance Share Price - Live NSE: SBILIFE Stock Price & Chart,positive,0.6364,0.1364,TextBlob
 SBILIFE.NS,SBI Life Insurance,"SBI Life Insurance vs HDFC Life Insurance: Share Price, PE and ROE Compared",neutral,0.5,0.0,TextBlob
-SBILIFE.NS,SBI Life Insurance,SBILIFE Share Price Today - SBI Life Insurance Company Stock Analysis,neutral,0.5,0.0,TextBlob
-SBILIFE.NS,SBI Life Insurance,Top 6 Insurance Stocks To Buy In India In August 2026,positive,1.0,0.5,TextBlob
 SBILIFE.NS,SBI Life Insurance,Do SBI Life Insurance's (NSE:SBILIFE) Earnings Warrant Your Attention?,neutral,0.5,0.0,TextBlob
+SBILIFE.NS,SBI Life Insurance,Top 6 Insurance Stocks To Buy In India In August 2026,positive,1.0,0.5,TextBlob
 SBILIFE.NS,SBI Life Insurance,"SBI Life Insurance shares slip 3% post Q4 results; net profit, VNB dips YoY",neutral,0.5,0.0,TextBlob
-SBILIFE.NS,SBI Life Insurance,SBI confirms no encumbrance on SBI Life Insurance shares in FY26,neutral,0.5,0.0,TextBlob
-SBILIFE.NS,SBI Life Insurance,"Stocks To Watch, April 23: Jio Financial, Trent, SBI Life, Tata Power, LTTS, Bandhan Bank, Adani Green",negative,0.6,-0.1,TextBlob
-SBILIFE.NS,SBI Life Insurance,"Nifty largecap stocks at 52-week highs, lows today: SBI Life, Bank of Baroda, SBI shine; Wipro, Info Edge...",neutral,0.5,0.0,TextBlob
+SBILIFE.NS,SBI Life Insurance,"Trade Spotlight: How should you trade Gravita India, Equitas Small Finance Bank, Ion Exchange, Grasim, SBI...",negative,0.75,-0.25,TextBlob
+SBILIFE.NS,SBI Life Insurance,SBI Life Insurance Share Pros and Cons 2026: India's Largest Listed Private Insurer,neutral,0.5,0.0,TextBlob
+SBILIFE.NS,SBI Life Insurance,Fedbank Financial Services holds investor meet with SBI Life Insurance,neutral,0.5,0.0,TextBlob
 HDFCLIFE.NS,HDFC Life Insurance,"SBI Life Insurance vs HDFC Life Insurance: Share Price, PE and ROE Compared",neutral,0.5,0.0,TextBlob
+HDFCLIFE.NS,HDFC Life Insurance,Life Insurance Corporation of India (LICI) Share Price,neutral,0.5,0.0,TextBlob
 HDFCLIFE.NS,HDFC Life Insurance,Is It Smart To Buy HDFC Life Insurance Company Limited (NSE:HDFCLIFE) Before It Goes Ex-Dividend?,positive,0.5714,0.0714,TextBlob
 HDFCLIFE.NS,HDFC Life Insurance,Top 6 Insurance Stocks To Buy In India In August 2026,positive,1.0,0.5,TextBlob
 HDFCLIFE.NS,HDFC Life Insurance,Promoter entities sell Rs 153 crore worth shares in Motilal Oswal block deal; HDFC Life picks up stake,positive,0.8,0.3,TextBlob
 HDFCLIFE.NS,HDFC Life Insurance,HDFC Life Insurance Company Ltd drops for fifth straight session,positive,0.7,0.2,TextBlob
-HDFCLIFE.NS,HDFC Life Insurance,HDFC Life to host Q1FY27 earnings call on July 15,neutral,0.5,0.0,TextBlob
 HDFCLIFE.NS,HDFC Life Insurance,"Top gainers and losers on July 10: Jio Fin up 4%, HDFC Life up 3%; Dr Reddy’s down 1% were among top movers",positive,0.6611,0.1611,TextBlob
-HDFCLIFE.NS,HDFC Life Insurance,"HDFC Life buys Rs 153 crore Motilal Oswal Financial shares, promoter sells 4.5% stake in NRB Bearings",neutral,0.5,0.0,TextBlob
+HDFCLIFE.NS,HDFC Life Insurance,"Stocks to Watch Today: HDFC Life, Adani Power, TVS Holdings, NTPC Green, Laser Power, India Pesticides,...",negative,0.7,-0.2,TextBlob
 APOLLOHOSP.NS,Apollo Hospitals,"Apollo Hospitals, Max Healthcare stocks fall about 1% as Parliamentary panel recommends 3-star cap on room...",neutral,0.5,0.0,TextBlob
 APOLLOHOSP.NS,Apollo Hospitals,Could The Market Be Wrong About Apollo Hospitals Enterprise Limited (NSE:APOLLOHOSP) Given Its Attractive Financial Prospects?,positive,0.5571,0.0571,TextBlob
 APOLLOHOSP.NS,Apollo Hospitals,"Stocks to Watch Today: Apollo Hospitals, UltraTech, Vascon Engineers, Dr Agarwals Health, LAPL Automotive,...",neutral,0.5,0.0,TextBlob
 APOLLOHOSP.NS,Apollo Hospitals,Big Money Moves: 11 large-cap stocks where institutional investors raised stakes in Q4FY26,neutral,0.5,0.0,TextBlob
+APOLLOHOSP.NS,Apollo Hospitals,Multibagger Stocks in India 2026: 5 High-Growth Picks Across Sectors,neutral,0.5,0.0,TextBlob
 APOLLOHOSP.NS,Apollo Hospitals,Apollo Hospitals Share Price Rises 1.8% After NSE Approves Demerger,neutral,0.5,0.0,TextBlob
 APOLLOHOSP.NS,Apollo Hospitals,Apollo Hospitals shares rise 2% after NSE clears demerger of multiple health businesses,neutral,0.5,0.0,TextBlob
-APOLLOHOSP.NS,Apollo Hospitals,Apollo Hospitals Enterprise Ltd. Records ₹16.65 Crore Block Trade on NSE,neutral,0.5,0.0,TextBlob
 APOLLOHOSP.NS,Apollo Hospitals,"CG Power, Apollo Hospitals among 3 stock ideas by Axis Direct",positive,0.6,0.1,TextBlob
 TATACONSUM.NS,Tata Consumer Products,Tata Consumer Products Share Price Rise: Price Action View,positive,0.6,0.1,TextBlob
 TATACONSUM.NS,Tata Consumer Products,Tata Consumer Products ESG rating drops to 61 in FY26,neutral,0.5,0.0,TextBlob
-TATACONSUM.NS,Tata Consumer Products,"Tata Group firms erase Rs 68,000 crore in market value following Chandrasekaran's resignation",neutral,0.5,0.0,TextBlob
-TATACONSUM.NS,Tata Consumer Products,"Tata Consumer Products Q1 preview: Revenue may grow 12%, PAT seen up 20%",neutral,0.5,0.0,TextBlob
+TATACONSUM.NS,Tata Consumer Products,"Tata Consumer Products Q1 results: Profit jumps 28% YoY to ₹427 crore, revenue climbs 12% in June quarter",neutral,0.5,0.0,TextBlob
 TATACONSUM.NS,Tata Consumer Products,TATA CONSUMER PRODUCTS SHARE PRICE TODAY,neutral,0.5,0.0,TextBlob
+TATACONSUM.NS,Tata Consumer Products,"Tata Consumer Products Q1 preview: Revenue may grow 12%, PAT seen up 20%",neutral,0.5,0.0,TextBlob
 TATACONSUM.NS,Tata Consumer Products,"Tata Consumer Q1 Numbers Strong: Profit Up 28%, Revenue Hits Rs 5,348 Cr",positive,0.9333,0.4333,TextBlob
 TATACONSUM.NS,Tata Consumer Products,Here's What We Like About Tata Consumer Products' (NSE:TATACONSUM) Upcoming Dividend,neutral,0.5,0.0,TextBlob
 TATACONSUM.NS,Tata Consumer Products,Tata Consumer Products Ltd. Share Price Today - Tata Consumer Products Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
+INDUSINDBK.NS,IndusInd Bank,Punjab National Bank vs IndusInd Bank: Full Stock Comparison,positive,0.85,0.35,TextBlob
+INDUSINDBK.NS,IndusInd Bank,"Top stocks in news: Dr Reddys, HCL Tech, IndusInd Bank, HPCL, NTPC Green, OFSS, NAM India",positive,0.65,0.15,TextBlob
+INDUSINDBK.NS,IndusInd Bank,Indusind Bank Share Price Today Down 5%,negative,0.6556,-0.1556,TextBlob
 INDUSINDBK.NS,IndusInd Bank,"Investors in IndusInd Bank (NSE:INDUSINDBK) from three years ago are still down 24%, even after 3.9% gain this past week",negative,0.7028,-0.2028,TextBlob
 INDUSINDBK.NS,IndusInd Bank,"SBI, IndusInd, AU Small Fin Bank, others drag down Nifty Bank 1.7% intraday; factors driving today’s losses",negative,0.6685,-0.1685,TextBlob
 INDUSINDBK.NS,IndusInd Bank,IndusInd Bank share price gains 12% in 3 days; stock up 21% from Sept lows,neutral,0.5,0.0,TextBlob
-INDUSINDBK.NS,IndusInd Bank,"IndusInd Bank share falls over 2% after report of fresh whistleblower complaint to PMO, RBI",neutral,0.5,0.0,TextBlob
 INDUSINDBK.NS,IndusInd Bank,IndusInd Bank Ltd. Share Price Today - IndusInd Bank Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
-INDUSINDBK.NS,IndusInd Bank,"IndusInd Bank, GAIL, Power Mech: Stocks to buy — Check target prices, stop loss & more",positive,1.0,0.5,TextBlob
-INDUSINDBK.NS,IndusInd Bank,IndusInd Bank Records ₹18.94 Crore Block Trade on NSE at ₹944.05 Per Share,neutral,0.5,0.0,TextBlob
-INDUSINDBK.NS,IndusInd Bank,"Stock Picks Today: Hyundai, Pine Labs, ONGC, IndusInd Bank, Sun Pharma And More On Brokerages' Radar",positive,1.0,0.5,TextBlob
-M&M.NS,Mahindra Mahindra,"SML Isuzu Share Price Today, SML Isuzu Stock Price Live NSE/BSE Updates",positive,0.6364,0.1364,TextBlob
-M&M.NS,Mahindra Mahindra,Mahindra Stock And Other India Auto Export Names Under Fresh US Tariff Pressure,positive,0.5875,0.0875,TextBlob
+INDUSINDBK.NS,IndusInd Bank,"IndusInd Bank share falls over 2% after report of fresh whistleblower complaint to PMO, RBI",neutral,0.5,0.0,TextBlob
+M&M.NS,Mahindra Mahindra,Here's Why We Think Mahindra & Mahindra (NSE:M&M) Might Deserve Your Attention Today,neutral,0.5,0.0,TextBlob
 M&M.NS,Mahindra Mahindra,MHRIL Forecast — Price Target — Prediction for 2027,neutral,0.5,0.0,TextBlob
 M&M.NS,Mahindra Mahindra,"Mahindra & Mahindra shares tumble 5%, NIFTY AUTO index down 1.6%; here is why",negative,0.6556,-0.1556,TextBlob
-M&M.NS,Mahindra Mahindra,"Stocks to Watch Today: Tech Mahindra, WeWork India, Borosil Renewables, Servotech Renewable, Maruti...",neutral,0.5,0.0,TextBlob
-M&M.NS,Mahindra Mahindra,Here's Why We Think Mahindra & Mahindra (NSE:M&M) Might Deserve Your Attention Today,neutral,0.5,0.0,TextBlob
-M&M.NS,Mahindra Mahindra,Mahindra & Mahindra Ltd. Share Price Today - Mahindra & Mahindra Ltd. Stock Price Live NSE/BSE,positive,0.6364,0.1364,TextBlob
 M&M.NS,Mahindra Mahindra,Tech Mahindra misses Q4 profit estimate; stock down over 3% in two sessions,negative,0.6556,-0.1556,TextBlob
-LTF.NS,L&T Finance,Skoda Kylaq 15000 km service update: 1.0L TSI is silky smooth as always,positive,0.9,0.4,TextBlob
-LTF.NS,L&T Finance,Biological Activities and Chemical Composition of Heliotropium Indicum L.: An Overview,neutral,0.5,0.0,TextBlob
-LTF.NS,L&T Finance,"WaveFront Dynamics integrates B+L, Wave Eye Care scleral lenses",neutral,0.5,0.0,TextBlob
-LTF.NS,L&T Finance,INVENTURUS KNOWLEDGE SO L Share Price News and Valuation,neutral,0.5,0.0,TextBlob
-LTF.NS,L&T Finance,Six Bengaluru hotels fined Rs 1.6L for food safety breach,neutral,0.5,0.0,TextBlob
-LTF.NS,L&T Finance,Shuttler Suhas L Yathiraj wins silver medal in men’s badminton at Paralympic Games,positive,0.8,0.3,TextBlob
-LTF.NS,L&T Finance,JMCG Mauritius lineup debuts at Salon de l’Automobile,neutral,0.5,0.0,TextBlob
-LTF.NS,L&T Finance,15 years & 1.41L kms with my Chevrolet Beat: A smart used buy today?,positive,0.7143,0.2143,TextBlob
+M&M.NS,Mahindra Mahindra,Mahindra Stock And Other India Auto Export Names Under Fresh US Tariff Pressure,positive,0.5875,0.0875,TextBlob
+M&M.NS,Mahindra Mahindra,"Stocks to Watch Today: Tech Mahindra, WeWork India, Borosil Renewables, Servotech Renewable, Maruti...",neutral,0.5,0.0,TextBlob
+M&M.NS,Mahindra Mahindra,Stock market today: Which are top 10 gainers and losers on NSE & BSE on February 12? Check list,positive,0.65,0.15,TextBlob
+M&M.NS,Mahindra Mahindra,Mahindra & Mahindra Records ₹50.89 Crore Block Trade on NSE,neutral,0.5,0.0,TextBlob
+LTF.NS,L&T Finance,L’imad’s Ports Deal Signals Abu Dhabi Wealth Fund’s Growing Role,neutral,0.5,0.0,TextBlob
+LTF.NS,L&T Finance,L'imad announces intention to acquire 100% shares of AD Ports Group,neutral,0.5,0.0,TextBlob
+LTF.NS,L&T Finance,Cultivation practices for chia (Salvia hispanica L.) in shallow black soils of drought prone areas,negative,0.75,-0.25,TextBlob
+LTF.NS,L&T Finance,SENORES PHARMACEUTICALS L Share Price: 52-Week High Analysis,positive,0.66,0.16,TextBlob
+LTF.NS,L&T Finance,Abu Dhabi wealth fund L'IMAD plans to acquire full ownership of AD Ports,positive,0.85,0.35,TextBlob
+LTF.NS,L&T Finance,₹29 tea-samosa payment helps crack ₹4-L robbery,neutral,0.5,0.0,TextBlob
+LTF.NS,L&T Finance,Oriflame taps former L'Oréal executive Kenneth Benaim Campbell as CEO,neutral,0.5,0.0,TextBlob
+LTF.NS,L&T Finance,Pavillon Monk / L. McComber,neutral,0.5,0.0,TextBlob
