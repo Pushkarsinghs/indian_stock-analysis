@@ -1,51 +1,51 @@
 Ticker,Company,Avg_Polarity,Sentiment_Label,Sentiment_Score,Bullish_Count,Bearish_Count,Neutral_Count,Avg_Confidence,Total_Articles
-RELIANCE.NS,Reliance Industries,0.025,Neutral,51.2,2,2,4,0.525,8
-TCS.NS,TCS Tata Consultancy,0.0507,Neutral,52.5,1,1,6,0.551,8
-HDFCBANK.NS,HDFC Bank,0.0542,Neutral,52.7,1,0,7,0.554,8
-INFY.NS,Infosys,-0.0092,Neutral,49.5,1,2,5,0.509,8
-ICICIBANK.NS,ICICI Bank,0.0901,Neutral,54.5,3,1,4,0.59,8
-HINDUNILVR.NS,Hindustan Unilever,0.0782,Neutral,53.9,4,0,4,0.578,8
-ITC.NS,ITC Limited,0.0451,Neutral,52.3,3,1,4,0.545,8
+RELIANCE.NS,Reliance Industries,0.1875,Positive,59.4,2,1,5,0.688,8
+TCS.NS,TCS Tata Consultancy,0.0097,Neutral,50.5,1,2,5,0.51,8
+HDFCBANK.NS,HDFC Bank,0.0544,Neutral,52.7,2,0,6,0.554,8
+INFY.NS,Infosys,-0.0114,Neutral,49.4,1,2,5,0.511,8
+ICICIBANK.NS,ICICI Bank,0.0795,Neutral,54.0,2,0,6,0.58,8
+HINDUNILVR.NS,Hindustan Unilever,0.023,Neutral,51.1,1,0,7,0.523,8
+ITC.NS,ITC Limited,0.0104,Neutral,50.5,3,2,3,0.51,8
 SBIN.NS,State Bank India SBI,0.0837,Neutral,54.2,3,0,5,0.584,8
-BHARTIARTL.NS,Bharti Airtel,0.0561,Neutral,52.8,2,1,5,0.556,8
-KOTAKBANK.NS,Kotak Mahindra Bank,-0.0125,Neutral,49.4,0,1,7,0.512,8
-LT.NS,Larsen Toubro,0.0451,Neutral,52.3,2,1,5,0.545,8
-AXISBANK.NS,Axis Bank,0.0527,Neutral,52.6,3,0,5,0.553,8
-ASIANPAINT.NS,Asian Paints,0.131,Neutral,56.5,4,0,4,0.631,8
-MARUTI.NS,Maruti Suzuki,0.0542,Neutral,52.7,1,0,7,0.554,8
-SUNPHARMA.NS,Sun Pharma,0.1095,Neutral,55.5,4,1,3,0.61,8
-TITAN.NS,Titan Company,0.064,Neutral,53.2,3,0,5,0.564,8
+BHARTIARTL.NS,Bharti Airtel,0.0401,Neutral,52.0,2,0,6,0.54,8
+KOTAKBANK.NS,Kotak Mahindra Bank,0.0875,Neutral,54.4,1,1,6,0.588,8
+LT.NS,Larsen Toubro,0.0951,Neutral,54.8,3,0,5,0.595,8
+AXISBANK.NS,Axis Bank,0.097,Neutral,54.9,4,0,4,0.597,8
+ASIANPAINT.NS,Asian Paints,0.0768,Neutral,53.8,2,1,5,0.577,8
+MARUTI.NS,Maruti Suzuki,0.0625,Neutral,53.1,1,0,7,0.562,8
+SUNPHARMA.NS,Sun Pharma,0.0894,Neutral,54.5,3,1,4,0.589,8
+TITAN.NS,Titan Company,0.0577,Neutral,52.9,3,0,5,0.558,8
 ULTRACEMCO.NS,UltraTech Cement,0.1688,Positive,58.4,3,0,5,0.669,8
-BAJFINANCE.NS,Bajaj Finance,0.0691,Neutral,53.5,4,1,3,0.569,8
-WIPRO.NS,Wipro,0.0125,Neutral,50.6,1,0,7,0.512,8
+BAJFINANCE.NS,Bajaj Finance,0.0519,Neutral,52.6,3,1,4,0.552,8
+WIPRO.NS,Wipro,-0.0069,Neutral,49.7,1,1,6,0.507,8
 ONGC.NS,ONGC Oil Gas,0.0672,Neutral,53.4,4,2,2,0.567,8
-NTPC.NS,NTPC Power,0.0256,Neutral,51.3,2,2,4,0.526,8
-POWERGRID.NS,Power Grid India,0.1355,Neutral,56.8,5,0,3,0.635,8
-TECHM.NS,Tech Mahindra,0.0851,Neutral,54.3,1,2,5,0.585,8
-HCLTECH.NS,HCL Technologies,0.0157,Neutral,50.8,2,1,5,0.516,8
-JSWSTEEL.NS,JSW Steel,0.1479,Neutral,57.4,4,0,4,0.648,8
-TATASTEEL.NS,Tata Steel,0.2333,Positive,61.7,4,0,4,0.733,8
+NTPC.NS,NTPC Power,-0.0063,Neutral,49.7,2,4,2,0.506,8
+POWERGRID.NS,Power Grid India,0.1075,Neutral,55.4,4,1,3,0.608,8
+TECHM.NS,Tech Mahindra,0.0325,Neutral,51.6,3,2,3,0.532,8
+HCLTECH.NS,HCL Technologies,0.0487,Neutral,52.4,3,1,4,0.549,8
+JSWSTEEL.NS,JSW Steel,0.1077,Neutral,55.4,3,1,4,0.608,8
+TATASTEEL.NS,Tata Steel,0.2426,Positive,62.1,4,1,3,0.743,8
 TATAMOTORS.NS,Tata Motors,-0.0024,Neutral,49.9,1,1,6,0.502,8
-NESTLEIND.NS,Nestle India,-0.0181,Neutral,49.1,3,2,3,0.518,8
-DRREDDY.NS,Dr Reddys Laboratories,0.0927,Neutral,54.6,4,1,3,0.593,8
-DIVISLAB.NS,Divis Laboratories,0.1196,Neutral,56.0,4,0,4,0.62,8
-CIPLA.NS,Cipla Pharma,0.186,Positive,59.3,4,0,4,0.686,8
+NESTLEIND.NS,Nestle India,0.1069,Neutral,55.3,4,2,2,0.607,8
+DRREDDY.NS,Dr Reddys Laboratories,0.1298,Neutral,56.5,4,1,3,0.63,8
+DIVISLAB.NS,Divis Laboratories,0.0996,Neutral,55.0,3,0,5,0.6,8
+CIPLA.NS,Cipla Pharma,0.2454,Positive,62.3,5,0,3,0.745,8
 COALINDIA.NS,Coal India,0.0502,Neutral,52.5,3,1,4,0.55,8
-BPCL.NS,BPCL Bharat Petroleum,-0.0359,Neutral,48.2,2,2,4,0.536,8
-GRASIM.NS,Grasim Industries,0.0831,Neutral,54.2,2,2,4,0.583,8
-ADANIENT.NS,Adani Enterprises,-0.0267,Neutral,48.7,1,2,5,0.527,8
-ADANIPORTS.NS,Adani Ports,0.0496,Neutral,52.5,3,0,5,0.55,8
-BAJAJFINSV.NS,Bajaj Finserv,0.0316,Neutral,51.6,3,1,4,0.532,8
-BAJAJ-AUTO.NS,Bajaj Auto,0.0717,Neutral,53.6,4,2,2,0.572,8
-HEROMOTOCO.NS,Hero MotoCorp,0.1375,Neutral,56.9,3,0,5,0.637,8
-EICHERMOT.NS,Eicher Motors,0.1102,Neutral,55.5,5,1,2,0.61,8
-BRITANNIA.NS,Britannia Industries,0.0918,Neutral,54.6,3,0,5,0.592,8
+BPCL.NS,BPCL Bharat Petroleum,-0.1078,Neutral,44.6,2,2,4,0.608,8
+GRASIM.NS,Grasim Industries,0.0348,Neutral,51.7,1,3,4,0.535,8
+ADANIENT.NS,Adani Enterprises,0.0172,Neutral,50.9,2,0,6,0.517,8
+ADANIPORTS.NS,Adani Ports,0.0816,Neutral,54.1,4,0,4,0.582,8
+BAJAJFINSV.NS,Bajaj Finserv,-0.0013,Neutral,49.9,1,1,6,0.501,8
+BAJAJ-AUTO.NS,Bajaj Auto,0.0887,Neutral,54.4,5,2,1,0.589,8
+HEROMOTOCO.NS,Hero MotoCorp,0.125,Neutral,56.2,2,0,6,0.625,8
+EICHERMOT.NS,Eicher Motors,0.1138,Neutral,55.7,4,2,2,0.614,8
+BRITANNIA.NS,Britannia Industries,0.021,Neutral,51.0,1,0,7,0.521,8
 HINDALCO.NS,Hindalco Aluminium,0.0271,Neutral,51.4,1,0,7,0.527,8
-UPL.NS,UPL Agrochemicals,0.1641,Positive,58.2,5,0,3,0.664,8
-SBILIFE.NS,SBI Life Insurance,0.1479,Neutral,57.4,3,1,4,0.648,8
-HDFCLIFE.NS,HDFC Life Insurance,0.1131,Neutral,55.7,4,1,3,0.613,8
-APOLLOHOSP.NS,Apollo Hospitals,0.1155,Neutral,55.8,4,0,4,0.616,8
+UPL.NS,UPL Agrochemicals,0.1078,Neutral,55.4,4,0,4,0.608,8
+SBILIFE.NS,SBI Life Insurance,0.0854,Neutral,54.3,2,1,5,0.585,8
+HDFCLIFE.NS,HDFC Life Insurance,0.1256,Neutral,56.3,4,1,3,0.626,8
+APOLLOHOSP.NS,Apollo Hospitals,0.0665,Neutral,53.3,2,0,6,0.567,8
 TATACONSUM.NS,Tata Consumer Products,0.1031,Neutral,55.2,3,0,5,0.603,8
 INDUSINDBK.NS,IndusInd Bank,-0.0796,Neutral,46.0,2,3,3,0.58,8
 M&M.NS,Mahindra Mahindra,0.017,Neutral,50.8,1,0,7,0.517,8
-LTF.NS,L&T Finance,0.065,Neutral,53.2,3,1,4,0.565,8
+LTF.NS,L&T Finance,0.1369,Neutral,56.8,2,1,5,0.637,8
