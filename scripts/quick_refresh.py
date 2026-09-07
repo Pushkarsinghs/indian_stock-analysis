@@ -1,11 +1,9 @@
 """
 scripts/quick_refresh.py
 
-Fetches fresh NIFTY 50 data and saves CSV files to
-streamlit_app/data/ for the Streamlit web app.
-
-Uses curl_cffi to bypass Yahoo Finance bot detection
-on cloud/GitHub Actions servers.
+Daily data refresh for NIFTY 50 Intelligence System.
+Uses curl_cffi to bypass Yahoo Finance bot detection on cloud servers.
+Saves 7 CSV files to streamlit_app/data/
 """
 
 import pandas as pd
@@ -13,9 +11,8 @@ import numpy as np
 import ta
 import os
 import sys
-import warnings
-import feedparser
 import time
+import warnings
 import traceback
 from datetime import datetime
 
@@ -32,31 +29,28 @@ print(f"  Output:  {OUTPUT_DIR}")
 print("=" * 60)
 
 # ── Import yfinance with curl_cffi session ──────────────
-# This is required to bypass Yahoo Finance bot detection
-# on cloud servers like GitHub Actions
 try:
     from curl_cffi import requests as curl_requests
     import yfinance as yf
-    session = curl_requests.Session(impersonate="chrome")
-    print("  Using curl_cffi session to bypass Yahoo Finance bot detection")
+    session = curl_requests.Session(impersonate="chrome110")
     USE_SESSION = True
-except ImportError:
-    import yfinance as yf
-    session = None
-    USE_SESSION = False
-    print("  curl_cffi not available, using default yfinance")
-
-
-# ────────────────────────────────────────
-# STOCK LISTS
-# ────────────────────────────────────────
+    print("  curl_cffi session ready — Yahoo Finance bypass active")
+except Exception as e:
+    try:
+        import yfinance as yf
+        session = None
+        USE_SESSION = False
+        print(f"  curl_cffi not available ({e}), using standard yfinance")
+    except Exception as e2:
+        print(f"  CRITICAL: yfinance not available: {e2}")
+        sys.exit(1)
 
 NIFTY_50 = [
     "RELIANCE.NS",  "TCS.NS",       "HDFCBANK.NS",  "INFY.NS",
     "ICICIBANK.NS", "HINDUNILVR.NS","ITC.NS",        "SBIN.NS",
     "BHARTIARTL.NS","KOTAKBANK.NS", "LT.NS",         "AXISBANK.NS",
     "ASIANPAINT.NS","MARUTI.NS",    "SUNPHARMA.NS",  "TITAN.NS",
-    "ULTRACEMCO.NS","BAJFINANCE.NS","WIPRO.NS",       "ONGC.NS",
+    "ULTRACEMCO.NS","BAJFINANCE.NS","WIPRO.NS",      "ONGC.NS",
     "NTPC.NS",      "POWERGRID.NS", "TECHM.NS",      "HCLTECH.NS",
     "JSWSTEEL.NS",  "TATASTEEL.NS", "TATAMOTORS.NS", "NESTLEIND.NS",
     "DRREDDY.NS",   "DIVISLAB.NS",  "CIPLA.NS",      "COALINDIA.NS",
@@ -149,112 +143,91 @@ COMPANY_NAMES = {
 }
 
 
-def fetch_ticker(ticker, session=None):
-    """
-    Fetch 1 year of price history for one ticker.
-    Uses curl_cffi session if available to bypass
-    Yahoo Finance bot detection on cloud servers.
-    """
-    try:
-        if session is not None:
-            ticker_obj = yf.Ticker(ticker, session=session)
-        else:
-            ticker_obj = yf.Ticker(ticker)
-
-        df = ticker_obj.history(period="1y", auto_adjust=True)
-
-        if df.empty:
-            return None, "Empty dataframe"
-
-        df["Ticker"] = ticker
-        df["Sector"] = SECTOR_MAP.get(ticker, "Unknown")
-        df.reset_index(inplace=True)
-        return df, None
-
-    except Exception as e:
-        return None, str(e)
-
-
 def save_csv(df, filename):
-    """Save DataFrame to CSV and print status."""
     path = os.path.join(OUTPUT_DIR, filename)
     df.to_csv(path, index=False)
     size = os.path.getsize(path) / 1024
-    print(f"  SAVED  {filename:<47}  "
-          f"{len(df):>6} rows  {size:>7.1f} KB")
+    print(f"  SAVED  {filename:<47}  {len(df):>6} rows  {size:>7.1f} KB")
     return path
+
+
+def fetch_ticker_data(ticker):
+    for attempt in range(3):
+        try:
+            if USE_SESSION:
+                ticker_obj = yf.Ticker(ticker, session=session)
+            else:
+                ticker_obj = yf.Ticker(ticker)
+            df = ticker_obj.history(period="1y", auto_adjust=True)
+            if not df.empty:
+                return df, None
+            raise ValueError("Empty dataframe")
+        except Exception as e:
+            if attempt < 2:
+                wait = (attempt + 1) * 5
+                print(f"  RETRY [{attempt+1}/2] {ticker} — waiting {wait}s")
+                time.sleep(wait)
+            else:
+                return None, str(e)
+    return None, "Max retries exceeded"
 
 
 # ════════════════════════════════════════
 # STEP 1 — FETCH PRICE DATA
 # ════════════════════════════════════════
 print(f"\n[STEP 1/4] Fetching 1-year price history...")
-print(f"  Method: {'curl_cffi (cloud-safe)' if USE_SESSION else 'standard yfinance'}")
 print("-" * 60)
 
 all_data = []
 failed   = []
 
 for i, ticker in enumerate(NIFTY_50, 1):
-    success = False
-    for attempt in range(3):
-        df, error = fetch_ticker(ticker, session)
-        if df is not None:
-            all_data.append(df)
-            print(f"  OK  [{i:02d}/{len(NIFTY_50)}]  {ticker:<22}  "
-                  f"{len(df)} rows")
-            success = True
-            break
-        else:
-            if attempt < 2:
-                wait = (attempt + 1) * 3
-                print(f"  RETRY [{attempt+1}/2]  {ticker}  "
-                      f"waiting {wait}s...  ({error[:50]})")
-                time.sleep(wait)
-            else:
-                print(f"  FAIL  [{i:02d}/{len(NIFTY_50)}]  "
-                      f"{ticker}  {error[:60]}")
-                failed.append(ticker)
-    time.sleep(0.5)
-
-if not all_data:
-    print("\nCRITICAL: No data fetched at all.")
-    print("Yahoo Finance is blocking all requests from this server.")
-    print("The workflow will continue but with empty data.")
-    sys.exit(1)
+    df, error = fetch_ticker_data(ticker)
+    if df is not None:
+        df["Ticker"] = ticker
+        df["Sector"] = SECTOR_MAP.get(ticker, "Unknown")
+        df.reset_index(inplace=True)
+        all_data.append(df)
+        print(f"  OK  [{i:02d}/{len(NIFTY_50)}]  {ticker:<22}  {len(df)} rows")
+    else:
+        print(f"  FAIL [{i:02d}/{len(NIFTY_50)}]  {ticker:<22}  {error}")
+        failed.append(ticker)
+    time.sleep(0.4)
 
 print(f"\n  Fetched: {len(all_data)}/{len(NIFTY_50)} stocks")
-if failed:
-    print(f"  Failed:  {failed}")
 
-# Clean and combine
+if not all_data:
+    print("CRITICAL: No data fetched. Stopping.")
+    sys.exit(1)
+
 raw_df = pd.concat(all_data, ignore_index=True)
 raw_df["Date"] = pd.to_datetime(raw_df["Date"])
+
 if hasattr(raw_df["Date"].dt, "tz") and raw_df["Date"].dt.tz is not None:
     raw_df["Date"] = raw_df["Date"].dt.tz_localize(None)
 
-raw_df = raw_df[[
-    "Date","Ticker","Sector","Open","High","Low","Close","Volume"
-]].copy()
+raw_df = raw_df[
+    ["Date","Ticker","Sector","Open","High","Low","Close","Volume"]
+].copy()
 raw_df.drop_duplicates(subset=["Date","Ticker"], inplace=True)
 raw_df.dropna(subset=["Close"], inplace=True)
 raw_df.sort_values(["Ticker","Date"], inplace=True)
-raw_df["Daily_Return"] = (raw_df.groupby("Ticker")["Close"]
-                          .pct_change().round(4))
-raw_df["Price_Change"] = (raw_df["Close"] - raw_df["Open"]).round(2)
+raw_df["Daily_Return"] = (
+    raw_df.groupby("Ticker")["Close"].pct_change().round(4)
+)
+raw_df["Price_Change"]     = (raw_df["Close"] - raw_df["Open"]).round(2)
 raw_df["Price_Change_Pct"] = (
     (raw_df["Price_Change"] / raw_df["Open"]) * 100
 ).round(2)
 raw_df.reset_index(drop=True, inplace=True)
 
-print(f"\n  Total rows:    {len(raw_df):,}")
-print(f"  Unique stocks: {raw_df['Ticker'].nunique()}")
-print(f"  Date range:    {raw_df['Date'].min().date()} "
-      f"to {raw_df['Date'].max().date()}")
+latest_date = raw_df["Date"].max()
+print(f"  Latest date in data: {latest_date.date()}")
+print(f"  Total rows: {len(raw_df):,}")
 
 save_csv(raw_df, "nifty50_for_powerbi.csv")
 
-latest_day = raw_df[raw_df["Date"] == raw_df["Date"].max()].copy()
+latest_day = raw_df[raw_df["Date"] == latest_date].copy()
 save_csv(latest_day, "nifty50_latest_day.csv")
 
 
@@ -269,57 +242,45 @@ tech_failed  = []
 
 for i, ticker in enumerate(raw_df["Ticker"].unique(), 1):
     try:
-        s = (raw_df[raw_df["Ticker"] == ticker]
-             .copy()
-             .sort_values("Date")
-             .reset_index(drop=True))
-
+        s = (
+            raw_df[raw_df["Ticker"] == ticker]
+            .copy()
+            .sort_values("Date")
+            .reset_index(drop=True)
+        )
         if len(s) < 30:
-            print(f"  SKIP  {ticker}  only {len(s)} rows")
             continue
 
-        # Trend
-        s["SMA_20"]      = ta.trend.SMAIndicator(
-                               s["Close"], 20).sma_indicator()
-        s["SMA_50"]      = ta.trend.SMAIndicator(
-                               s["Close"], 50).sma_indicator()
-        s["SMA_200"]     = ta.trend.SMAIndicator(
-                               s["Close"], 200).sma_indicator()
-        s["EMA_20"]      = ta.trend.EMAIndicator(
-                               s["Close"], 20).ema_indicator()
-        s["EMA_26"]      = ta.trend.EMAIndicator(
-                               s["Close"], 26).ema_indicator()
+        s["SMA_20"]      = ta.trend.SMAIndicator(s["Close"], 20).sma_indicator()
+        s["SMA_50"]      = ta.trend.SMAIndicator(s["Close"], 50).sma_indicator()
+        s["SMA_200"]     = ta.trend.SMAIndicator(s["Close"], 200).sma_indicator()
+        s["EMA_20"]      = ta.trend.EMAIndicator(s["Close"], 20).ema_indicator()
+        s["EMA_26"]      = ta.trend.EMAIndicator(s["Close"], 26).ema_indicator()
         macd_obj         = ta.trend.MACD(s["Close"])
         s["MACD"]        = macd_obj.macd()
         s["MACD_Signal"] = macd_obj.macd_signal()
         s["MACD_Hist"]   = macd_obj.macd_diff()
         s["ADX"]         = ta.trend.ADXIndicator(
-                               s["High"],s["Low"],s["Close"]).adx()
-
-        # Momentum
-        s["RSI"]         = ta.momentum.RSIIndicator(
-                               s["Close"], 14).rsi()
+            s["High"], s["Low"], s["Close"]
+        ).adx()
+        s["RSI"]         = ta.momentum.RSIIndicator(s["Close"], 14).rsi()
         stoch            = ta.momentum.StochasticOscillator(
-                               s["High"],s["Low"],s["Close"])
+            s["High"], s["Low"], s["Close"]
+        )
         s["Stoch_K"]     = stoch.stoch()
         s["Stoch_D"]     = stoch.stoch_signal()
-
-        # Volatility
         bb               = ta.volatility.BollingerBands(s["Close"])
         s["BB_Upper"]    = bb.bollinger_hband()
         s["BB_Middle"]   = bb.bollinger_mavg()
         s["BB_Lower"]    = bb.bollinger_lband()
         s["BB_Width"]    = bb.bollinger_wband()
         s["ATR"]         = ta.volatility.AverageTrueRange(
-                               s["High"],s["Low"],s["Close"]
-                           ).average_true_range()
-
-        # Volume
+            s["High"], s["Low"], s["Close"]
+        ).average_true_range()
         s["OBV"]         = ta.volume.OnBalanceVolumeIndicator(
-                               s["Close"],s["Volume"]
-                           ).on_balance_volume()
+            s["Close"], s["Volume"]
+        ).on_balance_volume()
 
-        # Signal scoring
         s["Signal_Score"] = 0
         s.loc[s["RSI"] < 30,                "Signal_Score"] += 2
         s.loc[s["RSI"] > 70,                "Signal_Score"] -= 2
@@ -345,8 +306,9 @@ for i, ticker in enumerate(raw_df["Ticker"].unique(), 1):
         s.loc[s["RSI"] > 70, "RSI_Signal"] = "Overbought"
 
         tech_results.append(s)
-        print(f"  OK  [{i:02d}]  {ticker:<22}  "
-              f"signal: {s['Signal'].iloc[-1]}")
+        sig = s["Signal"].iloc[-1]
+        rsi = round(float(s["RSI"].iloc[-1]), 1)
+        print(f"  OK  [{i:02d}]  {ticker:<22}  signal: {sig:<12}  RSI: {rsi}")
 
     except Exception as e:
         tech_failed.append(ticker)
@@ -362,17 +324,15 @@ save_csv(tech_df, "nifty50_technical_powerbi.csv")
 latest_signals = tech_df.groupby("Ticker").last().reset_index()
 save_csv(latest_signals, "latest_signals.csv")
 
-if tech_failed:
-    print(f"  Technical failures: {tech_failed}")
-
 
 # ════════════════════════════════════════
 # STEP 3 — SENTIMENT ANALYSIS
 # ════════════════════════════════════════
-print(f"\n[STEP 3/4] Fetching sentiment from Google News...")
+print(f"\n[STEP 3/4] Fetching news sentiment...")
 print("-" * 60)
 
 try:
+    import feedparser
     from textblob import TextBlob
 
     sent_rows = []
@@ -381,11 +341,13 @@ try:
     for i, (ticker, company) in enumerate(COMPANY_NAMES.items(), 1):
         try:
             query = company.replace(" ", "+") + "+NSE+stock+India"
-            url   = (f"https://news.google.com/rss/search?"
-                     f"q={query}&hl=en-IN&gl=IN&ceid=IN:en")
-            feed  = feedparser.parse(url)
+            url   = (
+                f"https://news.google.com/rss/search?"
+                f"q={query}&hl=en-IN&gl=IN&ceid=IN:en"
+            )
+            feed      = feedparser.parse(url)
+            headlines = []
 
-            headlines  = []
             for entry in feed.entries[:8]:
                 title = entry.title
                 if " - " in title:
@@ -395,9 +357,7 @@ try:
                     headlines.append(title)
 
             polarities    = []
-            bullish       = 0
-            bearish       = 0
-            neutral_count = 0
+            bullish = bearish = neutral_count = 0
 
             for h in headlines:
                 try:
@@ -446,13 +406,11 @@ try:
                 "Bullish_Count":   bullish,
                 "Bearish_Count":   bearish,
                 "Neutral_Count":   neutral_count,
-                "Avg_Confidence":  round(
-                    min(abs(avg_pol) + 0.5, 1.0), 3),
+                "Avg_Confidence":  round(min(abs(avg_pol) + 0.5, 1.0), 3),
                 "Total_Articles":  len(headlines)
             })
 
-            print(f"  OK  [{i:02d}/{len(COMPANY_NAMES)}]  "
-                  f"{ticker:<22}  {lbl}  ({len(headlines)} articles)")
+            print(f"  OK  [{i:02d}/{len(COMPANY_NAMES)}]  {ticker:<22}  {lbl}")
             time.sleep(0.25)
 
         except Exception as e:
@@ -469,29 +427,28 @@ try:
     save_csv(pd.DataFrame(hl_rows),   "nifty50_headlines_powerbi.csv")
 
 except Exception as e:
-    print(f"  Sentiment failed: {e}")
+    print(f"  Sentiment step failed: {e}")
     pd.DataFrame(columns=[
         "Ticker","Company","Avg_Polarity","Sentiment_Label",
         "Sentiment_Score","Bullish_Count","Bearish_Count",
         "Neutral_Count","Avg_Confidence","Total_Articles"
     ]).to_csv(
-        os.path.join(OUTPUT_DIR,"nifty50_sentiment_powerbi.csv"),
+        os.path.join(OUTPUT_DIR, "nifty50_sentiment_powerbi.csv"),
         index=False
     )
     pd.DataFrame(columns=[
         "Ticker","Company","Headline","Label",
         "Confidence","Polarity","Model"
     ]).to_csv(
-        os.path.join(OUTPUT_DIR,"nifty50_headlines_powerbi.csv"),
+        os.path.join(OUTPUT_DIR, "nifty50_headlines_powerbi.csv"),
         index=False
     )
-    print("  Empty sentiment files saved as fallback")
 
 
 # ════════════════════════════════════════
 # STEP 4 — RISK METRICS
 # ════════════════════════════════════════
-print(f"\n[STEP 4/4] Computing risk and return metrics...")
+print(f"\n[STEP 4/4] Computing risk metrics...")
 print("-" * 60)
 
 try:
@@ -500,8 +457,8 @@ try:
     )
     market_returns = returns_pivot.mean(axis=1)
     market_var     = float(market_returns.var())
-    risk_free_rate = 0.065
-    trading_days   = 252
+    rf             = 0.065
+    td             = 252
     risk_rows      = []
 
     for ticker in returns_pivot.columns:
@@ -510,22 +467,22 @@ try:
             if len(r) < 30:
                 continue
 
-            ann_ret    = round((1 + r.mean()) ** trading_days - 1, 4)
-            ann_vol    = round(r.std() * np.sqrt(trading_days), 4)
-            sharpe     = round(
-                (ann_ret - risk_free_rate) / ann_vol, 3
+            ann_ret = round((1 + r.mean()) ** td - 1, 4)
+            ann_vol = round(r.std() * np.sqrt(td), 4)
+            sharpe  = round(
+                (ann_ret - rf) / ann_vol, 3
             ) if ann_vol > 0 else 0.0
 
-            cum        = (1 + r).cumprod()
-            max_dd     = round(
+            cum    = (1 + r).cumprod()
+            max_dd = round(
                 float(((cum - cum.cummax()) / cum.cummax()).min()) * 100, 2
             )
 
-            thresh     = float(np.percentile(r, 5))
-            var_95     = round(thresh * 100, 3)
-            tail       = r[r <= thresh]
-            cvar_95    = round(float(tail.mean()) * 100, 3) \
-                         if len(tail) > 0 else var_95
+            thresh  = float(np.percentile(r, 5))
+            var_95  = round(thresh * 100, 3)
+            tail    = r[r <= thresh]
+            cvar_95 = round(float(tail.mean()) * 100, 3) \
+                      if len(tail) > 0 else var_95
 
             mkt_a, r_a = market_returns.align(r, join="inner")
             cov_m      = np.cov(r_a.values, mkt_a.values)
@@ -533,12 +490,10 @@ try:
                 cov_m[0][1] / market_var, 3
             ) if market_var > 0 else 1.0
 
-            prices     = tech_df[
-                tech_df["Ticker"] == ticker
-            ]["Close"]
-            curr       = round(float(prices.iloc[-1]), 2)
-            h52        = round(float(prices.tail(252).max()), 2)
-            l52        = round(float(prices.tail(252).min()), 2)
+            prices = tech_df[tech_df["Ticker"] == ticker]["Close"]
+            curr   = round(float(prices.iloc[-1]), 2)
+            h52    = round(float(prices.tail(252).max()), 2)
+            l52    = round(float(prices.tail(252).min()), 2)
 
             risk_rows.append({
                 "Ticker":             ticker,
@@ -554,11 +509,11 @@ try:
                 "52W_Low":            l52,
                 "From_52W_High_Pct":  round((curr - h52) / h52 * 100, 2)
             })
-
-            print(f"  OK  {ticker:<22}  "
-                  f"Sharpe: {sharpe:>6.3f}  "
-                  f"Return: {ann_ret*100:>+7.2f}%")
-
+            print(
+                f"  OK  {ticker:<22}  "
+                f"Sharpe: {sharpe:>6.3f}  "
+                f"Return: {ann_ret*100:>+7.2f}%"
+            )
         except Exception as e:
             print(f"  FAIL  {ticker}  {e}")
 
@@ -568,8 +523,7 @@ try:
         os.path.join(OUTPUT_DIR, "nifty50_risk_metrics_powerbi.csv"),
         index=False
     )
-    print(f"  SAVED  nifty50_risk_metrics_powerbi.csv  "
-          f"{len(risk_rows)} stocks")
+    print(f"  SAVED  nifty50_risk_metrics_powerbi.csv  {len(risk_rows)} stocks")
 
 except Exception as e:
     print(f"  Risk step failed: {e}")
@@ -584,8 +538,9 @@ duration = (end_time - START_TIME).seconds
 
 print("\n" + "=" * 60)
 print(f"  REFRESH COMPLETE")
-print(f"  Finished: {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
-print(f"  Duration: {duration // 60}m {duration % 60}s")
+print(f"  Finished:  {end_time.strftime('%Y-%m-%d %H:%M:%S')}")
+print(f"  Duration:  {duration // 60}m {duration % 60}s")
+print(f"  Data date: {latest_date.date()}")
 print("=" * 60)
 
 expected = [
@@ -611,8 +566,10 @@ for fname in expected:
             ok   = rows > 0
             if not ok:
                 all_ok = False
-            print(f"  {fname:<47}  {rows:>6}  "
-                  f"{size:>7.1f}KB  {'OK' if ok else 'EMPTY'}")
+            print(
+                f"  {fname:<47}  {rows:>6}  "
+                f"{size:>7.1f}KB  {'OK' if ok else 'EMPTY'}"
+            )
         except Exception as e:
             print(f"  {fname:<47}  ERROR: {e}")
             all_ok = False
@@ -623,7 +580,6 @@ for fname in expected:
 print(f"\n  {'ALL FILES OK' if all_ok else 'SOME FILES HAVE ISSUES'}")
 if failed:
     print(f"  Price fetch failures: {failed}")
-
 print("=" * 60)
 
 if not all_ok:
