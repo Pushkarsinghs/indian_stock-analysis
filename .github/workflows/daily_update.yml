@@ -2,7 +2,7 @@ name: Daily NIFTY 50 Data Refresh
 
 on:
   schedule:
-    - cron: '0 11 * * 1-5'
+    - cron: '30 10 * * 1-5'
   workflow_dispatch:
 
 permissions:
@@ -42,53 +42,57 @@ jobs:
       - name: Verify dependencies
         run: |
           python -c "
-          import yfinance, pandas, numpy, ta, feedparser, textblob, curl_cffi
-          print('All dependencies installed successfully')
-          print('yfinance version:', yfinance.__version__)
-          print('pandas version:', pandas.__version__)
+          import yfinance, pandas, numpy, ta
+          print('yfinance:', yfinance.__version__)
+          print('pandas:', pandas.__version__)
+          print('All dependencies OK')
           "
 
       - name: Run data refresh
         run: python scripts/quick_refresh.py
 
-      - name: Verify output files exist
+      - name: Check files exist and have data
         run: |
           python -c "
           import os, pandas as pd
-          required = [
-              'streamlit_app/data/nifty50_technical_powerbi.csv',
-              'streamlit_app/data/latest_signals.csv',
-              'streamlit_app/data/nifty50_for_powerbi.csv',
-              'streamlit_app/data/nifty50_sentiment_powerbi.csv',
-              'streamlit_app/data/nifty50_risk_metrics_powerbi.csv',
+          files = [
+            'streamlit_app/data/nifty50_technical_powerbi.csv',
+            'streamlit_app/data/latest_signals.csv',
+            'streamlit_app/data/nifty50_for_powerbi.csv',
+            'streamlit_app/data/nifty50_sentiment_powerbi.csv',
+            'streamlit_app/data/nifty50_risk_metrics_powerbi.csv',
           ]
           all_ok = True
-          for f in required:
-              if os.path.exists(f):
-                  rows = len(pd.read_csv(f))
-                  print('OK', f, rows, 'rows')
-              else:
-                  print('MISSING', f)
-                  all_ok = False
+          for f in files:
+            if os.path.exists(f):
+              rows = len(pd.read_csv(f))
+              size = os.path.getsize(f) / 1024
+              print(f'OK  {f}  {rows} rows  {size:.0f}KB')
+              if rows == 0:
+                print(f'WARNING: {f} is empty')
+                all_ok = False
+            else:
+              print(f'MISSING: {f}')
+              all_ok = False
           if not all_ok:
-              raise SystemExit('Required files missing')
-          print('All required files verified')
+            raise SystemExit('Some files are missing or empty')
+          print('All files verified OK')
           "
 
       - name: Configure git
         run: |
-          git config --global user.name "github-actions[bot]"
+          git config --global user.name  "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
 
-      - name: Commit and push updated CSV files
+      - name: Commit and push data files
         run: |
           git add streamlit_app/data/
           if git diff --staged --quiet; then
-            echo "No changes detected in data files"
+            echo "No changes in data files"
           else
-            CHANGED=$(git diff --staged --name-only | wc -l)
-            echo "Committing $CHANGED changed files"
+            COUNT=$(git diff --staged --name-only | wc -l)
+            echo "Committing $COUNT changed files"
             git commit -m "Auto-update: NIFTY 50 data $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push
-            echo "Successfully pushed updated data to GitHub"
+            echo "Data pushed to GitHub successfully"
           fi
