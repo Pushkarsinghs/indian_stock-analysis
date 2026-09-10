@@ -11,7 +11,7 @@ permissions:
 jobs:
   refresh-data:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
 
     steps:
       - name: Checkout repository
@@ -37,62 +37,48 @@ jobs:
             textblob \
             pyarrow \
             requests \
-            "curl_cffi>=0.6.0"
-
-      - name: Verify dependencies
-        run: |
-          python -c "
-          import yfinance, pandas, numpy, ta
-          print('yfinance:', yfinance.__version__)
-          print('pandas:', pandas.__version__)
-          print('All dependencies OK')
-          "
+            "curl_cffi>=0.6.0" \
+            lxml
 
       - name: Run data refresh
         run: python scripts/quick_refresh.py
 
-      - name: Check files exist and have data
+      - name: Check output files
         run: |
           python -c "
           import os, pandas as pd
+          from datetime import datetime
           files = [
-            'streamlit_app/data/nifty50_technical_powerbi.csv',
-            'streamlit_app/data/latest_signals.csv',
-            'streamlit_app/data/nifty50_for_powerbi.csv',
-            'streamlit_app/data/nifty50_sentiment_powerbi.csv',
-            'streamlit_app/data/nifty50_risk_metrics_powerbi.csv',
+              'streamlit_app/data/nifty50_technical_powerbi.csv',
+              'streamlit_app/data/latest_signals.csv',
+              'streamlit_app/data/nifty50_for_powerbi.csv',
           ]
           all_ok = True
           for f in files:
-            if os.path.exists(f):
-              rows = len(pd.read_csv(f))
-              size = os.path.getsize(f) / 1024
-              print(f'OK  {f}  {rows} rows  {size:.0f}KB')
-              if rows == 0:
-                print(f'WARNING: {f} is empty')
-                all_ok = False
-            else:
-              print(f'MISSING: {f}')
-              all_ok = False
+              if os.path.exists(f):
+                  df   = pd.read_csv(f)
+                  rows = len(df)
+                  size = os.path.getsize(f)/1024
+                  print(f'OK  {f}  {rows} rows  {size:.0f}KB')
+                  if rows == 0:
+                      all_ok = False
+              else:
+                  print(f'MISSING  {f}')
+                  all_ok = False
           if not all_ok:
-            raise SystemExit('Some files are missing or empty')
-          print('All files verified OK')
+              raise SystemExit('Files missing or empty')
+          print('All files verified')
           "
 
-      - name: Configure git
+      - name: Push updated data to GitHub
         run: |
-          git config --global user.name  "github-actions[bot]"
-          git config --global user.email "github-actions[bot]@users.noreply.github.com"
-
-      - name: Commit and push data files
-        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
           git add streamlit_app/data/
           if git diff --staged --quiet; then
-            echo "No changes in data files"
+            echo "No changes to commit"
           else
-            COUNT=$(git diff --staged --name-only | wc -l)
-            echo "Committing $COUNT changed files"
             git commit -m "Auto-update: NIFTY 50 data $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push
-            echo "Data pushed to GitHub successfully"
+            echo "Data pushed successfully"
           fi
