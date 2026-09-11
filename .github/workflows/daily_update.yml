@@ -18,7 +18,8 @@ jobs:
         uses: actions/checkout@v4
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
-          fetch-depth: 1
+          fetch-depth: 0
+          ref: main
 
       - name: Set up Python 3.11
         uses: actions/setup-python@v5
@@ -37,8 +38,7 @@ jobs:
             textblob \
             pyarrow \
             requests \
-            "curl_cffi>=0.6.0" \
-            lxml
+            "curl_cffi>=0.6.0"
 
       - name: Run data refresh
         run: python scripts/quick_refresh.py
@@ -47,7 +47,6 @@ jobs:
         run: |
           python -c "
           import os, pandas as pd
-          from datetime import datetime
           files = [
               'streamlit_app/data/nifty50_technical_powerbi.csv',
               'streamlit_app/data/latest_signals.csv',
@@ -56,9 +55,8 @@ jobs:
           all_ok = True
           for f in files:
               if os.path.exists(f):
-                  df   = pd.read_csv(f)
-                  rows = len(df)
-                  size = os.path.getsize(f)/1024
+                  rows = len(pd.read_csv(f))
+                  size = os.path.getsize(f) / 1024
                   print(f'OK  {f}  {rows} rows  {size:.0f}KB')
                   if rows == 0:
                       all_ok = False
@@ -70,15 +68,23 @@ jobs:
           print('All files verified')
           "
 
-           - name: Push updated data to GitHub
+      - name: Commit and push updated CSV files
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          git pull --rebase origin main
+
+          # Pull latest changes first to avoid rejection
+          git fetch origin main
+          git reset --hard origin/main
+
+          # Now add the newly generated CSV files on top
           git add streamlit_app/data/
+
           if git diff --staged --quiet; then
-            echo "No changes to commit"
+            echo "No changes to commit — data is already up to date"
           else
+            COUNT=$(git diff --staged --name-only | wc -l)
+            echo "Committing $COUNT changed files"
             git commit -m "Auto-update: NIFTY 50 data $(date -u +'%Y-%m-%d %H:%M UTC')"
             git push origin main
             echo "Data pushed successfully"
