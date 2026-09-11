@@ -70,15 +70,16 @@ jobs:
           print('All files verified')
           "
 
-      - name: Push updated data to GitHub
+           - name: Push updated data to GitHub
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
+          git pull --rebase origin main
           git add streamlit_app/data/
           if git diff --staged --quiet; then
             echo "No changes to commit"
           else
             git commit -m "Auto-update: NIFTY 50 data $(date -u +'%Y-%m-%d %H:%M UTC')"
-            git push
+            git push origin main
             echo "Data pushed successfully"
           fi
